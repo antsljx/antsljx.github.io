@@ -1,0 +1,1049 @@
+<!doctype html>
+<html class="theme-next use-motion theme-next-mala">
+<head>
+  
+
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
+
+
+
+
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.5.1"/>
+
+
+
+
+  <meta name="keywords" content="arry," />
+
+
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
+
+
+<meta name="description" content="数组arry1.随机产生一个大于0小于1的数值(0&amp;lt;x&amp;lt;1)方法为：Math.random()
+
+随机产生一个大于0小于n的数值(0&amp;lt;x&amp;lt;n)方法为：Math.random()*n
+
+随机产生一个大于0小于n+1的数值(0&amp;lt;x&amp;lt;n+1)方法为：Math.random()*(n+1)
+
+随机产生一个从0到n-1的整数(0&amp;lt;=x&amp;lt;=n-1)方法为：Mat">
+<meta property="og:type" content="article">
+<meta property="og:title" content="03-js数组">
+<meta property="og:url" content="http://yoursite.com/2015/02/13/03jsarry/index.html">
+<meta property="og:site_name" content="ants博客">
+<meta property="og:description" content="数组arry1.随机产生一个大于0小于1的数值(0&amp;lt;x&amp;lt;1)方法为：Math.random()
+
+随机产生一个大于0小于n的数值(0&amp;lt;x&amp;lt;n)方法为：Math.random()*n
+
+随机产生一个大于0小于n+1的数值(0&amp;lt;x&amp;lt;n+1)方法为：Math.random()*(n+1)
+
+随机产生一个从0到n-1的整数(0&amp;lt;=x&amp;lt;=n-1)方法为：Mat">
+<meta property="og:updated_time" content="2016-09-29T12:31:47.936Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="03-js数组">
+<meta name="twitter:description" content="数组arry1.随机产生一个大于0小于1的数值(0&amp;lt;x&amp;lt;1)方法为：Math.random()
+
+随机产生一个大于0小于n的数值(0&amp;lt;x&amp;lt;n)方法为：Math.random()*n
+
+随机产生一个大于0小于n+1的数值(0&amp;lt;x&amp;lt;n+1)方法为：Math.random()*(n+1)
+
+随机产生一个从0到n-1的整数(0&amp;lt;=x&amp;lt;=n-1)方法为：Mat">
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: 'Mala',
+    sidebar: 'hide'
+  };
+</script>
+
+  <title> 03-js数组 | ants博客 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  <!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+  
+
+
+
+  <div class="container one-column page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><h1 class="site-meta">
+  <span class="logo-line-before"><i></i></span>
+  <a href="/" class="brand" rel="start">
+      <span class="logo">
+        <i class="icon-next-logo"></i>
+      </span>
+      <span class="site-title">antsli的博客</span>
+  </a>
+  <span class="logo-line-after"><i></i></span>
+</h1>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu menu-left">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            <i class="menu-item-icon icon-next-home"></i> <br />
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            <i class="menu-item-icon icon-next-categories"></i> <br />
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            <i class="menu-item-icon icon-next-archives"></i> <br />
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            <i class="menu-item-icon icon-next-tags"></i> <br />
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            <i class="menu-item-icon icon-next-about"></i> <br />
+            关于
+          </a>
+        </li>
+      
+
+      
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  
+  <form class="site-search-form">
+    <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
+  </form>
+
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', 'Ljrx3P2q381Y9Hzjq3oV','2.0.0');
+</script>
+
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content"> 
+
+  <div id="posts" class="posts-expand">
+    
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              03-js数组
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2015-02-13T19:10:01+08:00" content="2015-02-13">
+            2015-02-13
+          </time>
+        </span>
+
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; 分类于
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <a href="/categories/js-基础学习/" itemprop="url" rel="index">
+                  <span itemprop="name">js_基础学习</span>
+                </a>
+              </span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <!--
+              <a href="/2015/02/13/03jsarry/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2015/02/13/03jsarry/" itemprop="commentsCount"></span>
+              </a>
+              -->
+              <a href="/2015/02/13/03jsarry/#comments" itemprop="discussionUrl">
+                <span>评论</span>
+              </a>
+            </span>
+          
+        
+
+
+      
+               <span id="/2015/02/13/03jsarry/"class="leancloud_visitors"  data-flag-title="03-js数组">
+                  &nbsp; | &nbsp; 阅读次数
+               </span>
+      
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <span itemprop="articleBody"><h2 id="数组arry"><a href="#数组arry" class="headerlink" title="数组arry"></a>数组arry</h2><h3 id="1-随机产生一个大于0小于1的数值-0-lt-x-lt-1-方法为："><a href="#1-随机产生一个大于0小于1的数值-0-lt-x-lt-1-方法为：" class="headerlink" title="1.随机产生一个大于0小于1的数值(0&lt;x&lt;1)方法为："></a>1.随机产生一个大于0小于1的数值(0&lt;x&lt;1)方法为：</h3><pre><code class="bash">Math.random()
+</code></pre>
+<h3 id="随机产生一个大于0小于n的数值-0-lt-x-lt-n-方法为："><a href="#随机产生一个大于0小于n的数值-0-lt-x-lt-n-方法为：" class="headerlink" title="随机产生一个大于0小于n的数值(0&lt;x&lt;n)方法为："></a>随机产生一个大于0小于n的数值(0&lt;x&lt;n)方法为：</h3><pre><code class="bash">Math.random()*n
+</code></pre>
+<h3 id="随机产生一个大于0小于n-1的数值-0-lt-x-lt-n-1-方法为："><a href="#随机产生一个大于0小于n-1的数值-0-lt-x-lt-n-1-方法为：" class="headerlink" title="随机产生一个大于0小于n+1的数值(0&lt;x&lt;n+1)方法为："></a>随机产生一个大于0小于n+1的数值(0&lt;x&lt;n+1)方法为：</h3><pre><code class="bash">Math.random()*(n+1)
+</code></pre>
+<h3 id="随机产生一个从0到n-1的整数-0-lt-x-lt-n-1-方法为："><a href="#随机产生一个从0到n-1的整数-0-lt-x-lt-n-1-方法为：" class="headerlink" title="随机产生一个从0到n-1的整数(0&lt;=x&lt;=n-1)方法为："></a>随机产生一个从0到n-1的整数(0&lt;=x&lt;=n-1)方法为：</h3><pre><code class="bash">Math.floor(Math.random()*n)
+Math.round(Math.random()*(n-1))
+</code></pre>
+<h3 id="随机产生一个从0到n的整数-0-lt-x-lt-n-方法为："><a href="#随机产生一个从0到n的整数-0-lt-x-lt-n-方法为：" class="headerlink" title="随机产生一个从0到n的整数(0&lt;=x&lt;=n)方法为："></a>随机产生一个从0到n的整数(0&lt;=x&lt;=n)方法为：</h3><pre><code class="bash">Math.floor(Math.random()*(n+1))
+ Math.round(Math.random()*n)
+</code></pre>
+<h3 id="2-数组的属性：length属性表示数组的长度，即其中元素的个数。"><a href="#2-数组的属性：length属性表示数组的长度，即其中元素的个数。" class="headerlink" title="2.数组的属性：length属性表示数组的长度，即其中元素的个数。"></a>2.数组的属性：length属性表示数组的长度，即其中元素的个数。</h3><h3 id="3-数组的常用方法："><a href="#3-数组的常用方法：" class="headerlink" title="3.  数组的常用方法："></a>3.  数组的常用方法：</h3><h4 id="（1）concat-连结两个或更多的数组"><a href="#（1）concat-连结两个或更多的数组" class="headerlink" title="（1）concat()连结两个或更多的数组"></a>（1）concat()连结两个或更多的数组</h4><pre><code class="bash">concatenate连结
+ 语法：数组1.concat(数组2,数组3,……数组n)
+ 返回值：连结后的新数组
+    var arr1=[1,<span class="string">"2"</span>,4];
+    var arr2=[5,new Object,6]
+    var arr3=arr1.concat(arr2)
+    document.write(arr3+<span class="string">"&lt;br /&gt;"</span>)
+    //页面输出返回值1,2,4,5,[object Object],6
+</code></pre>
+<h4 id="（2）join-将数组的所有元素放入一个字符串，元素通过指定的字符串进行分隔。（即是将数组转化为一个字符串，数组元素之间可设置分隔符）。"><a href="#（2）join-将数组的所有元素放入一个字符串，元素通过指定的字符串进行分隔。（即是将数组转化为一个字符串，数组元素之间可设置分隔符）。" class="headerlink" title="（2）join()将数组的所有元素放入一个字符串，元素通过指定的字符串进行分隔。（即是将数组转化为一个字符串，数组元素之间可设置分隔符）。"></a>（2）join()将数组的所有元素放入一个字符串，元素通过指定的字符串进行分隔。（即是将数组转化为一个字符串，数组元素之间可设置分隔符）。</h4><pre><code class="bash">语法：数组.join(“分隔符”)，若不设置分隔符join()，默认分隔符为逗号。
+返回值：生成的字符串
+        var arr=[1,<span class="string">"2"</span>,4,5,new Object,6]
+        var arr1=arr.join(<span class="string">""</span>)
+        document.write(arr1)//页面输出新字符串及返回值                                    //1245[object Object]6，无空格。
+        document.write(typeof arr) //页面输出Object
+</code></pre>
+<p>####（3）pop()删除并返回数组最后一个元素</p>
+<pre><code class="bash">语法：数组.pop()  删除数组最后一个元素，并返回数组最后一个元素
+返回值：最后一个元素
+        var arr = [1, <span class="string">"2"</span>, 4, 5, new Object, 6]
+        var arr1 = arr.pop() 
+        document.write(arr1+<span class="string">"&lt;br/&gt;"</span>) //页面输出返回值6。
+        document.write(arr) 
+        //页面输出新数组1,2,4,5,[object Object]。
+</code></pre>
+<h4 id="（4）push-向数组的末尾添加一个或更多的元素，并返回新的长度"><a href="#（4）push-向数组的末尾添加一个或更多的元素，并返回新的长度" class="headerlink" title="（4）push()向数组的末尾添加一个或更多的元素，并返回新的长度"></a>（4）push()向数组的末尾添加一个或更多的元素，并返回新的长度</h4><pre><code class="bash">语法：数组.push(元素1，元素2，……)
+返回值：新的长度
+例子：    
+        var arr=[1,<span class="string">"2"</span>,4,5,new Object,6]
+        var arr1=arr.push(<span class="string">"12"</span>,new Object,3)
+        document.write(arr1+<span class="string">"&lt;br/&gt;"</span>) //页面输出返回值9。
+        document.write(arr)
+//页面输出新数组1,2,4,5,[object Object],6,12,[object Object],3
+含义：arr添加了三个元素，而arr1为数值9。
+</code></pre>
+<h4 id="（5）reverse-颠倒数组中元素的顺序"><a href="#（5）reverse-颠倒数组中元素的顺序" class="headerlink" title="（5）reverse()颠倒数组中元素的顺序"></a>（5）reverse()颠倒数组中元素的顺序</h4><pre><code class="bash">语法：数组.reverse()
+返回值：颠倒后的数组
+例子：
+            var arr=[1,<span class="string">"2"</span>,4,5,new Object,6]
+            arr.reverse();
+            document.write(arr)
+//页面输出6,[object Object],5,4,2,1
+
+注意：数组.reverse()语法正确，而字符串.reverse()语法错误。
+注解：字符串转化为数组的方法为：字符串.split(“分隔符”)
+例子：
+        var str=window.prompt(<span class="string">"请输入数值"</span>) 
+        //prompt提示框输入字符串str。
+        var arr=str.split(<span class="string">""</span>);    //字符串str转化为数值arr。
+        arr.reverse();             //颠倒数组arr元素中的顺序。
+        var str2=arr.join(<span class="string">""</span>)     //将数组arr转化为字符串str2，并且没有分隔符。
+        document.write(str+<span class="string">"&lt;br /&gt;"</span>);    //页面输出字符串str：546285753
+        document.write(arr+<span class="string">"&lt;br /&gt;"</span>);     //页面输出颠倒顺序后的数组arr：3,5,7,5,8,2,6,4,5
+        document.write(str2)   //页面输出字符串str2：357582645
+</code></pre>
+<p>####（6）shift()删除并返回数组的第一个元素</p>
+<pre><code class="bash">语法：数组.shift()  删除数组第一个元素。
+返回值：删除的第一个元素。
+        var arr = [<span class="string">"a"</span>, <span class="string">"2"</span>, 4, 5, new Object, 6]
+        var arr1 = arr.shift() 
+        document.write(arr1+<span class="string">"&lt;br/&gt;"</span>) //页面输出返回值a。
+        document.write(arr)             //页面输出新数组2,4,5,[object Object],6。
+</code></pre>
+<p>####（7）slice()从某个指定的数组返回选定的元素，不会修改数组。</p>
+<pre><code class="bash">语法：数组.slice(选择元素的起始底，选择元素的结束次序)
+返回值：选择的元素。
+        var arr = [<span class="string">"a"</span>, <span class="string">"2"</span>, 4, 5, new Object, 6]
+        var arr1 = arr.slice(2,5) 
+        document.write(arr1+<span class="string">"&lt;br/&gt;"</span>) //页面输出返回值4, 5, new Object
+        document.write(arr)         //页面输出a,4,5,[object Object],6。
+注意：该方法并不会修改数组。
+</code></pre>
+<h4 id="（8）sort-对数组的元素进行排序"><a href="#（8）sort-对数组的元素进行排序" class="headerlink" title="（8）sort()对数组的元素进行排序"></a>（8）sort()对数组的元素进行排序</h4><pre><code class="bash">语法：数组.sort()
+返回值：排序之后的数组。
+        var arr = [21,11,-4,9,45,6]
+        arr.sort() 
+        document.write(arr+<span class="string">"&lt;br /&gt;"</span>) 
+        //页面输出-4,11,21,45,6,9
+        var t=<span class="keyword">function</span> (a,b){
+        <span class="built_in">return</span> a-b
+        };
+        arr.sort(t);
+        document.write(arr) //页面输出-4,6,9,11,21,45
+</code></pre>
+<p>####（9）splice()从数组中添加/删除元素，然后返回被删除的元素。</p>
+<pre><code class="bash">语法：数组.splice(删除元素的起始底，删除元素的个数，增加的元素1，增加的元素2……)
+返回值：被删除的元素。
+        var arr = [<span class="string">"a"</span>, <span class="string">"2"</span>, 4, 5, new Object, 6]
+        var arr1 = arr.splice(2,1,<span class="string">"bc"</span>,3)
+        document.write(arr1+<span class="string">"&lt;br /&gt;"</span>)//页面输出4
+        document.write(arr) //页面输出a,2,bc,3,5,[object Object],6。
+</code></pre>
+<h4 id="（10）tostring-将数组转化为字符串"><a href="#（10）tostring-将数组转化为字符串" class="headerlink" title="（10）tostring()将数组转化为字符串"></a>（10）tostring()将数组转化为字符串</h4><pre><code class="bash">语法：数组.tostring()
+返回值：字符串
+        var arr = [<span class="string">"a"</span>,<span class="string">"2"</span>,new Object,6]
+        arr.toString()
+        document.write(arr) //页面输出a,2,[object Object],6
+</code></pre>
+<h4 id="（11）unshift-向数组开头添加一个或更多元素，并返回新的长度"><a href="#（11）unshift-向数组开头添加一个或更多元素，并返回新的长度" class="headerlink" title="（11）unshift()向数组开头添加一个或更多元素，并返回新的长度"></a>（11）unshift()向数组开头添加一个或更多元素，并返回新的长度</h4><pre><code class="bash">语法：数组.unshift(“元素1”,”元素2”,”元素3”)
+返回值：新的长度
+        var arr = [<span class="string">"a"</span>,<span class="string">"2"</span>,new Object,6]
+        var arr1=arr.unshift(1,<span class="string">"bc"</span>)
+        document.write(arr1+<span class="string">"&lt;br /&gt;"</span>)//页面输出6
+        document.write(arr) //页面输出1,bc,a,2,[object Object],6
+</code></pre>
+</span>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/arry/" rel="tag">#arry</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/02/17/04jsbom/" rel="prev">04-jsBOM 基础知识总结</a>
+            
+          </div>
+
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/02/09/02jsyuju/" rel="next">02-js基础语法</a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div>
+      
+        <style type="text/css">
+
+    .donate_bar {
+        text-align: center;
+        margin-top : 5%;
+    }
+
+    .donate_bar.hidden {
+        display:none;
+    }
+/*
+    .donate_bar a.btn_donate {
+        display: inline-block;
+        width: 82px;
+        height: 82px;
+        margin-left:auto;
+        margin-right:auto;
+
+        background: url("http://img.t.sinajs.cn/t5/style/images/apps_PRF/e_media/btn_reward.gif") no-repeat;
+        _background: url("http://img.t.sinajs.cn/t5/style/images/apps_PRF/e_media/btn_reward.gif") no-repeat; 
+
+        -webkit-transition: background 0s;
+        -moz-transition: background 0s;
+        -o-transition: background 0s;
+        -ms-transition: background 0s;
+        transition: background 0s;
+    }
+*/
+    .donate_bar a.btn_donate:hover { 
+        // background-position: 0px -82px;
+        color: #87daff;
+    }
+
+    .donate_bar .donate_txt {
+        display: block;
+        color: #9d9d9d;
+        font: 14px/2 "Microsoft Yahei";
+    }
+
+    .bold { 
+        font-weight: bold; 
+    }
+
+    .post-donate a {
+        border-bottom: 0px;
+    }
+
+    #donate_guide table {
+        border: none;
+    }
+
+    #donate_guide td {
+        border-bottom: none;
+        border-right: none;
+        // background: #333333;
+        valign: top;
+    }
+
+</style>
+
+
+
+    
+
+    <div class ="post-donate">
+        <div id="donate_board" class="donate_bar center">
+              <a id="btn_donate" class="btn_donate" href="javascript:;" title="打赏">赏</a>
+              <span id="donate_txt" class="donate_txt">
+                   
+                        仅仅是一个功能
+                   
+              </span>
+            <br>
+        </div>  
+  
+        <div id="donate_guide" class="donate_bar center hidden">
+            <!--
+            
+                <a href="/images/alipaynew.jpg" title="支付宝打赏" class="fancybox" rel="article0" 
+                    style="float:left;margin-left:25%;margin-right:10px;">
+                    <img src="/images/alipaynew.jpg" title="" height="164px" width="164px">
+                </a> 
+              
+
+            
+                <a href="/images/wechatnew.jpg" title="微信打赏" class="fancybox" rel="article0"
+                    style="margin-right:30%">
+                    <img src="/images/wechatnew.jpg" title="" height="164px" width="164px">
+                </a>
+            
+            -->
+            <table>
+                <tr>
+                    <td>
+                        
+                            <a href="/images/alipaynew.jpg" title="支付宝打赏" class="fancybox" rel="article0" 
+                                style="float:left;margin-left:25%;margin-right:10px;">
+                                <img src="/images/alipaynew.jpg" title="" height="164px" width="164px">
+                            </a> 
+                         
+                    </td>
+                    <td>
+                        
+                            <a href="/images/wechatnew.jpg" title="微信打赏" class="fancybox" rel="article0"
+                                style="margin-right:30%">
+                                <img src="/images/wechatnew.jpg" title="" height="164px" width="164px">
+                            </a>
+                        
+                    </td>
+                </tr>
+            </table>
+
+        </div>
+
+        <script type="text/javascript">
+            document.getElementById('btn_donate').onclick = function() {
+                $('#donate_board').addClass('hidden');
+                // $('#donate_guide').removeClass('hidden');
+                $('#donate_guide').show(2000);
+            }
+
+        </script>
+    </div>
+
+    
+
+
+      
+    </div>
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+ </div>
+
+        
+
+        
+          <div class="comments" id="comments">
+            
+              <div class="ds-thread" data-thread-key="2015/02/13/03jsarry/"
+                   data-title="03-js数组" data-url="http://yoursite.com/2015/02/13/03jsarry/">
+              </div>
+            
+          </div>
+        
+      </div>
+
+      
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" src="/images/default_avatar.jpg" alt="antsljx" itemprop="image"/>
+          <p class="site-author-name" itemprop="name">antsljx</p>
+        </div>
+        <p class="site-description motion-element" itemprop="description"></p>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">39</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            <a href="/categories">
+              <span class="site-state-item-count">6</span>
+              <span class="site-state-item-name">分类</span>
+              </a>
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">38</span>
+              <span class="site-state-item-name">标签</span>
+              </a>
+          </div>
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        <div class="links-of-friendly motion-element">
+          
+        </div>
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator"></div>
+          <div class="post-toc">
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#数组arry"><span class="nav-number">1.</span> <span class="nav-text">数组arry</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-随机产生一个大于0小于1的数值-0-lt-x-lt-1-方法为："><span class="nav-number">1.1.</span> <span class="nav-text">1.随机产生一个大于0小于1的数值(0<x<1)方法为：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#随机产生一个大于0小于n的数值-0-lt-x-lt-n-方法为："><span class="nav-number">1.2.</span> <span class="nav-text">随机产生一个大于0小于n的数值(0<x<n)方法为：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#随机产生一个大于0小于n-1的数值-0-lt-x-lt-n-1-方法为："><span class="nav-number">1.3.</span> <span class="nav-text">随机产生一个大于0小于n+1的数值(0<x<n+1)方法为：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#随机产生一个从0到n-1的整数-0-lt-x-lt-n-1-方法为："><span class="nav-number">1.4.</span> <span class="nav-text">随机产生一个从0到n-1的整数(0<=x<=n-1)方法为：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#随机产生一个从0到n的整数-0-lt-x-lt-n-方法为："><span class="nav-number">1.5.</span> <span class="nav-text">随机产生一个从0到n的整数(0<=x<=n)方法为：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-数组的属性：length属性表示数组的长度，即其中元素的个数。"><span class="nav-number">1.6.</span> <span class="nav-text">2.数组的属性：length属性表示数组的长度，即其中元素的个数。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-数组的常用方法："><span class="nav-number">1.7.</span> <span class="nav-text">3.  数组的常用方法：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#（1）concat-连结两个或更多的数组"><span class="nav-number">1.7.1.</span> <span class="nav-text">（1）concat()连结两个或更多的数组</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#（2）join-将数组的所有元素放入一个字符串，元素通过指定的字符串进行分隔。（即是将数组转化为一个字符串，数组元素之间可设置分隔符）。"><span class="nav-number">1.7.2.</span> <span class="nav-text">（2）join()将数组的所有元素放入一个字符串，元素通过指定的字符串进行分隔。（即是将数组转化为一个字符串，数组元素之间可设置分隔符）。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#（4）push-向数组的末尾添加一个或更多的元素，并返回新的长度"><span class="nav-number">1.7.3.</span> <span class="nav-text">（4）push()向数组的末尾添加一个或更多的元素，并返回新的长度</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#（5）reverse-颠倒数组中元素的顺序"><span class="nav-number">1.7.4.</span> <span class="nav-text">（5）reverse()颠倒数组中元素的顺序</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#（8）sort-对数组的元素进行排序"><span class="nav-number">1.7.5.</span> <span class="nav-text">（8）sort()对数组的元素进行排序</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#（10）tostring-将数组转化为字符串"><span class="nav-number">1.7.6.</span> <span class="nav-text">（10）tostring()将数组转化为字符串</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#（11）unshift-向数组开头添加一个或更多元素，并返回新的长度"><span class="nav-number">1.7.7.</span> <span class="nav-text">（11）unshift()向数组开头添加一个或更多元素，并返回新的长度</span></a></li></ol></li></ol></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner"> <div class="copyright" >
+  
+  &copy; &nbsp; 
+  <span itemprop="copyrightYear">2016
+  </span>
+  <span class="with-love">
+    <i class="icon-next-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">antsljx
+  </span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme by <a class="theme-link" href="https://antsljx.github.io">antsljx</a>
+</div>
+
+<!-- busuanzi -->
+
+
+
+ </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+  
+    
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"antsljx"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+    
+     
+  	  <script type="text/javascript">
+  		var duoshuo_user_ID = 0
+  	  </script>
+     
+  	<script src="/js/ua-parser.min.js"></script>
+  	<script src="/js/hook-duoshuo.js"></script>
+  
+
+    
+  
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.5.1"></script>
+
+
+  <script type="text/javascript" src="/js/helpers.js?v=0.4.5.1"></script>
+  
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/js/motion_global.js?v=0.4.5.1" id="motion.global"></script>
+
+
+
+
+  <script type="text/javascript" src="/js/nav-toggle.js?v=0.4.5.1"></script>
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.5.1" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 0.4 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    var $tocContent = $('.post-toc-content');
+    if (isDesktop() && CONFIG.sidebar === 'post') {
+      if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+        displaySidebar();
+      }
+    }
+  });
+</script>
+
+
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      if (CONFIG.sidebar === 'always') {
+        displaySidebar();
+      }
+      if (isMobile()) {
+        FastClick.attach(document.body);
+      }
+    });
+  </script>
+
+  
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/lazyload.js"></script>
+  <script type="text/javascript">
+    $(function () {
+      $("#posts").find('img').lazyload({
+        placeholder: "/images/loading.gif",
+        effect: "fadeIn"
+      });
+    });
+  </script>
+
+  
+     <!-- custom analytics part create by xiamo -->
+<script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+<script>AV.initialize("CxVTMqqqFPu2SVjg3RcjSRS7-gzGzoHsz", "AN2wf6lNO2lBpbOYGNvDig0O");</script>
+<script>
+function showTime(Counter) {
+	var query = new AV.Query(Counter);
+	$(".leancloud_visitors").each(function() {
+		var url = $(this).attr("id").trim();
+		query.equalTo("url", url);
+		query.find({
+			success: function(results) {
+				if (results.length == 0) {
+					var content = $(document.getElementById(url)).text() + ': 0';
+					$(document.getElementById(url)).text(content);
+					return;
+				}
+				for (var i = 0; i < results.length; i++) {
+					var object = results[i];
+					var content = $(document.getElementById(url)).text() + ': ' + object.get('time');
+					$(document.getElementById(url)).text(content);
+				}
+			},
+			error: function(object, error) {
+				console.log("Error: " + error.code + " " + error.message);
+			}
+		});
+
+	});
+}
+
+function addCount(Counter) {
+	var Counter = AV.Object.extend("Counter");
+	url = $(".leancloud_visitors").attr('id').trim();
+	title = $(".leancloud_visitors").attr('data-flag-title').trim();
+	var query = new AV.Query(Counter);
+	query.equalTo("url", url);
+	query.find({
+		success: function(results) {
+			if (results.length > 0) {
+				var counter = results[0];
+				counter.fetchWhenSave(true);
+				counter.increment("time");
+				counter.save(null, {
+					success: function(counter) {
+						var content = $(document.getElementById(url)).text() + ': ' + counter.get('time');
+						$(document.getElementById(url)).text(content);
+					},
+					error: function(counter, error) {
+						console.log('Failed to save Visitor num, with error message: ' + error.message);
+					}
+				});
+			} else {
+				var newcounter = new Counter();
+				newcounter.set("title", title);
+				newcounter.set("url", url);
+				newcounter.set("time", 1);
+				newcounter.save(null, {
+					success: function(newcounter) {
+					    console.log("newcounter.get('time')="+newcounter.get('time'));
+						var content = $(document.getElementById(url)).text() + ': ' + newcounter.get('time');
+						$(document.getElementById(url)).text(content);
+					},
+					error: function(newcounter, error) {
+						console.log('Failed to create');
+					}
+				});
+			}
+		},
+		error: function(error) {
+			console.log('Error:' + error.code + " " + error.message);
+		}
+	});
+}
+$(function() {
+	var Counter = AV.Object.extend("Counter");
+	if ($('.leancloud_visitors').length == 1) {
+		addCount(Counter);
+	} else if ($('.post-title-link').length > 1) {
+		showTime(Counter);
+	}
+}); 
+</script>
+  
+
+</body>
+</html>
