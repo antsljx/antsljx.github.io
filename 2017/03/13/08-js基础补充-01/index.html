@@ -1,0 +1,958 @@
+
+<!doctype html>
+<html class="theme-next use-motion theme-next-mala">
+<head>
+  
+
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
+
+
+
+
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.5.1"/>
+
+
+    <meta name="description" content="description" />
+
+
+
+  <meta name="keywords" content="js基础," />
+
+
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
+
+
+<meta name="description" content="1.parseInt(‘n进制数字’,n) ——将n进制数字转化为10进制数字，当n等于10时，可以简写为parseInt(‘10进制数字’)。1234alert(parseInt(&apos;23&apos;,10))		//弹出23。alert(parseInt(&apos;23&apos;,16)) 		//弹出35。alert(parseInt(&apos;11&apos;,2))  		//弹出3。alert(parseInt(&apos;23&apos;,8))">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript-基础补充_01">
+<meta property="og:url" content="http://yoursite.com/2017/03/13/08-js基础补充-01/index.html">
+<meta property="og:site_name" content="ants的博客">
+<meta property="og:description" content="1.parseInt(‘n进制数字’,n) ——将n进制数字转化为10进制数字，当n等于10时，可以简写为parseInt(‘10进制数字’)。1234alert(parseInt(&apos;23&apos;,10))		//弹出23。alert(parseInt(&apos;23&apos;,16)) 		//弹出35。alert(parseInt(&apos;11&apos;,2))  		//弹出3。alert(parseInt(&apos;23&apos;,8))">
+<meta property="og:updated_time" content="2017-03-13T07:00:14.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaScript-基础补充_01">
+<meta name="twitter:description" content="1.parseInt(‘n进制数字’,n) ——将n进制数字转化为10进制数字，当n等于10时，可以简写为parseInt(‘10进制数字’)。1234alert(parseInt(&apos;23&apos;,10))		//弹出23。alert(parseInt(&apos;23&apos;,16)) 		//弹出35。alert(parseInt(&apos;11&apos;,2))  		//弹出3。alert(parseInt(&apos;23&apos;,8))">
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: 'Mala',
+    sidebar: 'post'
+  };
+</script>
+
+  <title> JavaScript-基础补充_01 | ants的博客 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  <!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+  
+
+
+
+  <div class="container one-column page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><h1 class="site-meta">
+  <span class="logo-line-before"><i></i></span>
+  <a href="/" class="brand" rel="start">
+      <span class="logo">
+        <i class="icon-next-logo"></i>
+      </span>
+      <span class="site-title">随新所遇</span>
+  </a>
+  <span class="logo-line-after"><i></i></span>
+</h1>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            <i class="menu-item-icon icon-next-home"></i> <br />
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            <i class="menu-item-icon icon-next-categories"></i> <br />
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            <i class="menu-item-icon icon-next-archives"></i> <br />
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            <i class="menu-item-icon icon-next-tags"></i> <br />
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            <i class="menu-item-icon icon-next-about"></i> <br />
+            关于
+          </a>
+        </li>
+      
+
+      
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    
+      
+
+      
+        <style type="text/css">
+
+    .circle {
+        width: 40px;
+        height: 40px;
+        background: #555 no-repeat;
+        cursor: move;
+    }
+
+    .assist-btn {
+        position: fixed;
+        top: 50％;
+        left: 10px;
+        -moz-border-radius: 50px;
+        -webkit-border-radius: 50px;
+        border-radius: 50px;
+        outline: none;
+        border: none;
+        color: #87daff;
+    }
+
+</style>
+
+<script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+<script type="text/javascript">
+    // 浮动圆点展开与收缩
+    /*
+    $(function () {
+        var assist_box = $('.assist-box');
+        $('#assist_btn').hover(function () {
+            assist_box.stop().show(300);
+        }, function () {
+            assist_box.stop().hide(150);
+        })
+    });
+    */  
+    //浮动圆点拖动
+    $(function () {
+        var box = document.getElementById('assist_btn');
+        box.onmousedown = function (event) {
+            var e = event || window.event,
+                t = e.target || e.srcElement,
+                // 鼠标按下时的坐标x1,y1
+                x1 = e.clientX,
+                y1 = e.clientY,
+                //鼠标按下时的左右偏移量
+                dragLeft = this.offsetLeft,
+                dragTop = this.offsetTop;
+
+            document.onmousemove = function (event) {
+                var e = event || window.event,
+                    t = e.target || e.srcElement,
+                    // 鼠标移动时的动态坐标
+                    x2 = e.clientX,
+                    y2 = e.clientY,
+                    // 鼠标移动时的坐标的变化量
+                    x = x2 - x1,
+                    y = y2 - y1;
+                box.style.left = (dragLeft + x) + 'px';
+                box.style.top = (dragTop + y) + 'px';
+            }
+
+            document.onmouseup = function () {
+                this.onmousemove = null;
+            }
+        }
+    });
+
+/*
+    $whitesmoke   = #f5f5f5
+    $gainsboro    = #eee
+    $gray-lighter = #ddd
+    $grey-light   = #ccc
+    $grey         = #bbb
+    $grey-dark    = #999
+    $grey-dim     = #666
+    $black-light  = #555
+    $black-deep   = #222
+    $red          = #ff2a2a
+    $blue-bright  = #87daff
+    $blue         = #0684bd
+    $blue-deep    = #262a30
+*/
+    // white theme
+    var body = {color: "#555", background: "white"};
+    var a_tag = {color: "#222"};
+    var header = { background: "#f5f5f5"};
+    var logo_line_i = {background: "#222"};
+    // var post_code = {background: "#eee", color: "#222"};
+
+    function switch_theme() {
+        $("body").css(body);
+        $("a:not('.links-of-author-item a, .site-state-item a, .site-state-posts a, .feed-link a, .motion-element a, .post-tags a, .show-commit-cls a, #donate_board a')").css(a_tag);
+        $(".header, .footer").css(header);
+        $(".logo-line-before i, .logo-line-after i").css(logo_line_i);
+        //$(".post code").css(post_code);
+        $("#idhyt-surprise-ball #idhyt-surprise-ball-animation .drag").css(a_tag);
+        $(".post-title-link, .posts-expand .post-meta, .post-comments-count, .disqus-comment-count, .post-category a, .post-nav-next a, .post-nav-item a").css(a_tag);
+        
+        // $("code").css({color: '#c5c8c6', background: '#1d1f21'});
+        $("#assist_btn").hide(1500);
+    }
+
+    $(function () {
+        $("#assist_btn").dblclick(function() {
+            switch_theme();
+        });
+    });
+
+</script>
+
+<div>
+
+    <button class="assist-btn circle" id="assist_btn" title="双击切换">
+        亮
+    </button>
+
+</div>
+
+
+
+
+
+
+
+
+
+      
+
+    
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content"> 
+
+  <div id="posts" class="posts-expand">
+    
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              JavaScript-基础补充_01
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2017-03-13T14:49:07+08:00" content="2017-03-13">
+            2017-03-13
+          </time>
+        </span>
+
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; 分类于
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <a href="/categories/js-基础学习/" itemprop="url" rel="index">
+                  <span itemprop="name">js_基础学习</span>
+                </a>
+              </span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <!--
+              <a href="/2017/03/13/08-js基础补充-01/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/13/08-js基础补充-01/" itemprop="commentsCount"></span>
+              </a>
+              -->
+              <a href="/2017/03/13/08-js基础补充-01/#comments" itemprop="discussionUrl">
+                <span>评论</span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <span itemprop="articleBody"><h4 id="1-parseInt-‘n进制数字’-n-——将n进制数字转化为10进制数字，当n等于10时，可以简写为parseInt-‘10进制数字’-。"><a href="#1-parseInt-‘n进制数字’-n-——将n进制数字转化为10进制数字，当n等于10时，可以简写为parseInt-‘10进制数字’-。" class="headerlink" title="1.parseInt(‘n进制数字’,n) ——将n进制数字转化为10进制数字，当n等于10时，可以简写为parseInt(‘10进制数字’)。"></a>1.parseInt(‘n进制数字’,n) ——将n进制数字转化为10进制数字，当n等于10时，可以简写为parseInt(‘10进制数字’)。</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">alert(parseInt(<span class="string">'23'</span>,10))		//弹出23。</div><div class="line">alert(parseInt(<span class="string">'23'</span>,16)) 		//弹出35。</div><div class="line">alert(parseInt(<span class="string">'11'</span>,2))  		//弹出3。</div><div class="line">alert(parseInt(<span class="string">'23'</span>,8)) 		//弹出19。</div></pre></td></tr></table></figure>
+<p>2.当未将函数赋值给一个变量时，函数名即代表函数整体，通过函数名加括号()调用函数执行；当将函数赋值给一个变量时，该变量代表函数整体，通过变量名加括号()调用函数执行。在书写代码时，如果想调用函数执行，通过函数名加括号或者变量名加括号的方式，如果想要引入函数整体，则通过函数名不加括号、变量名不加括号或者直接写整个函数整体的方式。</p>
+<h5 id="应用："><a href="#应用：" class="headerlink" title="应用："></a>应用：</h5><p>①DOM2级事件处理程序中addEventListener(“事件”,demo)，demo表示引入函数整体，而不是调用函数执行，因此不可加括号。</p>
+<p>②事件函数有两种写法，一种是事件等于函数整体，一种是事件等于函数名无括号（等价于函数整体）。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">	<span class="keyword">function</span> <span class="function"><span class="title">demo</span></span>()&#123;</div><div class="line">		alert(<span class="string">'1'</span>)</div><div class="line">	&#125;</div><div class="line">	demo()//弹出1</div><div class="line">	alert(demo) //弹出<span class="keyword">function</span> <span class="function"><span class="title">demo</span></span>()&#123;alert(<span class="string">'1'</span>)&#125;。</div><div class="line">&lt;/script&gt;</div><div class="line">&lt;script&gt;</div><div class="line">	var a=<span class="keyword">function</span> <span class="function"><span class="title">demo</span></span>()&#123;</div><div class="line">		alert(<span class="string">'1'</span>)</div><div class="line">	&#125;</div><div class="line">	a()//弹出1</div><div class="line">	alert(a)//弹出<span class="keyword">function</span> <span class="function"><span class="title">demo</span></span>()&#123;alert(<span class="string">'1'</span>)&#125;</div><div class="line">	alert(demo) //语法错误：demo is not defined</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+<h4 id="3-构造函数也是一个对象，既可以给构造函数添加属性，又可以给构造函数实例出的对象添加属性。"><a href="#3-构造函数也是一个对象，既可以给构造函数添加属性，又可以给构造函数实例出的对象添加属性。" class="headerlink" title="3.构造函数也是一个对象，既可以给构造函数添加属性，又可以给构造函数实例出的对象添加属性。"></a>3.构造函数也是一个对象，既可以给构造函数添加属性，又可以给构造函数实例出的对象添加属性。</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line"><span class="keyword">function</span> Person(age)&#123;</div><div class="line">	Person.age1=<span class="string">'10'</span>;</div><div class="line">	//构造函数也是一个对象，给构造函数添加属性，与实例出的对象无关。</div><div class="line">	this.age=age;</div><div class="line">	//给构造函数实例出的对象添加属性，与构造函数无关。</div><div class="line">&#125;</div><div class="line">alert(typeof Person);//弹出<span class="keyword">function</span></div><div class="line">var p1=new Person(20);</div><div class="line">alert(p1.age1); //弹出undefined。</div><div class="line">alert(p1.age); //弹出20。</div><div class="line">alert(Person.age1); //弹出10。</div><div class="line">alert(Person.age);//弹出undefined。</div><div class="line">&lt;/script&gt;</div><div class="line"></div><div class="line">//给构造函数自身添加属性：只有函数被调用之后，函数内的代码才会被执行，构造函数才会被添加属性。</div><div class="line"></div><div class="line">&lt;script&gt;</div><div class="line"><span class="keyword">function</span> <span class="function"><span class="title">Person</span></span>()&#123;	</div><div class="line">	Person.age=1;</div><div class="line">&#125;;</div><div class="line">alert(Person.age);</div><div class="line">//此时构造函数内代码未执行，构造函数的age属性未添加，弹出undefined。</div><div class="line">Person();</div><div class="line">alert(Person.age);</div><div class="line">//此时构造函数内代码已执行，构造函数的age属性已添加，弹出1。</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+<h4 id="4-检测及遍历对象的属性"><a href="#4-检测及遍历对象的属性" class="headerlink" title="4.检测及遍历对象的属性"></a>4.检测及遍历对象的属性</h4><h5 id="语法：①”属性名”-in-对象——判断该属性是否是该对象的属性（自有属性或者原型属性），返回值为布尔类型。"><a href="#语法：①”属性名”-in-对象——判断该属性是否是该对象的属性（自有属性或者原型属性），返回值为布尔类型。" class="headerlink" title="语法：①”属性名” in 对象——判断该属性是否是该对象的属性（自有属性或者原型属性），返回值为布尔类型。"></a>语法：①”属性名” in 对象——判断该属性是否是该对象的属性（自有属性或者原型属性），返回值为布尔类型。</h5><p>②对象.hasOwnProperty(“属性名”);——判断该属性是否是该对象的自有属性，返回值为布尔类型。</p>
+<p>③for(变量 in 对象){}遍历对象的属性（自有属性或者原型属性），在花括号中，变量指代该对象的属性名，对象[变量]指代该对象的属性值。</p>
+<p>④delete 对象.属性名;——删除对象的该属性。</p>
+<p>注意：在方法①和方法②中，引号不可省略。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line">例题：&lt;script&gt;</div><div class="line"><span class="keyword">function</span> Person(name,age)&#123;</div><div class="line">	Person.type=<span class="string">"函数"</span>; //给构造函数添加自有属性</div><div class="line">	this.name=name; //给实例对象添加自有属性</div><div class="line">	this.age=age; //给实例对象添加自有属性</div><div class="line">	this.say=<span class="function"><span class="title">function</span></span>()&#123; //给实例对象添加自有属性</div><div class="line">		alert(<span class="string">'你好'</span>)</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">Person.prototype.height=<span class="string">"1.8米"</span>;</div><div class="line">//给构造函数的prototype（实例对象的_proto_）添加属性</div><div class="line">//此处应注意：构造函数的prototype不等价于构造函数的_proto_</div><div class="line">var p1=new Person(<span class="string">"Jake"</span>,<span class="string">"26"</span>);</div><div class="line">//从构造函数中实例出对象p1</div><div class="line">alert(<span class="string">'type'</span> <span class="keyword">in</span> Person);//弹出<span class="literal">true</span></div><div class="line">alert(<span class="string">'type'</span> <span class="keyword">in</span> p1);//弹出<span class="literal">false</span></div><div class="line">alert(<span class="string">'age'</span> <span class="keyword">in</span> Person);//弹出<span class="literal">false</span></div><div class="line">alert(<span class="string">'name'</span> <span class="keyword">in</span> p1);//弹出<span class="literal">true</span></div><div class="line">alert(<span class="string">'height'</span> <span class="keyword">in</span> Person);</div><div class="line">//弹出<span class="literal">false</span>。因为Person.prototype指向Person原型对象，指向p1的_proto_原型对象，Person的_proto_指向上一级构造函数的原型对象</div><div class="line">alert(p1.hasOwnProperty(<span class="string">'age'</span>))//弹出<span class="literal">true</span></div><div class="line">alert(p1.hasOwnProperty(<span class="string">'height'</span>))//弹出<span class="literal">false</span></div><div class="line">alert(Person.hasOwnProperty(<span class="string">'type'</span>))//弹出<span class="literal">true</span></div><div class="line">//属性名要加引号</div><div class="line"><span class="keyword">for</span>(pro1 <span class="keyword">in</span> p1)&#123;</div><div class="line">	document.write(<span class="string">"属性名："</span>+pro1+<span class="string">";属性值："</span>+p1[pro1]+<span class="string">"&lt;br /&gt;"</span>)</div><div class="line">	//弹出name、age、say、height属性名及对应属性值</div><div class="line">&#125;</div><div class="line"><span class="keyword">for</span>(pro2 <span class="keyword">in</span> Person)&#123;</div><div class="line">	document.write(<span class="string">"属性名："</span>+pro2+<span class="string">";属性值："</span>+Person[pro2]+<span class="string">"&lt;br /&gt;"</span>)</div><div class="line">	//弹出<span class="built_in">type</span>属性名及对应属性值（无height属性）</div><div class="line">&#125;</div><div class="line">delete p1.name;//删除实例对象p1的name属性</div><div class="line">	<span class="keyword">for</span>(pro1 <span class="keyword">in</span> p1)&#123;</div><div class="line">	document.write(<span class="string">"属性名："</span>+pro1+<span class="string">";属性值："</span>+p1[pro1]+<span class="string">"&lt;br /&gt;"</span>)</div><div class="line">	//弹出age、say、height属性名及对应属性值</div><div class="line">&#125;</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+<h4 id="5-每一个栈空间中存放的可能是基本数据类型（Number、string、……）的数据本身，也可能是引用数据类型在堆中存放的数据地址。-栈-stack-堆-heap"><a href="#5-每一个栈空间中存放的可能是基本数据类型（Number、string、……）的数据本身，也可能是引用数据类型在堆中存放的数据地址。-栈-stack-堆-heap" class="headerlink" title="5.每一个栈空间中存放的可能是基本数据类型（Number、string、……）的数据本身，也可能是引用数据类型在堆中存放的数据地址。(栈:stack;堆:heap)"></a>5.每一个栈空间中存放的可能是基本数据类型（Number、string、……）的数据本身，也可能是引用数据类型在堆中存放的数据地址。(栈:stack;堆:heap)</h4><p>6.对于基本数据类型而言，每一个变量名与每一个栈空间与每一个数据本身都是一一对应的关系，并不存在多个变量名对应一个数据的情况。对于引用数据类型而言，每一个变量名对应每一个栈空间，多个栈空间可能存放同一个堆地址，指向同一个数据本身。即：对于基本数据类型，变量名与数据本身一一对应，相互并不影响。对于引用数据类型，多个变量名可能对应同一个数据本身，独自都可以修改堆空间中存放的数据本身。对于基本数据类型，a=b的含义为将变量b对应栈空间中存放的数据本身复制一份存放在变量a对应的栈空间中，数据本身发生复制。 对于引用数据类型以及自定义对象，a=b的含义为将变量b对应栈空间中存放的堆地址复制一份存放在变量a对应的栈空间中，堆地址对应的堆空间中存放的数据本身并未发生复制。对于引用数据类型以及自定义对象，即使a=b，变量a与变量b也并不对应同一块栈空间，只是它们所对应的不同栈空间中存放的是同一个堆地址。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div></pre></td><td class="code"><pre><div class="line">	例题1-1：	</div><div class="line">	&lt;script&gt;</div><div class="line">		var a=[1];</div><div class="line">		var b=a; </div><div class="line">		//变量a对应栈空间中存放的堆地址复制一份存放在变量b对应栈空间中。</div><div class="line">		a=a.push(2);</div><div class="line">		//修改变量a对应栈空间中存放的堆地址对应的堆空间中的数据本身。</div><div class="line">		alert(b); //弹出1,2</div><div class="line">	&lt;/script&gt;</div><div class="line">例题1-2：	</div><div class="line">	&lt;script&gt;</div><div class="line">		var a=new Object();</div><div class="line">		var b=a;</div><div class="line">		//变量a对应栈空间中存放的堆地址复制一份存放在变量b对应栈空间中。</div><div class="line">		a.age=12;</div><div class="line">		//修改变量a对应栈空间中存放的堆地址对应的堆空间中的数据本身。</div><div class="line">		alert(b.age);//弹出12</div><div class="line">	&lt;/script&gt;</div><div class="line">例题1-3：	</div><div class="line">	&lt;script&gt;</div><div class="line">		var a=[1];</div><div class="line">		var b=a;</div><div class="line">		//变量a对应栈空间中存放的堆地址复制一份存放在变量b对应栈空间中。</div><div class="line">		b.age=2;</div><div class="line">		//修改变量b对应栈空间中存放的堆地址对应的堆空间中的数据本身。</div><div class="line">		a.age=1;</div><div class="line">		//修改变量a对应栈空间中存放的堆地址对应的堆空间中的数据本身。</div><div class="line">		alert(b.age);//弹出1</div><div class="line">	&lt;/script&gt;</div><div class="line">注意：只有点能够修改堆空间中存放的数据本身，只有等号则重新开辟一块堆空间存放新数据。</div><div class="line">例题2-1：	</div><div class="line">	&lt;script&gt;</div><div class="line">		var a=[1];</div><div class="line">		var b=[1];</div><div class="line">		//与b=a的含义不同。此时虽然数组b与数组a的数值相等，但是含义为新申请一块堆空间，存放数据[1],在变量b对应的栈空间中存放该堆地址。此时有两个堆空间都存放数据[1]。变量a与变量b对应不同的数据，互不影响。</div><div class="line">		a.age=23;</div><div class="line">		alert(b.age);//弹出undefined。</div><div class="line">	&lt;/script&gt;</div><div class="line">例题2-2：	</div><div class="line">	&lt;script&gt;</div><div class="line">		var a=[1];</div><div class="line">		var b=a;</div><div class="line">		//变量a对应栈空间中存放的堆地址复制一份存放在变量b对应栈空间中。</div><div class="line">		a=[1,2];</div><div class="line">		//注意:这一步为重新申请一块堆空间，存放数据[1,2]，并在变量名a对应栈空间中清除老的堆地址，存放该新申请的堆地址。——①并未改变变量名a对应的栈空间以前存放的堆地址对应的数据本身。②并未改变变量名b对应的栈空间中所存放的堆地址。</div><div class="line">		alert(b);//弹出1。</div><div class="line">	&lt;/script&gt;</div></pre></td></tr></table></figure>
+<h4 id="7-全局变量的作用范围：从当前全局变量的声明位置到最后一个script标签的结束位置。"><a href="#7-全局变量的作用范围：从当前全局变量的声明位置到最后一个script标签的结束位置。" class="headerlink" title="7.全局变量的作用范围：从当前全局变量的声明位置到最后一个script标签的结束位置。"></a>7.全局变量的作用范围：从当前全局变量的声明位置到最后一个script标签的结束位置。</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">	例题1-1：		</div><div class="line">	&lt;script&gt;</div><div class="line">		var  a=1;</div><div class="line">		alert(a);//弹出1。</div><div class="line">	&lt;/script&gt;</div><div class="line">例题1-2：		</div><div class="line">	&lt;script&gt;</div><div class="line">		alert(a);//弹出undefined。</div><div class="line">		var a=1;	</div><div class="line">	&lt;/script&gt;</div><div class="line">例题1-3：		</div><div class="line">	&lt;script&gt;</div><div class="line">		var a=1;	</div><div class="line">	&lt;/script&gt;</div><div class="line">	&lt;script&gt;</div><div class="line">		alert(a);//弹出1。</div><div class="line">	&lt;/script&gt;</div><div class="line">例题1-4：		</div><div class="line">	&lt;script&gt;</div><div class="line">		alert(a);//运行错误：a is not defined</div><div class="line">	&lt;/script&gt;</div><div class="line">	&lt;script&gt;</div><div class="line">		var a=1;	</div><div class="line">	&lt;/script&gt;</div></pre></td></tr></table></figure>
+<h4 id="8-JavaScript预解析是把变量、函数以及函数的参数预解析到他们能调用的环境中，并将其赋一个初始值。"><a href="#8-JavaScript预解析是把变量、函数以及函数的参数预解析到他们能调用的环境中，并将其赋一个初始值。" class="headerlink" title="8.JavaScript预解析是把变量、函数以及函数的参数预解析到他们能调用的环境中，并将其赋一个初始值。"></a>8.JavaScript预解析是把变量、函数以及函数的参数预解析到他们能调用的环境中，并将其赋一个初始值。</h4><p>预解析对象：<br>①var 变量名 ②function 变量名(){} ③函数形式参数（等价于var 变量名） 预解析结果：var 变量    ——解析为—→    变量名=undefined function 变量名(){}    ——解析为—→ 变量名=function 变量名(){} 同一变量名:②预解析结果优先级高于①预解析结果undefined的优先级。 所有变量声明在预解析阶段完成，当开始逐行解读代码后只能通过表达式（赋值运算符）来改变变量的值和类型。（动态语言） 注意：JavaScript不会预解析的两种情况 ①无var的变量。②变量名=function (){}</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">例题1-1：	</div><div class="line">	&lt;script&gt;</div><div class="line">		alert(a);//弹出undefined。</div><div class="line">		var a=1;</div><div class="line">	&lt;/script&gt;</div><div class="line">例题1-2：	</div><div class="line">	&lt;script&gt;</div><div class="line">		alert(demo);//弹出undefined。</div><div class="line">		var demo=<span class="function"><span class="title">function</span></span>()&#123;</div><div class="line">		alert(1)</div><div class="line">		&#125;</div><div class="line">	&lt;/script&gt;</div><div class="line">例题1-3：	</div><div class="line">	&lt;script&gt;</div><div class="line">		alert(a);//运行错误，a is not defined。</div><div class="line">		a=1;</div><div class="line">	&lt;/script&gt;</div><div class="line">例题1-4：	</div><div class="line">	&lt;script&gt;</div><div class="line">		alert(demo); //弹出<span class="keyword">function</span> <span class="function"><span class="title">demo</span></span>()&#123;alert(1)&#125;。</div><div class="line">		<span class="keyword">function</span> <span class="function"><span class="title">demo</span></span>()&#123;</div><div class="line">		alert(1)</div><div class="line">		&#125;</div><div class="line">	&lt;/script&gt;</div><div class="line">例题1-5：	</div><div class="line">	&lt;script&gt;</div><div class="line">		alert(demo);//运行错误：demo is not defined。</div><div class="line">		demo=<span class="function"><span class="title">function</span></span>()&#123;</div><div class="line">			alert(1)</div><div class="line">		&#125;</div><div class="line">	&lt;/script&gt;</div></pre></td></tr></table></figure>
+<h4 id="9-变量预解析与变量值修改"><a href="#9-变量预解析与变量值修改" class="headerlink" title="9.变量预解析与变量值修改"></a>9.变量预解析与变量值修改</h4><p>预解析的意义———生成当前环境中的变量对象。 变量预解析：①var 变量名 ②function 变量名(){} ③函数形式参数 变量值修改：①var 变量名=    ②变量名=（赋值运算符是修改变量值的标志） 注意：①var 变量名=function(){} 可预解析可修改，预解析结果为变量名=undefined，修改后结果为变量名=function(){}②function 变量名(){}这种写法虽然也表示变量名等于整个函数体，但是由于没有赋值运算符，所以只会在预解析过程中修改变量值，不会在代码执行过程中修改变量的值。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line">例子1：</div><div class="line">	&lt;script&gt;</div><div class="line">		alert(a);//弹出<span class="keyword">function</span> <span class="function"><span class="title">a</span></span>()&#123;  alert (<span class="string">"better"</span>);&#125;;</div><div class="line">		var a=1;//可预解析，可修改。</div><div class="line">		alert (a);//弹出1。</div><div class="line">		var a=<span class="function"><span class="title">function</span></span> ()&#123;</div><div class="line">			alert(<span class="string">"good"</span>);  </div><div class="line">		&#125;; //可预解析，可修改。</div><div class="line">		alert (a);//弹出<span class="function"><span class="title">function</span></span> ()&#123; alert(<span class="string">"good"</span>);&#125;;</div><div class="line">		a=3;//不可预解析，可修改。</div><div class="line">		alert(a);//弹出3。</div><div class="line">		<span class="keyword">function</span> <span class="function"><span class="title">a</span></span>()&#123; </div><div class="line">			alert (<span class="string">"better"</span>);</div><div class="line">			&#125;;//可预解析，不可修改。</div><div class="line">		alert (a) //弹出3。</div><div class="line">	&lt;/script&gt;</div><div class="line">例子2：</div><div class="line">	&lt;script&gt;</div><div class="line">		alert(a);//预解析之后，a=<span class="keyword">function</span> <span class="function"><span class="title">a</span></span>() &#123;alert(<span class="string">"pleased"</span>)&#125;;						//故弹出 <span class="keyword">function</span> <span class="function"><span class="title">a</span></span>() &#123;alert(<span class="string">"pleased"</span>)&#125;;</div><div class="line">		<span class="keyword">function</span> <span class="function"><span class="title">a</span></span>() &#123;</div><div class="line">			alert(<span class="string">"bad"</span>)</div><div class="line">			&#125;; //可预解析，不可修改，a=<span class="keyword">function</span> <span class="function"><span class="title">a</span></span>() &#123;alert(<span class="string">"pleased"</span>)&#125;</div><div class="line">		a();//弹出pleased。</div><div class="line">		var a = 3;//可预解析，可修改。a=3;</div><div class="line">		alert(a);//弹出3。</div><div class="line">		var a = <span class="function"><span class="title">function</span></span>() &#123;</div><div class="line">			alert(<span class="string">"happy"</span>)</div><div class="line">			&#125;;//可预解析，可修改。 a = <span class="function"><span class="title">function</span></span>() &#123;alert(<span class="string">"happy"</span>)&#125;;</div><div class="line">		a();//弹出happy。</div><div class="line">		<span class="keyword">function</span> <span class="function"><span class="title">a</span></span>() &#123;</div><div class="line">			alert(<span class="string">"pleased"</span>)</div><div class="line">			&#125;;//可预解析，不可修改。a = <span class="function"><span class="title">function</span></span>() &#123;alert(<span class="string">"happy"</span>)&#125;;</div><div class="line">		a();//弹出happy。</div><div class="line">	&lt;/script&gt;</div><div class="line">	//注意：①关注代码执行过程中变量名a对应的值是否发生改变，只有出现赋值运算符时，变量a的值才会被修改。②只有当变量名a对应的值是一个函数体的时候，a()才会执行，并且执行变量名a当前对应函数体中的代码。</div></pre></td></tr></table></figure>
+<h4 id="10-执行环境——每个函数都有自己的执行环境。当执行流进入一个函数时，函数的环境就会被推入一个环境栈中。而在函数执行后，栈将其环境弹出，把控制权返回给之前的执行环境。也是一个环境。"><a href="#10-执行环境——每个函数都有自己的执行环境。当执行流进入一个函数时，函数的环境就会被推入一个环境栈中。而在函数执行后，栈将其环境弹出，把控制权返回给之前的执行环境。也是一个环境。" class="headerlink" title="10.执行环境——每个函数都有自己的执行环境。当执行流进入一个函数时，函数的环境就会被推入一个环境栈中。而在函数执行后，栈将其环境弹出，把控制权返回给之前的执行环境。也是一个环境。"></a>10.执行环境——每个函数都有自己的执行环境。当执行流进入一个函数时，函数的环境就会被推入一个环境栈中。而在函数执行后，栈将其环境弹出，把控制权返回给之前的执行环境。也是一个环境。</h4><p>变量对象——存放当前所在环境中的所有变量和函数； 作用域——变量可产生作用的区域，基本相当于当前执行环境； 作用域链(由内向外搜索变量)——当代码进入一个新环境时，会产生新的变量对象，变量对象有新的作用域，新的作用域与上一级作用域链接形成作用域链。 函数形参预解析过程——函数的形式参数在函数调用过程中第一次被赋值，在函数执行过程中可能会被多次赋值。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div></pre></td><td class="code"><pre><div class="line">举例1-1:</div><div class="line">	 &lt;button id=<span class="string">"btn"</span>&gt;111&lt;/button&gt;</div><div class="line">	&lt;script&gt;</div><div class="line">		btn.onclick = <span class="function"><span class="title">function</span></span>() &#123;</div><div class="line">			name = 10;//这里的name未声明，为全局变量</div><div class="line">			b(name);  //等价于b(10),10为实参,调用函数b时赋值</div><div class="line">			alert(name); //弹出全局变量name等于10</div><div class="line">			&#125;;</div><div class="line">		<span class="keyword">function</span> b(name) &#123;</div><div class="line">			//隐含条件:var name=“实参(10)”;此时name为局部变量</div><div class="line">			name = 20; //变量name已声明,为局部变量name=20</div><div class="line">			&#125;;</div><div class="line">	&lt;/script&gt;</div><div class="line">举例1-2:</div><div class="line">	&lt;button id=<span class="string">"btn"</span>&gt;222&lt;/button&gt;</div><div class="line">	&lt;script&gt;</div><div class="line">		btn.onclick = <span class="function"><span class="title">function</span></span>() &#123;</div><div class="line">			name = 10;//这里的name未声明，为全局变量</div><div class="line">			b(name); //等价于b(10),10为实参,调用函数b时赋值</div><div class="line">			alert(name); //弹出全局变量name等于20</div><div class="line">		&#125;;</div><div class="line">		<span class="keyword">function</span> b(n) &#123;</div><div class="line">			//隐含条件:var n=“实参”;此时n为局部变量。</div><div class="line">			name = 20; //变量name未声明，为全局变量name=20</div><div class="line">		&#125;;</div><div class="line">	&lt;/script&gt;</div><div class="line">例题2-1：</div><div class="line">	&lt;script&gt;</div><div class="line">		var a = 1; 		//外层执行环境(全局)变量a=1</div><div class="line">		<span class="keyword">function</span> <span class="function"><span class="title">fn1</span></span>() &#123;</div><div class="line">			alert(a);			//内层执行环境预解析结束，无a，调用外层执行环境(全局)变量a=1</div><div class="line">			a = 2;			//改变外层执行环境(全局)变量a=2</div><div class="line">		&#125;;</div><div class="line">		fn1();//弹出1</div><div class="line">		alert(a)//弹出2</div><div class="line">	&lt;/script&gt;</div><div class="line">例题2-2：</div><div class="line">	&lt;script&gt;</div><div class="line">		var a = 1;		//外层执行环境(全局)变量a=1</div><div class="line">		<span class="keyword">function</span> <span class="function"><span class="title">fn2</span></span>() &#123;</div><div class="line">			alert(a);		//内层执行环境预解析结束，内层环境变量a=undefined</div><div class="line">			var a = 2;	//改变内层环境变量a=2</div><div class="line">		&#125;;</div><div class="line">		fn2();//弹出undefined</div><div class="line">		alert(a) //弹出外层环境(全局)变量a=1</div><div class="line">	&lt;/script&gt;	</div><div class="line">例题2-3：	</div><div class="line">	&lt;script&gt;</div><div class="line">		var a = 1;//全局变量a=1</div><div class="line">		<span class="keyword">function</span> fn1(a) &#123;//隐含条件:var a=“实参”;此时a为局部变量,未传入实参,局部变量a=undefined</div><div class="line">			alert(a);</div><div class="line">			a = 2;//改变局部变量a=2</div><div class="line">		&#125;</div><div class="line">		fn1();//执行函数，弹出局部变量a等于undefined</div><div class="line">		alert(a);//弹出全局变量a=1</div><div class="line">	&lt;/script&gt;</div><div class="line">例题2-4：	</div><div class="line">	&lt;script&gt;</div><div class="line">		var a = 1;//全局变量a=1。</div><div class="line">		<span class="keyword">function</span> fn1(a) &#123;//隐含条件:var a=“实参”;此时a为局部变量,传入实参1,局部变量a=1</div><div class="line">			alert(a);</div><div class="line">			a = 2;//改变局部变量a=2</div><div class="line">		&#125;</div><div class="line">		fn1(a);//执行函数，弹出局部变量a等于1</div><div class="line">		alert(a);//弹出全局变量a=1</div><div class="line">	&lt;/script&gt;</div></pre></td></tr></table></figure>
+<h4 id="11-元素-scrollTop含义为元素滚动条的向下滚动的距离、元素可视区向下移动的距离、元素向上卷动的距离。"><a href="#11-元素-scrollTop含义为元素滚动条的向下滚动的距离、元素可视区向下移动的距离、元素向上卷动的距离。" class="headerlink" title="11.元素.scrollTop含义为元素滚动条的向下滚动的距离、元素可视区向下移动的距离、元素向上卷动的距离。"></a>11.元素.scrollTop含义为元素滚动条的向下滚动的距离、元素可视区向下移动的距离、元素向上卷动的距离。</h4></span>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/js基础/" rel="tag">#js基础</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/03/08/07-js原型与原型链/" rel="next">JavaScript-原型与原型链</a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div>
+      
+        <style type="text/css">
+
+    .donate_bar {
+        text-align: center;
+        margin-top : 5%;
+    }
+
+    .donate_bar.hidden {
+        display:none;
+    }
+/*
+    .donate_bar a.btn_donate {
+        display: inline-block;
+        width: 82px;
+        height: 82px;
+        margin-left:auto;
+        margin-right:auto;
+
+        background: url("http://img.t.sinajs.cn/t5/style/images/apps_PRF/e_media/btn_reward.gif") no-repeat;
+        _background: url("http://img.t.sinajs.cn/t5/style/images/apps_PRF/e_media/btn_reward.gif") no-repeat; 
+
+        -webkit-transition: background 0s;
+        -moz-transition: background 0s;
+        -o-transition: background 0s;
+        -ms-transition: background 0s;
+        transition: background 0s;
+    }
+*/
+    .donate_bar a.btn_donate:hover { 
+        // background-position: 0px -82px;
+        color: #87daff
+    }
+
+    .donate_bar .donate_txt {
+        display: block;
+        color: #9d9d9d;
+        font: 14px/2 "Microsoft Yahei";
+    }
+
+    .bold { 
+        font-weight: bold; 
+    }
+
+    .post-donate a {
+        border-bottom: 0px;
+    }
+
+    #donate_guide table {
+        border: none;
+    }
+
+    #donate_guide td {
+        border-bottom: none;
+        border-right: none;
+        background: #333333;
+        valign: top;
+    }
+
+</style>
+
+
+
+    
+
+    <div class ="post-donate">
+        <div id="donate_board" class="donate_bar center">
+              <a id="btn_donate" class="btn_donate" href="javascript:;" title="打赏">赏</a>
+              <span id="donate_txt" class="donate_txt">
+                   
+                        仅仅是一个功能
+                   
+              </span>
+            <br>
+        </div>  
+  
+        <div id="donate_guide" class="donate_bar center hidden">
+            <!--
+            
+                <a href="https://coding.net/u/antcljx/p/imgstore/git/raw/master/myblogimg/zfb.jpg" title="支付宝打赏" class="fancybox" rel="article0" 
+                    style="float:left;margin-left:25%;margin-right:10px;">
+                    <img src="https://coding.net/u/antcljx/p/imgstore/git/raw/master/myblogimg/zfb.jpg" title="" height="164px" width="164px">
+                </a> 
+              
+
+            
+                <a href="https://coding.net/u/antcljx/p/imgstore/git/raw/master/myblogimg/wx.jpg" title="微信打赏" class="fancybox" rel="article0"
+                    style="margin-right:30%">
+                    <img src="https://coding.net/u/antcljx/p/imgstore/git/raw/master/myblogimg/wx.jpg" title="" height="164px" width="164px">
+                </a>
+            
+            -->
+            <table>
+                <tr>
+                    <td>
+                        
+                            <a href="https://coding.net/u/antcljx/p/imgstore/git/raw/master/myblogimg/zfb.jpg" title="支付宝打赏" class="fancybox" rel="article0" 
+                                style="float:left;margin-left:25%;margin-right:10px;">
+                                <img src="https://coding.net/u/antcljx/p/imgstore/git/raw/master/myblogimg/zfb.jpg" title="" height="164px" width="164px">
+                            </a> 
+                         
+                    </td>
+                    <td>
+                        
+                            <a href="https://coding.net/u/antcljx/p/imgstore/git/raw/master/myblogimg/wx.jpg" title="微信打赏" class="fancybox" rel="article0"
+                                style="margin-right:30%">
+                                <img src="https://coding.net/u/antcljx/p/imgstore/git/raw/master/myblogimg/wx.jpg" title="" height="164px" width="164px">
+                            </a>
+                        
+                    </td>
+                </tr>
+            </table>
+
+        </div>
+
+        <script type="text/javascript">
+            document.getElementById('btn_donate').onclick = function() {
+                $('#donate_board').addClass('hidden');
+                // $('#donate_guide').removeClass('hidden');
+                $('#donate_guide').show(2000);
+            }
+
+        </script>
+    </div>
+
+    
+
+
+      
+    </div>
+
+    <div class="post-spread">
+      
+        <div class="bdsharebuttonbox">
+	<a href="#" class="bds_more" data-cmd="more"></a>
+	<a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+	<a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+	<a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+	<a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a>
+	<a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
+</div>
+<script>
+    window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
+
+ </div>
+
+        
+
+        
+          <div class="comments" id="comments">
+            
+              <div class="ds-thread" data-thread-key="2017/03/13/08-js基础补充-01/"
+                   data-title="JavaScript-基础补充_01" data-url="http://yoursite.com/2017/03/13/08-js基础补充-01/">
+              </div>
+            
+          </div>
+        
+      </div>
+
+      
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" src="/images/default_avatar.jpg" alt="author" itemprop="image"/>
+          <p class="site-author-name" itemprop="name">author</p>
+        </div>
+        <p class="site-description motion-element" itemprop="description">description</p>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">8</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            <a href="/categories">
+              <span class="site-state-item-count">1</span>
+              <span class="site-state-item-name">分类</span>
+              </a>
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">3</span>
+              <span class="site-state-item-name">标签</span>
+              </a>
+          </div>
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        <div class="links-of-friendly motion-element">
+          
+        </div>
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator"></div>
+          <div class="post-toc">
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-parseInt-‘n进制数字’-n-——将n进制数字转化为10进制数字，当n等于10时，可以简写为parseInt-‘10进制数字’-。"><span class="nav-number">1.</span> <span class="nav-text">1.parseInt(‘n进制数字’,n) ——将n进制数字转化为10进制数字，当n等于10时，可以简写为parseInt(‘10进制数字’)。</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#应用："><span class="nav-number">1.1.</span> <span class="nav-text">应用：</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-构造函数也是一个对象，既可以给构造函数添加属性，又可以给构造函数实例出的对象添加属性。"><span class="nav-number">2.</span> <span class="nav-text">3.构造函数也是一个对象，既可以给构造函数添加属性，又可以给构造函数实例出的对象添加属性。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-检测及遍历对象的属性"><span class="nav-number">3.</span> <span class="nav-text">4.检测及遍历对象的属性</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#语法：①”属性名”-in-对象——判断该属性是否是该对象的属性（自有属性或者原型属性），返回值为布尔类型。"><span class="nav-number">3.1.</span> <span class="nav-text">语法：①”属性名” in 对象——判断该属性是否是该对象的属性（自有属性或者原型属性），返回值为布尔类型。</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-每一个栈空间中存放的可能是基本数据类型（Number、string、……）的数据本身，也可能是引用数据类型在堆中存放的数据地址。-栈-stack-堆-heap"><span class="nav-number">4.</span> <span class="nav-text">5.每一个栈空间中存放的可能是基本数据类型（Number、string、……）的数据本身，也可能是引用数据类型在堆中存放的数据地址。(栈:stack;堆:heap)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-全局变量的作用范围：从当前全局变量的声明位置到最后一个script标签的结束位置。"><span class="nav-number">5.</span> <span class="nav-text">7.全局变量的作用范围：从当前全局变量的声明位置到最后一个script标签的结束位置。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-JavaScript预解析是把变量、函数以及函数的参数预解析到他们能调用的环境中，并将其赋一个初始值。"><span class="nav-number">6.</span> <span class="nav-text">8.JavaScript预解析是把变量、函数以及函数的参数预解析到他们能调用的环境中，并将其赋一个初始值。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9-变量预解析与变量值修改"><span class="nav-number">7.</span> <span class="nav-text">9.变量预解析与变量值修改</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10-执行环境——每个函数都有自己的执行环境。当执行流进入一个函数时，函数的环境就会被推入一个环境栈中。而在函数执行后，栈将其环境弹出，把控制权返回给之前的执行环境。也是一个环境。"><span class="nav-number">8.</span> <span class="nav-text">10.执行环境——每个函数都有自己的执行环境。当执行流进入一个函数时，函数的环境就会被推入一个环境栈中。而在函数执行后，栈将其环境弹出，把控制权返回给之前的执行环境。也是一个环境。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#11-元素-scrollTop含义为元素滚动条的向下滚动的距离、元素可视区向下移动的距离、元素向上卷动的距离。"><span class="nav-number">9.</span> <span class="nav-text">11.元素.scrollTop含义为元素滚动条的向下滚动的距离、元素可视区向下移动的距离、元素向上卷动的距离。</span></a></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner"> <div class="copyright" >
+  
+  &copy; &nbsp; 
+  <span itemprop="copyrightYear">2017
+  </span>
+  <span class="with-love">
+    <i class="icon-next-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">author
+  </span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme by <a class="theme-link" href="http://blog.idhyt.com">idhyt</a>.<a class="theme-link" href="https://github.com/idhyt/hexo-theme-next/tree/magiclamp">Mala</a>
+</div>
+
+<!-- busuanzi -->
+
+
+
+ </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+  
+    
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"antsljx"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+    
+
+    
+  
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.5.1"></script>
+
+
+  <script type="text/javascript" src="/js/helpers.js?v=0.4.5.1"></script>
+  
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/js/motion_global.js?v=0.4.5.1" id="motion.global"></script>
+
+
+
+
+  <script type="text/javascript" src="/js/nav-toggle.js?v=0.4.5.1"></script>
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.5.1" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 0.4 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    var $tocContent = $('.post-toc-content');
+    if (isDesktop() && CONFIG.sidebar === 'post') {
+      if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+        displaySidebar();
+      }
+    }
+  });
+</script>
+
+
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      if (CONFIG.sidebar === 'always') {
+        displaySidebar();
+      }
+      if (isMobile()) {
+        FastClick.attach(document.body);
+      }
+    });
+  </script>
+
+  
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/lazyload.js"></script>
+  <script type="text/javascript">
+    $(function () {
+      $("#posts").find('img').lazyload({
+        placeholder: "/images/loading.gif",
+        effect: "fadeIn"
+      });
+    });
+  </script>
+</body>
+</html>
