@@ -1,0 +1,1040 @@
+
+<!doctype html>
+<html class="theme-next use-motion theme-next-mala">
+<head>
+  
+
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
+
+
+
+
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.5.1"/>
+
+
+    <meta name="description" content="description" />
+
+
+
+  <meta name="keywords" content="javascript组件," />
+
+
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
+
+
+<meta name="description" content="组件（Component）是 Vue.js 最强大的功能之一。组件可以扩展 HTML元素，封装可重用的代码。在较高层面上，组件是自定义元素，Vue.js 的编译器为它添加特殊功能。在有些情况下，组件也可以是原生 HTML 元素的形式，以 is 特性扩展。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vue 组件">
+<meta property="og:url" content="http://yoursite.com/2016/09/30/vue组件/index.html">
+<meta property="og:site_name" content="ants的博客">
+<meta property="og:description" content="组件（Component）是 Vue.js 最强大的功能之一。组件可以扩展 HTML元素，封装可重用的代码。在较高层面上，组件是自定义元素，Vue.js 的编译器为它添加特殊功能。在有些情况下，组件也可以是原生 HTML 元素的形式，以 is 特性扩展。">
+<meta property="og:updated_time" content="2017-03-13T13:16:20.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Vue 组件">
+<meta name="twitter:description" content="组件（Component）是 Vue.js 最强大的功能之一。组件可以扩展 HTML元素，封装可重用的代码。在较高层面上，组件是自定义元素，Vue.js 的编译器为它添加特殊功能。在有些情况下，组件也可以是原生 HTML 元素的形式，以 is 特性扩展。">
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: 'Mala',
+    sidebar: 'post'
+  };
+</script>
+
+  <title> Vue 组件 | ants的博客 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  <!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+  
+
+
+
+  <div class="container one-column page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><h1 class="site-meta">
+  <span class="logo-line-before"><i></i></span>
+  <a href="/" class="brand" rel="start">
+      <span class="logo">
+        <i class="icon-next-logo"></i>
+      </span>
+      <span class="site-title">随新所遇</span>
+  </a>
+  <span class="logo-line-after"><i></i></span>
+</h1>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            <i class="menu-item-icon icon-next-home"></i> <br />
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            <i class="menu-item-icon icon-next-categories"></i> <br />
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            <i class="menu-item-icon icon-next-archives"></i> <br />
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            <i class="menu-item-icon icon-next-tags"></i> <br />
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            <i class="menu-item-icon icon-next-about"></i> <br />
+            关于
+          </a>
+        </li>
+      
+
+      
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    
+      
+
+      
+        <style type="text/css">
+
+    .circle {
+        width: 40px;
+        height: 40px;
+        background: #555 no-repeat;
+        cursor: move;
+    }
+
+    .assist-btn {
+        position: fixed;
+        top: 50％;
+        left: 10px;
+        -moz-border-radius: 50px;
+        -webkit-border-radius: 50px;
+        border-radius: 50px;
+        outline: none;
+        border: none;
+        color: #87daff;
+    }
+
+</style>
+
+<script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+<script type="text/javascript">
+    // 浮动圆点展开与收缩
+    /*
+    $(function () {
+        var assist_box = $('.assist-box');
+        $('#assist_btn').hover(function () {
+            assist_box.stop().show(300);
+        }, function () {
+            assist_box.stop().hide(150);
+        })
+    });
+    */  
+    //浮动圆点拖动
+    $(function () {
+        var box = document.getElementById('assist_btn');
+        box.onmousedown = function (event) {
+            var e = event || window.event,
+                t = e.target || e.srcElement,
+                // 鼠标按下时的坐标x1,y1
+                x1 = e.clientX,
+                y1 = e.clientY,
+                //鼠标按下时的左右偏移量
+                dragLeft = this.offsetLeft,
+                dragTop = this.offsetTop;
+
+            document.onmousemove = function (event) {
+                var e = event || window.event,
+                    t = e.target || e.srcElement,
+                    // 鼠标移动时的动态坐标
+                    x2 = e.clientX,
+                    y2 = e.clientY,
+                    // 鼠标移动时的坐标的变化量
+                    x = x2 - x1,
+                    y = y2 - y1;
+                box.style.left = (dragLeft + x) + 'px';
+                box.style.top = (dragTop + y) + 'px';
+            }
+
+            document.onmouseup = function () {
+                this.onmousemove = null;
+            }
+        }
+    });
+
+/*
+    $whitesmoke   = #f5f5f5
+    $gainsboro    = #eee
+    $gray-lighter = #ddd
+    $grey-light   = #ccc
+    $grey         = #bbb
+    $grey-dark    = #999
+    $grey-dim     = #666
+    $black-light  = #555
+    $black-deep   = #222
+    $red          = #ff2a2a
+    $blue-bright  = #87daff
+    $blue         = #0684bd
+    $blue-deep    = #262a30
+*/
+    // white theme
+    var body = {color: "#555", background: "white"};
+    var a_tag = {color: "#222"};
+    var header = { background: "#f5f5f5"};
+    var logo_line_i = {background: "#222"};
+    // var post_code = {background: "#eee", color: "#222"};
+
+    function switch_theme() {
+        $("body").css(body);
+        $("a:not('.links-of-author-item a, .site-state-item a, .site-state-posts a, .feed-link a, .motion-element a, .post-tags a, .show-commit-cls a, #donate_board a')").css(a_tag);
+        $(".header, .footer").css(header);
+        $(".logo-line-before i, .logo-line-after i").css(logo_line_i);
+        //$(".post code").css(post_code);
+        $("#idhyt-surprise-ball #idhyt-surprise-ball-animation .drag").css(a_tag);
+        $(".post-title-link, .posts-expand .post-meta, .post-comments-count, .disqus-comment-count, .post-category a, .post-nav-next a, .post-nav-item a").css(a_tag);
+        
+        // $("code").css({color: '#c5c8c6', background: '#1d1f21'});
+        $("#assist_btn").hide(1500);
+    }
+
+    $(function () {
+        $("#assist_btn").dblclick(function() {
+            switch_theme();
+        });
+    });
+
+</script>
+
+<div>
+
+    <button class="assist-btn circle" id="assist_btn" title="双击切换">
+        亮
+    </button>
+
+</div>
+
+
+
+
+
+
+
+
+
+      
+
+    
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content"> 
+
+  <div id="posts" class="posts-expand">
+    
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              Vue 组件
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2016-09-30T20:46:28+08:00" content="2016-09-30">
+            2016-09-30
+          </time>
+        </span>
+
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; 分类于
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <a href="/categories/vuejs/" itemprop="url" rel="index">
+                  <span itemprop="name">vuejs</span>
+                </a>
+              </span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <!--
+              <a href="/2016/09/30/vue组件/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/30/vue组件/" itemprop="commentsCount"></span>
+              </a>
+              -->
+              <a href="/2016/09/30/vue组件/#comments" itemprop="discussionUrl">
+                <span>评论</span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <span itemprop="articleBody"><h4 id="什么是组件？"><a href="#什么是组件？" class="headerlink" title="什么是组件？"></a>什么是组件？</h4><p>组件（Component）是 Vue.js 最强大的功能之一。组件可以扩展 HTML元素，封装可重用的代码。在较高层面上，组件是自定义元素，Vue.js 的编译器为它添加特殊功能。在有些情况下，组件也可以是原生 HTML 元素的形式，以 is 特性扩展。</p>
+<h4 id="使用组件"><a href="#使用组件" class="headerlink" title="使用组件"></a>使用组件</h4><h5 id="注册"><a href="#注册" class="headerlink" title="注册"></a>注册</h5><p>前面已经提到，可以用 Vue.extend() 创建一个组件构造器：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var MyComponent = Vue.extend(&#123;</div><div class="line">  // 选项...</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>要把这个构造器用作组件，需要用Vue.component(tag, constructor) 注册 ：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">/ 全局注册组件，tag 为 my-component</div><div class="line">Vue.component(<span class="string">'my-component'</span>, MyComponent)</div></pre></td></tr></table></figure>
+<p>对于自定义标签名字，Vue.js 不强制要求遵循 W3C 规则（小写，并且包含一个短杠）。 组件在注册之后，便可以在父实例的模块中以自定义元素 &lt; my-component &gt; 的形式使用。要确保在初始化根实例之前注册了组件：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">&lt;html&gt;</div><div class="line">	&lt;head&gt;</div><div class="line">		&lt;meta charset=<span class="string">"utf-8"</span>&gt;</div><div class="line">		&lt;title&gt;hello word&lt;/title&gt;</div><div class="line">		&lt;script src=<span class="string">"http://static.runoob.com/assets/vue/1.0.11/vue.min.js"</span>&gt;&lt;/script&gt;</div><div class="line">	&lt;/head&gt;</div><div class="line">	&lt;body&gt;</div><div class="line">		&lt;div id=<span class="string">"app"</span>&gt;</div><div class="line">			&lt;my-component&gt;&lt;/my-component&gt;</div><div class="line">		&lt;/div&gt;</div><div class="line">		&lt;script&gt;</div><div class="line">			//定义</div><div class="line">			var myComponent = Vue.extend(&#123;</div><div class="line">				template:<span class="string">'&lt;div&gt; component test!&lt;/div&gt;'</span></div><div class="line">			&#125;)</div><div class="line">			//注册</div><div class="line">			Vue.component(<span class="string">'my-component'</span>,myComponent)</div><div class="line">			//创建根实例</div><div class="line">			new Vue(&#123;</div><div class="line">				el:<span class="string">'#app'</span></div><div class="line">			&#125;)</div><div class="line">		&lt;/script&gt;</div><div class="line">	&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+<p>渲染为：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;div&gt; component <span class="built_in">test</span>!&lt;/div&gt;</div></pre></td></tr></table></figure>
+<p>注意组件的模板替换了自定义元素，自定义元素的作用只是作为一个挂载点。可以用实例选项 replace 决定是否替换。</p>
+<h4 id="局部注册"><a href="#局部注册" class="headerlink" title="局部注册"></a>局部注册</h4><p>不需要全局注册每个组件。可以让组件只能用在其它组件内，用实例选项 components 注册：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line">&lt;html&gt;</div><div class="line">	&lt;head&gt;</div><div class="line">		&lt;meta charset=<span class="string">"utf-8"</span>&gt;</div><div class="line">		&lt;title&gt;hello word&lt;/title&gt;</div><div class="line">		&lt;script src=<span class="string">"http://static.runoob.com/assets/vue/1.0.11/vue.min.js"</span>&gt;&lt;/script&gt;</div><div class="line">	&lt;/head&gt;</div><div class="line">	&lt;body&gt;</div><div class="line">		&lt;div id=<span class="string">"app"</span>&gt;</div><div class="line">			&lt;my-parent&gt;</div><div class="line">			&lt;/my-parent&gt;</div><div class="line">		&lt;/div&gt;</div><div class="line">		&lt;script&gt;</div><div class="line">			//定义子组件</div><div class="line">			var Child = Vue.extend(&#123;</div><div class="line">				template:<span class="string">'&lt;div&gt; component test Child!&lt;/div&gt;'</span></div><div class="line">			&#125;)</div><div class="line">			//定义父组件</div><div class="line">			var Parent = Vue.extend(&#123;</div><div class="line">				template:<span class="string">'&lt;div&gt;&lt;my-child&gt;&lt;/my-child&gt;&lt;/div&gt;'</span>,</div><div class="line">				  components: &#123;</div><div class="line">				    // &lt;my-child&gt; 只能用在父组件模板内</div><div class="line">				    <span class="string">'my-child'</span>: Child</div><div class="line">				  &#125;</div><div class="line">			&#125;)</div><div class="line">			//注册</div><div class="line">			Vue.component(<span class="string">'my-parent'</span>,Parent)</div><div class="line">			//创建根实例</div><div class="line">			new Vue(&#123;</div><div class="line">				el:<span class="string">'#app'</span></div><div class="line">			&#125;)</div><div class="line">		&lt;/script&gt;</div><div class="line">	&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+<p>这种封装也适用于其它资源，如指令、过滤器和过渡</p>
+<h4 id="注册语法糖"><a href="#注册语法糖" class="headerlink" title="注册语法糖"></a>注册语法糖</h4><p>为了让事件更简单，可以直接传入选项对象而不是构造器给 Vue.component() 和 component 选项。Vue.js 在背后自动调用 Vue.extend()：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">// 在一个步骤中扩展与注册</div><div class="line">Vue.component(<span class="string">'my-component'</span>, &#123;</div><div class="line">  template: <span class="string">'&lt;div&gt;A custom component!&lt;/div&gt;'</span></div><div class="line">&#125;)</div><div class="line">// 局部注册也可以这么做</div><div class="line">var Parent = Vue.extend(&#123;</div><div class="line">  components: &#123;</div><div class="line">    <span class="string">'my-component'</span>: &#123;</div><div class="line">      template: <span class="string">'&lt;div&gt;A custom component!&lt;/div&gt;'</span></div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<h4 id="组件选项问题"><a href="#组件选项问题" class="headerlink" title="组件选项问题"></a>组件选项问题</h4><p>传入 Vue 构造器的多数选项也可以用在 Vue.extend() 中，不过有两个特例： data 和 el。试想如果我们简单地把一个对象作为 data 选项传给 Vue.extend()：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var data = &#123; a: 1 &#125;</div><div class="line">var MyComponent = Vue.extend(&#123;</div><div class="line">  data: data</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>这么做的问题是 MyComponent 所有的实例将共享同一个 data 对象！这基本不是我们想要的，因此我们应当使用一个函数作为 data 选项，让这个函数返回一个新对象：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var MyComponent = Vue.extend(&#123;</div><div class="line">  data: <span class="function"><span class="title">function</span></span> () &#123;</div><div class="line">    <span class="built_in">return</span> &#123; a: 1 &#125;</div><div class="line">  &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>同理，el 选项用在 Vue.extend() 中时也须是一个函数。</p>
+<h4 id="模板解析"><a href="#模板解析" class="headerlink" title="模板解析"></a>模板解析</h4><p>Vue 的模板是 DOM 模板，使用浏览器原生的解析器而不是自己实现一个。相比字符串模板，DOM 模板有一些好处，但是也有问题，它必须是有效的 HTML 片段。一些 HTML 元素对什么元素可以放在它里面有限制。常见的限制：</p>
+<p>Vue 的模板是 DOM 模板，使用浏览器原生的解析器而不是自己实现一个。相比字符串模板，DOM 模板有一些好处，但是也有问题，它必须是有效的 HTML 片段。一些 HTML 元素对什么元素可以放在它里面有限制。常见的限制：</p>
+<p>a 不能包含其它的交互元素（如按钮，链接）<br>ul 和 ol 只能直接包含 li<br>select 只能包含 option 和 optgroup<br>table 只能直接包含 thead, tbody, tfoot, tr, caption, col, colgroup<br>tr 只能直接包含 th 和 td</p>
+<p>在实际中，这些限制会导致意外的结果。尽管在简单的情况下它可能可以工作，但是你不能依赖自定义组件在浏览器验证之前的展开结果。例如</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;my-select&gt;&lt;option&gt;...&lt;/option&gt;&lt;/my-select&gt;</div></pre></td></tr></table></figure>
+<p>不是有效的模板，即使 my-select 组件最终展开为</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;select&gt;...&lt;/select&gt;</div></pre></td></tr></table></figure>
+<p>自定义标签（包括自定义元素和特殊标签，如 component 、 template 、 partial ）不能用在 ul, select, table 等对内部元素有限制的标签内。放在这些元素内部的自定义标签将被提到元素的外面，因而渲染不正确。</p>
+<h4 id="对于自定义元素，应当使用-is-特性："><a href="#对于自定义元素，应当使用-is-特性：" class="headerlink" title="对于自定义元素，应当使用 is 特性："></a>对于自定义元素，应当使用 is 特性：</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&lt;table&gt;</div><div class="line">  &lt;tr is=<span class="string">"my-component"</span>&gt;&lt;/tr&gt;</div><div class="line">&lt;/table&gt;</div><div class="line">&lt;template&gt; 不能用在 &lt;table&gt; 内，这时应使用 &lt;tbody&gt;，&lt;table&gt; 可以有多个 &lt;tbody&gt;：</div><div class="line">&lt;table&gt;</div><div class="line">  &lt;tbody v-for=<span class="string">"item in items"</span>&gt;</div><div class="line">    &lt;tr&gt;Even row&lt;/tr&gt;</div><div class="line">    &lt;tr&gt;Odd row&lt;/tr&gt;</div><div class="line">  &lt;/tbody&gt;</div><div class="line">&lt;/table&gt;</div></pre></td></tr></table></figure>
+<h4 id="Props-使用-Props-传递数据"><a href="#Props-使用-Props-传递数据" class="headerlink" title="Props 使用 Props 传递数据"></a>Props 使用 Props 传递数据</h4><p>组件实例的作用域是孤立的。这意味着不能并且不应该在子组件的模板内直接引用父组件的数据。可以使用 props 把数据传给子组件。 “prop” 是组件数据的一个字段，期望从父组件传下来。子组件需要显式地用 props 选项 声明 props：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">&lt;html&gt;</div><div class="line">	&lt;head&gt;</div><div class="line">		&lt;meta charset=<span class="string">"utf-8"</span>&gt;</div><div class="line">		&lt;title&gt;hello word&lt;/title&gt;</div><div class="line">		&lt;script src=<span class="string">"http://static.runoob.com/assets/vue/1.0.11/vue.min.js"</span>&gt;&lt;/script&gt;</div><div class="line">	&lt;/head&gt;</div><div class="line">	&lt;body&gt;</div><div class="line">		&lt;div id=<span class="string">"app"</span>&gt;</div><div class="line">			&lt;my-parent msg=<span class="string">'hello'</span>&gt;</div><div class="line">			&lt;/my-parent&gt;</div><div class="line">		&lt;/div&gt;</div><div class="line">		&lt;script&gt;</div><div class="line">			</div><div class="line">			Vue.component(<span class="string">'my-parent'</span>,&#123;</div><div class="line">				props:[<span class="string">'msg'</span>],</div><div class="line">				template:<span class="string">'&lt;span&gt;&#123;&#123;msg&#125;&#125;&lt;/span&gt;'</span></div><div class="line">			&#125;)</div><div class="line">			//创建根实例</div><div class="line">			new Vue(&#123;</div><div class="line">				el:<span class="string">'#app'</span></div><div class="line">			&#125;)</div><div class="line">		&lt;/script&gt;</div><div class="line">	&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+<p>HTML 特性不区分大小写。名字形式为 camelCase 的 prop 用作特性时，需要转为 kebab-case（短横线隔开）：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">Vue.component(<span class="string">'child'</span>, &#123;</div><div class="line">  // camelCase <span class="keyword">in</span> JavaScript</div><div class="line">  props: [<span class="string">'myMessage'</span>],</div><div class="line">  template: <span class="string">'&lt;span&gt;&#123;&#123; myMessage &#125;&#125;&lt;/span&gt;'</span></div><div class="line">&#125;)</div><div class="line">&lt;!-- kebab-case <span class="keyword">in</span> HTML --&gt;</div><div class="line">&lt;child my-message=<span class="string">"hello!"</span>&gt;&lt;/child&gt;</div></pre></td></tr></table></figure>
+<h4 id="动态-Props"><a href="#动态-Props" class="headerlink" title="动态 Props"></a>动态 Props</h4><p>类似于用 v-bind 绑定 HTML 特性到一个表达式，也可以用 v-bind 绑定动态 Props 到父组件的数据。每当父组件的数据变化时，也会传导给子组件：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;div&gt;</div><div class="line">  &lt;input v-model=<span class="string">"parentMsg"</span>&gt;</div><div class="line">  &lt;br&gt;</div><div class="line">  &lt;child v-bind:my-message=<span class="string">"parentMsg"</span>&gt;&lt;/child&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
+<p>使用 v-bind 的缩写语法通常更简单：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;child :my-message=<span class="string">"parentMsg"</span>&gt;&lt;/child&gt;</div></pre></td></tr></table></figure>
+<p>实例</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">&lt;html&gt;</div><div class="line">	&lt;head&gt;</div><div class="line">		&lt;meta charset=<span class="string">"utf-8"</span>&gt;</div><div class="line">		&lt;title&gt;hello word&lt;/title&gt;</div><div class="line">		&lt;script src=<span class="string">"http://static.runoob.com/assets/vue/1.0.11/vue.min.js"</span>&gt;&lt;/script&gt;</div><div class="line">	&lt;/head&gt;</div><div class="line">	&lt;body&gt;</div><div class="line">		&lt;div id=<span class="string">"app"</span>&gt;</div><div class="line">			&lt;input <span class="built_in">type</span>=<span class="string">"text"</span> v-model = <span class="string">'mymsg'</span>&gt;</div><div class="line">			&lt;my-parent :msg=<span class="string">'mymsg'</span>&gt;</div><div class="line">			&lt;/my-parent&gt;</div><div class="line">		&lt;/div&gt;</div><div class="line">		&lt;script&gt;</div><div class="line">			</div><div class="line">			Vue.component(<span class="string">'my-parent'</span>,&#123;</div><div class="line">				props:[<span class="string">'msg'</span>],</div><div class="line">				template:<span class="string">'&lt;span&gt;&#123;&#123;msg&#125;&#125;&lt;/span&gt;'</span></div><div class="line">			&#125;)</div><div class="line">			//创建根实例</div><div class="line">			new Vue(&#123;</div><div class="line">				el:<span class="string">'#app'</span>,</div><div class="line">				data:&#123;</div><div class="line">					mymsg:<span class="string">'hello'</span></div><div class="line">				&#125;</div><div class="line">			&#125;)</div><div class="line">		&lt;/script&gt;</div><div class="line">	&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+<h4 id="字面量语法-vs-动态语法"><a href="#字面量语法-vs-动态语法" class="headerlink" title="字面量语法 vs. 动态语法"></a>字面量语法 vs. 动态语法</h4><p>初学者常犯的一个错误是使用字面量语法传递数值：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;!-- 传递了一个字符串 <span class="string">"1"</span> --&gt;</div><div class="line">&lt;comp some-prop=<span class="string">"1"</span>&gt;&lt;/comp&gt;</div></pre></td></tr></table></figure>
+<p>因为它是一个字面 prop，它的值以字符串 “1” 而不是以实际的数字传下去。如果想传递一个实际的 JavaScript 数字，需要使用动态语法，从而让它的值被当作 JavaScript 表达式计算：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;!-- 传递实际的数字  --&gt;</div><div class="line">&lt;comp :some-prop=<span class="string">"1"</span>&gt;&lt;/comp&gt;</div></pre></td></tr></table></figure>
+<h4 id="Prop-绑定类型"><a href="#Prop-绑定类型" class="headerlink" title="Prop 绑定类型"></a>Prop 绑定类型</h4><p>prop 默认是单向绑定：当父组件的属性变化时，将传导给子组件，但是反过来不会。这是为了防止子组件无意修改了父组件的状态——这会让应用的数据流难以理解。不过，也可以使用 .sync 或 .once 绑定修饰符显式地强制双向或单次绑定： 比较语法：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;!-- 默认为单向绑定 --&gt;</div><div class="line">&lt;child :msg=<span class="string">"parentMsg"</span>&gt;&lt;/child&gt;</div><div class="line">&lt;!-- 双向绑定 --&gt;</div><div class="line">&lt;child :msg.sync=<span class="string">"parentMsg"</span>&gt;&lt;/child&gt;</div><div class="line">&lt;!-- 单次绑定 --&gt;</div><div class="line">&lt;child :msg.once=<span class="string">"parentMsg"</span>&gt;&lt;/child&gt;</div></pre></td></tr></table></figure>
+<p>双向绑定会把子组件的 msg 属性同步回父组件的 parentMsg 属性。单次绑定在建立之后不会同步之后的变化。 注意如果 prop 是一个对象或数组，是按引用传递。在子组件内修改它会影响父组件的状态，不管是使用哪种绑定类型。</p>
+<h4 id="Prop-验证"><a href="#Prop-验证" class="headerlink" title="Prop 验证"></a>Prop 验证</h4><p>组件可以为 props 指定验证要求。当组件给其他人使用时这很有用，因为这些验证要求构成了组件的 API，确保其他人正确地使用组件。此时 props 的值是一个对象，包含验证要求：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div></pre></td><td class="code"><pre><div class="line">Vue.component(<span class="string">'example'</span>, &#123;</div><div class="line">  props: &#123;</div><div class="line">    // 基础类型检测 （`null` 意思是任何类型都可以）</div><div class="line">    propA: Number,</div><div class="line">    // 多种类型 (1.0.21+)</div><div class="line">    propM: [String, Number],</div><div class="line">    // 必需且是字符串</div><div class="line">    propB: &#123;</div><div class="line">      <span class="built_in">type</span>: String,</div><div class="line">      required: <span class="literal">true</span></div><div class="line">    &#125;,</div><div class="line">    // 数字，有默认值</div><div class="line">    propC: &#123;</div><div class="line">      <span class="built_in">type</span>: Number,</div><div class="line">      default: 100</div><div class="line">    &#125;,</div><div class="line">    // 对象/数组的默认值应当由一个函数返回</div><div class="line">    propD: &#123;</div><div class="line">      <span class="built_in">type</span>: Object,</div><div class="line">      default: <span class="function"><span class="title">function</span></span> () &#123;</div><div class="line">        <span class="built_in">return</span> &#123; msg: <span class="string">'hello'</span> &#125;</div><div class="line">      &#125;</div><div class="line">    &#125;,</div><div class="line">    // 指定这个 prop 为双向绑定</div><div class="line">    // 如果绑定类型不对将抛出一条警告</div><div class="line">    propE: &#123;</div><div class="line">      twoWay: <span class="literal">true</span></div><div class="line">    &#125;,</div><div class="line">    // 自定义验证函数</div><div class="line">    propF: &#123;</div><div class="line">      validator: <span class="keyword">function</span> (value) &#123;</div><div class="line">        <span class="built_in">return</span> value &gt; 10</div><div class="line">      &#125;</div><div class="line">    &#125;,</div><div class="line">    // 转换函数（1.0.12 新增）</div><div class="line">    // 在设置值之前转换值</div><div class="line">    propG: &#123;</div><div class="line">      coerce: <span class="keyword">function</span> (val) &#123;</div><div class="line">        <span class="built_in">return</span> val + <span class="string">''</span> // 将值转换为字符串</div><div class="line">      &#125;</div><div class="line">    &#125;,</div><div class="line">    propH: &#123;</div><div class="line">      coerce: <span class="keyword">function</span> (val) &#123;</div><div class="line">        <span class="built_in">return</span> JSON.parse(val) // 将 JSON 字符串转换为对象</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>type 可以是下面原生构造器：</p>
+<p>String Number Boolean Function Object Array type 也可以是一个自定义构造器，使用 instanceof 检测。</p>
+<p>当 prop 验证失败了，Vue 将拒绝在子组件上设置此值，如果使用的是开发版本会抛出一条警告。</p>
+<h4 id="父子组件通信"><a href="#父子组件通信" class="headerlink" title="父子组件通信"></a>父子组件通信</h4><p>父链</p>
+<p>子组件可以用 this.$parent 访问它的父组件。根实例的后代可以用 this.$root 访问它。父组件有一个数组 this.$children，包含它所有的子元素。</p>
+<p>尽管可以访问父链上任意的实例，不过子组件应当避免直接依赖父组件的数据，尽量显式地使用 props 传递数据。另外，在子组件中修改父组件的状态是非常糟糕的做法，因为：</p>
+<p>这让父组件与子组件紧密地耦合；</p>
+<p>只看父组件，很难理解父组件的状态。因为它可能被任意子组件修改！理想情况下，只有组件自己能修改它的状态。</p>
+<p>自定义事件</p>
+<p>Vue 实例实现了一个自定义事件接口，用于在组件树中通信。这个事件系统独立于原生 DOM 事件，用法也不同。</p>
+<p>每个 Vue 实例都是一个事件触发器：</p>
+<p>使用 $on() 监听事件；</p>
+<p>使用 $emit() 在它上面触发事件；</p>
+<p>使用 $dispatch() 派发事件，事件沿着父链冒泡；</p>
+<p>使用 $broadcast() 广播事件，事件向下传导给所有的后代。</p>
+<p>不同于 DOM 事件，Vue 事件在冒泡过程中第一次触发回调之后自动停止冒泡，除非回调明确返回 true。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line">&lt;!-- 子组件模板 --&gt;</div><div class="line">&lt;template id=<span class="string">"child-template"</span>&gt;</div><div class="line">  &lt;input v-model=<span class="string">"msg"</span>&gt;</div><div class="line">  &lt;button v-on:click=<span class="string">"notify"</span>&gt;Dispatch Event&lt;/button&gt;</div><div class="line">&lt;/template&gt;</div><div class="line">&lt;!-- 父组件模板 --&gt;</div><div class="line">&lt;div id=<span class="string">"events-example"</span>&gt;</div><div class="line">  &lt;p&gt;Messages: &#123;&#123; messages | json &#125;&#125;&lt;/p&gt;</div><div class="line">  &lt;child&gt;&lt;/child&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">// 注册子组件</div><div class="line">// 将当前消息派发出去</div><div class="line">Vue.component(<span class="string">'child'</span>, &#123;</div><div class="line">  template: <span class="string">'#child-template'</span>,</div><div class="line">  data: <span class="function"><span class="title">function</span></span> () &#123;</div><div class="line">    <span class="built_in">return</span> &#123; msg: <span class="string">'hello'</span> &#125;</div><div class="line">  &#125;,</div><div class="line">  methods: &#123;</div><div class="line">    notify: <span class="function"><span class="title">function</span></span> () &#123;</div><div class="line">      <span class="keyword">if</span> (this.msg.trim()) &#123;</div><div class="line">        this.<span class="variable">$dispatch</span>(<span class="string">'child-msg'</span>, this.msg)</div><div class="line">        this.msg = <span class="string">''</span></div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;)</div><div class="line">// 初始化父组件</div><div class="line">// 将收到消息时将事件推入一个数组</div><div class="line">var parent = new Vue(&#123;</div><div class="line">  el: <span class="string">'#events-example'</span>,</div><div class="line">  data: &#123;</div><div class="line">    messages: []</div><div class="line">  &#125;,</div><div class="line">  // 在创建实例时 `events` 选项简单地调用 `<span class="variable">$on</span>`</div><div class="line">  events: &#123;</div><div class="line">    <span class="string">'child-msg'</span>: <span class="keyword">function</span> (msg) &#123;</div><div class="line">      // 事件回调内的 `this` 自动绑定到注册它的实例上</div><div class="line">      this.messages.push(msg)</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<h4 id="使用-v-on-绑定自定义事件"><a href="#使用-v-on-绑定自定义事件" class="headerlink" title="使用 v-on 绑定自定义事件"></a>使用 v-on 绑定自定义事件</h4><p>从父组件的代码中不能直观的看到 “child-msg” 事件来自哪里。如果我们在模板中子组件用到的地方声明事件处理器会更好。为此子组件可以用 v-on 监听自定义事件：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;child v-on:child-msg=<span class="string">"handleIt"</span>&gt;&lt;/child&gt;</div></pre></td></tr></table></figure>
+<p>当子组件触发了 “child-msg” 事件，父组件的 handleIt 方法将被调用。所有影响父组件状态的代码放到父组件的 handleIt 方法中；子组件只关注触发事件。</p>
+<h4 id="子组件索引"><a href="#子组件索引" class="headerlink" title="子组件索引"></a>子组件索引</h4><p>尽管有 props 和 events，但是有时仍然需要在 JavaScript 中直接访问子组件。为此可以使用 v-ref 为子组件指定一个索引 ID。例如：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;div id=<span class="string">"parent"</span>&gt;</div><div class="line">  &lt;user-profile v-ref:profile&gt;&lt;/user-profile&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">var parent = new Vue(&#123; el: <span class="string">'#parent'</span> &#125;)</div><div class="line">// 访问子组件</div><div class="line">var child = parent.<span class="variable">$refs</span>.profile</div></pre></td></tr></table></figure>
+<p>v-ref 和 v-for 一起用时，ref 是一个数组或对象，包含相应的子组件。</p>
+<h4 id="使用-Slot-分发内容"><a href="#使用-Slot-分发内容" class="headerlink" title="使用 Slot 分发内容"></a>使用 Slot 分发内容</h4><p>在使用组件时，常常要像这样组合它们：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;app&gt;</div><div class="line">  &lt;app-header&gt;&lt;/app-header&gt;</div><div class="line">  &lt;app-footer&gt;&lt;/app-footer&gt;</div><div class="line">&lt;/app&gt;</div></pre></td></tr></table></figure>
+<p>注意两点：</p>
+<p>app 组件不知道它的挂载点会有什么内容，挂载点的内容是由 app 的父组件决定的。</p>
+<p>app 组件很可能有它自己的模板。</p>
+<p>为了让组件可以组合，我们需要一种方式来混合父组件的内容与子组件自己的模板。这个处理称为内容分发（或 “transclusion”，如果你熟悉 Angular）。Vue.js 实现了一个内容分发 API，参照了当前 Web 组件规范草稿，使用特殊的 slot 元素作为原始内容的插槽。</p>
+<h4 id="编译作用域"><a href="#编译作用域" class="headerlink" title="编译作用域"></a>编译作用域</h4><p>在深入内容分发 API 之前，我们先明确内容的编译作用域。假定模板为：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;child-component&gt;</div><div class="line">  &#123;&#123; msg &#125;&#125;</div><div class="line">&lt;/child-component&gt;</div></pre></td></tr></table></figure>
+<p>msg 应该绑定到父组件的数据，还是绑定到子组件的数据？答案是父组件。组件作用域简单地说是： 父组件模板的内容在父组件作用域内编译；子组件模板的内容在子组件作用域内编译 一个常见错误是试图在父组件模板内将一个指令绑定到子组件的属性/方法：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;!-- 无效 --&gt;</div><div class="line">&lt;child-component v-show=<span class="string">"someChildProperty"</span>&gt;&lt;/child-component&gt;</div></pre></td></tr></table></figure>
+<p>假定 someChildProperty 是子组件的属性，上例不会如预期那样工作。父组件模板不应该知道子组件的状态。 如果要绑定子组件内的指令到一个组件的根节点，应当在它的模板内这么做：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">Vue.component(<span class="string">'child-component'</span>, &#123;</div><div class="line">  // 有效，因为是在正确的作用域内</div><div class="line">  template: <span class="string">'&lt;div v-show="someChildProperty"&gt;Child&lt;/div&gt;'</span>,</div><div class="line">  data: <span class="function"><span class="title">function</span></span> () &#123;</div><div class="line">    <span class="built_in">return</span> &#123;</div><div class="line">      someChildProperty: <span class="literal">true</span></div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>类似地，分发内容是在父组件作用域内编译</p>
+<h4 id="单个-Slot"><a href="#单个-Slot" class="headerlink" title="单个 Slot"></a>单个 Slot</h4><p>父组件的内容将被抛弃，除非子组件模板包含 slot。如果子组件模板只有一个没有特性的 slot，父组件的整个内容将插到 slot 所在的地方并替换它。 标签的内容视为回退内容。回退内容在子组件的作用域内编译，当宿主元素为空并且没有内容供插入时显示这个回退内容。 假定 my-component 组件有下面模板：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;div&gt;</div><div class="line">  &lt;h1&gt;This is my component!&lt;/h1&gt;</div><div class="line">  &lt;slot&gt;</div><div class="line">    如果没有分发内容则显示我。</div><div class="line">  &lt;/slot&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
+<p>父组件模板：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;my-component&gt;</div><div class="line">  &lt;p&gt;This is some original content&lt;/p&gt;</div><div class="line">  &lt;p&gt;This is some more original content&lt;/p&gt;</div><div class="line">&lt;/my-component&gt;</div></pre></td></tr></table></figure>
+<p>渲染结果：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;div&gt;</div><div class="line">  &lt;h1&gt;This is my component!&lt;/h1&gt;</div><div class="line">  &lt;p&gt;This is some original content&lt;/p&gt;</div><div class="line">  &lt;p&gt;This is some more original content&lt;/p&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
+<h4 id="具名-Slot"><a href="#具名-Slot" class="headerlink" title="具名 Slot"></a>具名 Slot</h4><p>slot 元素可以用一个特殊特性 name 配置如何分发内容。多个 slot 可以有不同的名字。具名 slot 将匹配内容片段中有对应 slot 特性的元素。 仍然可以有一个匿名 slot，它是默认 slot，作为找不到匹配的内容片段的回退插槽。如果没有默认的 slot，这些找不到匹配的内容片段将被抛弃。</p>
+<p>例如，假定我们有一个 multi-insertion 组件，它的模板为：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;div&gt;</div><div class="line">  &lt;slot name=<span class="string">"one"</span>&gt;&lt;/slot&gt;</div><div class="line">  &lt;slot&gt;&lt;/slot&gt;</div><div class="line">  &lt;slot name=<span class="string">"two"</span>&gt;&lt;/slot&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
+<p>父组件模板：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;multi-insertion&gt;</div><div class="line">  &lt;p slot=<span class="string">"one"</span>&gt;One&lt;/p&gt;</div><div class="line">  &lt;p slot=<span class="string">"two"</span>&gt;Two&lt;/p&gt;</div><div class="line">  &lt;p&gt;Default A&lt;/p&gt;</div><div class="line">&lt;/multi-insertion&gt;</div></pre></td></tr></table></figure>
+<p>渲染结果为：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;div&gt;</div><div class="line">  &lt;p slot=<span class="string">"one"</span>&gt;One&lt;/p&gt;</div><div class="line">  &lt;p&gt;Default A&lt;/p&gt;</div><div class="line">  &lt;p slot=<span class="string">"two"</span>&gt;Two&lt;/p&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
+<p>在组合组件时，内容分发 API 是非常有用的机制。</p>
+<h4 id="动态组件"><a href="#动态组件" class="headerlink" title="动态组件"></a>动态组件</h4><p>多个组件可以使用同一个挂载点，然后动态地在它们之间切换。使用保留的 元素，动态地绑定到它的 is 特性：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">new Vue(&#123;</div><div class="line">  el: <span class="string">'body'</span>,</div><div class="line">  data: &#123;</div><div class="line">    currentView: <span class="string">'home'</span></div><div class="line">  &#125;,</div><div class="line">  components: &#123;</div><div class="line">    home: &#123; /* ... */ &#125;,</div><div class="line">    posts: &#123; /* ... */ &#125;,</div><div class="line">    archive: &#123; /* ... */ &#125;</div><div class="line">  &#125;</div><div class="line">&#125;)</div><div class="line">&lt;component :is=<span class="string">"currentView"</span>&gt;</div><div class="line">  &lt;!-- 组件在 vm.currentview 变化时改变 --&gt;</div><div class="line">&lt;/component&gt;</div></pre></td></tr></table></figure>
+<h4 id="activate-钩子"><a href="#activate-钩子" class="headerlink" title="activate 钩子"></a>activate 钩子</h4><p>在切换组件时，切入组件在切入前可能需要进行一些异步操作。为了控制组件切换时长，给切入组件添加 activate 钩子：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&lt;!-- 先淡出再淡入 --&gt;</div><div class="line">&lt;component</div><div class="line">  :is=<span class="string">"view"</span></div><div class="line">  transition=<span class="string">"fade"</span></div><div class="line">  transition-mode=<span class="string">"out-in"</span>&gt;</div><div class="line">&lt;/component&gt;</div><div class="line">.fade-transition &#123;</div><div class="line">  transition: opacity .3s ease;</div><div class="line">&#125;</div><div class="line">.fade-enter, .fade-leave &#123;</div><div class="line">  opacity: 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</span>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/javascript组件/" rel="tag">#javascript组件</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/09/26/ios倒计时bug解决/" rel="next">ios倒计时bug解决</a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div>
+      
+        <style type="text/css">
+
+    .donate_bar {
+        text-align: center;
+        margin-top : 5%;
+    }
+
+    .donate_bar.hidden {
+        display:none;
+    }
+/*
+    .donate_bar a.btn_donate {
+        display: inline-block;
+        width: 82px;
+        height: 82px;
+        margin-left:auto;
+        margin-right:auto;
+
+        background: url("http://img.t.sinajs.cn/t5/style/images/apps_PRF/e_media/btn_reward.gif") no-repeat;
+        _background: url("http://img.t.sinajs.cn/t5/style/images/apps_PRF/e_media/btn_reward.gif") no-repeat; 
+
+        -webkit-transition: background 0s;
+        -moz-transition: background 0s;
+        -o-transition: background 0s;
+        -ms-transition: background 0s;
+        transition: background 0s;
+    }
+*/
+    .donate_bar a.btn_donate:hover { 
+        // background-position: 0px -82px;
+        color: #87daff
+    }
+
+    .donate_bar .donate_txt {
+        display: block;
+        color: #9d9d9d;
+        font: 14px/2 "Microsoft Yahei";
+    }
+
+    .bold { 
+        font-weight: bold; 
+    }
+
+    .post-donate a {
+        border-bottom: 0px;
+    }
+
+    #donate_guide table {
+        border: none;
+    }
+
+    #donate_guide td {
+        border-bottom: none;
+        border-right: none;
+        background: #333333;
+        valign: top;
+    }
+
+</style>
+
+
+
+    
+
+    <div class ="post-donate">
+        <div id="donate_board" class="donate_bar center">
+              <a id="btn_donate" class="btn_donate" href="javascript:;" title="打赏">赏</a>
+              <span id="donate_txt" class="donate_txt">
+                   
+                        仅仅是一个功能
+                   
+              </span>
+            <br>
+        </div>  
+  
+        <div id="donate_guide" class="donate_bar center hidden">
+            <!--
+            
+                <a href="https://coding.net/u/antcljx/p/imgstore/git/raw/master/myblogimg/zfb.jpg" title="支付宝打赏" class="fancybox" rel="article0" 
+                    style="float:left;margin-left:25%;margin-right:10px;">
+                    <img src="https://coding.net/u/antcljx/p/imgstore/git/raw/master/myblogimg/zfb.jpg" title="" height="164px" width="164px">
+                </a> 
+              
+
+            
+                <a href="https://coding.net/u/antcljx/p/imgstore/git/raw/master/myblogimg/wx.jpg" title="微信打赏" class="fancybox" rel="article0"
+                    style="margin-right:30%">
+                    <img src="https://coding.net/u/antcljx/p/imgstore/git/raw/master/myblogimg/wx.jpg" title="" height="164px" width="164px">
+                </a>
+            
+            -->
+            <table>
+                <tr>
+                    <td>
+                        
+                            <a href="https://coding.net/u/antcljx/p/imgstore/git/raw/master/myblogimg/zfb.jpg" title="支付宝打赏" class="fancybox" rel="article0" 
+                                style="float:left;margin-left:25%;margin-right:10px;">
+                                <img src="https://coding.net/u/antcljx/p/imgstore/git/raw/master/myblogimg/zfb.jpg" title="" height="164px" width="164px">
+                            </a> 
+                         
+                    </td>
+                    <td>
+                        
+                            <a href="https://coding.net/u/antcljx/p/imgstore/git/raw/master/myblogimg/wx.jpg" title="微信打赏" class="fancybox" rel="article0"
+                                style="margin-right:30%">
+                                <img src="https://coding.net/u/antcljx/p/imgstore/git/raw/master/myblogimg/wx.jpg" title="" height="164px" width="164px">
+                            </a>
+                        
+                    </td>
+                </tr>
+            </table>
+
+        </div>
+
+        <script type="text/javascript">
+            document.getElementById('btn_donate').onclick = function() {
+                $('#donate_board').addClass('hidden');
+                // $('#donate_guide').removeClass('hidden');
+                $('#donate_guide').show(2000);
+            }
+
+        </script>
+    </div>
+
+    
+
+
+      
+    </div>
+
+    <div class="post-spread">
+      
+        <div class="bdsharebuttonbox">
+	<a href="#" class="bds_more" data-cmd="more"></a>
+	<a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+	<a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+	<a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+	<a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a>
+	<a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
+</div>
+<script>
+    window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
+
+ </div>
+
+        
+
+        
+          <div class="comments" id="comments">
+            
+              <div class="ds-thread" data-thread-key="2016/09/30/vue组件/"
+                   data-title="Vue 组件" data-url="http://yoursite.com/2016/09/30/vue组件/">
+              </div>
+            
+          </div>
+        
+      </div>
+
+      
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" src="/images/default_avatar.jpg" alt="author" itemprop="image"/>
+          <p class="site-author-name" itemprop="name">author</p>
+        </div>
+        <p class="site-description motion-element" itemprop="description">description</p>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">37</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            <a href="/categories">
+              <span class="site-state-item-count">8</span>
+              <span class="site-state-item-name">分类</span>
+              </a>
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">17</span>
+              <span class="site-state-item-name">标签</span>
+              </a>
+          </div>
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        <div class="links-of-friendly motion-element">
+          
+        </div>
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator"></div>
+          <div class="post-toc">
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#什么是组件？"><span class="nav-number">1.</span> <span class="nav-text">什么是组件？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用组件"><span class="nav-number">2.</span> <span class="nav-text">使用组件</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#注册"><span class="nav-number">2.1.</span> <span class="nav-text">注册</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#局部注册"><span class="nav-number">3.</span> <span class="nav-text">局部注册</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#注册语法糖"><span class="nav-number">4.</span> <span class="nav-text">注册语法糖</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#组件选项问题"><span class="nav-number">5.</span> <span class="nav-text">组件选项问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#模板解析"><span class="nav-number">6.</span> <span class="nav-text">模板解析</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#对于自定义元素，应当使用-is-特性："><span class="nav-number">7.</span> <span class="nav-text">对于自定义元素，应当使用 is 特性：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Props-使用-Props-传递数据"><span class="nav-number">8.</span> <span class="nav-text">Props 使用 Props 传递数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#动态-Props"><span class="nav-number">9.</span> <span class="nav-text">动态 Props</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#字面量语法-vs-动态语法"><span class="nav-number">10.</span> <span class="nav-text">字面量语法 vs. 动态语法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Prop-绑定类型"><span class="nav-number">11.</span> <span class="nav-text">Prop 绑定类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Prop-验证"><span class="nav-number">12.</span> <span class="nav-text">Prop 验证</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#父子组件通信"><span class="nav-number">13.</span> <span class="nav-text">父子组件通信</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用-v-on-绑定自定义事件"><span class="nav-number">14.</span> <span class="nav-text">使用 v-on 绑定自定义事件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#子组件索引"><span class="nav-number">15.</span> <span class="nav-text">子组件索引</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用-Slot-分发内容"><span class="nav-number">16.</span> <span class="nav-text">使用 Slot 分发内容</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#编译作用域"><span class="nav-number">17.</span> <span class="nav-text">编译作用域</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#单个-Slot"><span class="nav-number">18.</span> <span class="nav-text">单个 Slot</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#具名-Slot"><span class="nav-number">19.</span> <span class="nav-text">具名 Slot</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#动态组件"><span class="nav-number">20.</span> <span class="nav-text">动态组件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#activate-钩子"><span class="nav-number">21.</span> <span class="nav-text">activate 钩子</span></a></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner"> <div class="copyright" >
+  
+  &copy; &nbsp; 
+  <span itemprop="copyrightYear">2017
+  </span>
+  <span class="with-love">
+    <i class="icon-next-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">author
+  </span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme by <a class="theme-link" href="http://blog.idhyt.com">idhyt</a>.<a class="theme-link" href="https://github.com/idhyt/hexo-theme-next/tree/magiclamp">Mala</a>
+</div>
+
+<!-- busuanzi -->
+
+
+
+ </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+  
+    
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"antsljx"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+    
+
+    
+  
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.5.1"></script>
+
+
+  <script type="text/javascript" src="/js/helpers.js?v=0.4.5.1"></script>
+  
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/js/motion_global.js?v=0.4.5.1" id="motion.global"></script>
+
+
+
+
+  <script type="text/javascript" src="/js/nav-toggle.js?v=0.4.5.1"></script>
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.5.1" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 0.4 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    var $tocContent = $('.post-toc-content');
+    if (isDesktop() && CONFIG.sidebar === 'post') {
+      if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+        displaySidebar();
+      }
+    }
+  });
+</script>
+
+
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      if (CONFIG.sidebar === 'always') {
+        displaySidebar();
+      }
+      if (isMobile()) {
+        FastClick.attach(document.body);
+      }
+    });
+  </script>
+
+  
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/lazyload.js"></script>
+  <script type="text/javascript">
+    $(function () {
+      $("#posts").find('img').lazyload({
+        placeholder: "/images/loading.gif",
+        effect: "fadeIn"
+      });
+    });
+  </script>
+</body>
+</html>

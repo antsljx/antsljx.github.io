@@ -1,0 +1,962 @@
+
+<!doctype html>
+<html class="theme-next use-motion theme-next-mala">
+<head>
+  
+
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
+
+
+
+
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.5.1"/>
+
+
+    <meta name="description" content="description" />
+
+
+
+  <meta name="keywords" content="javascript," />
+
+
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
+
+
+<meta name="description" content="表单控件绑定">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vue 表单控件绑定">
+<meta property="og:url" content="http://yoursite.com/2016/09/12/vue表单控件绑定/index.html">
+<meta property="og:site_name" content="ants的博客">
+<meta property="og:description" content="表单控件绑定">
+<meta property="og:updated_time" content="2017-03-13T12:31:47.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Vue 表单控件绑定">
+<meta name="twitter:description" content="表单控件绑定">
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: 'Mala',
+    sidebar: 'post'
+  };
+</script>
+
+  <title> Vue 表单控件绑定 | ants的博客 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  <!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+  
+
+
+
+  <div class="container one-column page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><h1 class="site-meta">
+  <span class="logo-line-before"><i></i></span>
+  <a href="/" class="brand" rel="start">
+      <span class="logo">
+        <i class="icon-next-logo"></i>
+      </span>
+      <span class="site-title">随新所遇</span>
+  </a>
+  <span class="logo-line-after"><i></i></span>
+</h1>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            <i class="menu-item-icon icon-next-home"></i> <br />
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            <i class="menu-item-icon icon-next-categories"></i> <br />
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            <i class="menu-item-icon icon-next-archives"></i> <br />
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            <i class="menu-item-icon icon-next-tags"></i> <br />
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            <i class="menu-item-icon icon-next-about"></i> <br />
+            关于
+          </a>
+        </li>
+      
+
+      
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    
+      
+
+      
+        <style type="text/css">
+
+    .circle {
+        width: 40px;
+        height: 40px;
+        background: #555 no-repeat;
+        cursor: move;
+    }
+
+    .assist-btn {
+        position: fixed;
+        top: 50％;
+        left: 10px;
+        -moz-border-radius: 50px;
+        -webkit-border-radius: 50px;
+        border-radius: 50px;
+        outline: none;
+        border: none;
+        color: #87daff;
+    }
+
+</style>
+
+<script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+<script type="text/javascript">
+    // 浮动圆点展开与收缩
+    /*
+    $(function () {
+        var assist_box = $('.assist-box');
+        $('#assist_btn').hover(function () {
+            assist_box.stop().show(300);
+        }, function () {
+            assist_box.stop().hide(150);
+        })
+    });
+    */  
+    //浮动圆点拖动
+    $(function () {
+        var box = document.getElementById('assist_btn');
+        box.onmousedown = function (event) {
+            var e = event || window.event,
+                t = e.target || e.srcElement,
+                // 鼠标按下时的坐标x1,y1
+                x1 = e.clientX,
+                y1 = e.clientY,
+                //鼠标按下时的左右偏移量
+                dragLeft = this.offsetLeft,
+                dragTop = this.offsetTop;
+
+            document.onmousemove = function (event) {
+                var e = event || window.event,
+                    t = e.target || e.srcElement,
+                    // 鼠标移动时的动态坐标
+                    x2 = e.clientX,
+                    y2 = e.clientY,
+                    // 鼠标移动时的坐标的变化量
+                    x = x2 - x1,
+                    y = y2 - y1;
+                box.style.left = (dragLeft + x) + 'px';
+                box.style.top = (dragTop + y) + 'px';
+            }
+
+            document.onmouseup = function () {
+                this.onmousemove = null;
+            }
+        }
+    });
+
+/*
+    $whitesmoke   = #f5f5f5
+    $gainsboro    = #eee
+    $gray-lighter = #ddd
+    $grey-light   = #ccc
+    $grey         = #bbb
+    $grey-dark    = #999
+    $grey-dim     = #666
+    $black-light  = #555
+    $black-deep   = #222
+    $red          = #ff2a2a
+    $blue-bright  = #87daff
+    $blue         = #0684bd
+    $blue-deep    = #262a30
+*/
+    // white theme
+    var body = {color: "#555", background: "white"};
+    var a_tag = {color: "#222"};
+    var header = { background: "#f5f5f5"};
+    var logo_line_i = {background: "#222"};
+    // var post_code = {background: "#eee", color: "#222"};
+
+    function switch_theme() {
+        $("body").css(body);
+        $("a:not('.links-of-author-item a, .site-state-item a, .site-state-posts a, .feed-link a, .motion-element a, .post-tags a, .show-commit-cls a, #donate_board a')").css(a_tag);
+        $(".header, .footer").css(header);
+        $(".logo-line-before i, .logo-line-after i").css(logo_line_i);
+        //$(".post code").css(post_code);
+        $("#idhyt-surprise-ball #idhyt-surprise-ball-animation .drag").css(a_tag);
+        $(".post-title-link, .posts-expand .post-meta, .post-comments-count, .disqus-comment-count, .post-category a, .post-nav-next a, .post-nav-item a").css(a_tag);
+        
+        // $("code").css({color: '#c5c8c6', background: '#1d1f21'});
+        $("#assist_btn").hide(1500);
+    }
+
+    $(function () {
+        $("#assist_btn").dblclick(function() {
+            switch_theme();
+        });
+    });
+
+</script>
+
+<div>
+
+    <button class="assist-btn circle" id="assist_btn" title="双击切换">
+        亮
+    </button>
+
+</div>
+
+
+
+
+
+
+
+
+
+      
+
+    
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content"> 
+
+  <div id="posts" class="posts-expand">
+    
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              Vue 表单控件绑定
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2016-09-12T20:22:15+08:00" content="2016-09-12">
+            2016-09-12
+          </time>
+        </span>
+
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; 分类于
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <a href="/categories/vuejs/" itemprop="url" rel="index">
+                  <span itemprop="name">vuejs</span>
+                </a>
+              </span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <!--
+              <a href="/2016/09/12/vue表单控件绑定/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/12/vue表单控件绑定/" itemprop="commentsCount"></span>
+              </a>
+              -->
+              <a href="/2016/09/12/vue表单控件绑定/#comments" itemprop="discussionUrl">
+                <span>评论</span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <span itemprop="articleBody"><h4 id="Text"><a href="#Text" class="headerlink" title="Text"></a>Text</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">&lt;html&gt;</div><div class="line">	&lt;head&gt;</div><div class="line">		&lt;meta charset=<span class="string">"utf-8"</span>&gt;</div><div class="line">		&lt;title&gt;hello word&lt;/title&gt;</div><div class="line">		&lt;script src=<span class="string">"http://static.runoob.com/assets/vue/1.0.11/vue.min.js"</span>&gt;&lt;/script&gt;</div><div class="line">	&lt;/head&gt;</div><div class="line">	&lt;body&gt;</div><div class="line">		&lt;div id=<span class="string">"app"</span>&gt;</div><div class="line">			&lt;span&gt;Message is: &#123;&#123; msg &#125;&#125;&lt;/span&gt;</div><div class="line">			&lt;br&gt;</div><div class="line">			&lt;input <span class="built_in">type</span>=<span class="string">"text"</span> v-model=<span class="string">"msg"</span> placeholder=<span class="string">"edit me"</span>&gt;</div><div class="line">		&lt;/div&gt;</div><div class="line">		&lt;script&gt;</div><div class="line">			var vm = new Vue(&#123;</div><div class="line">				el:<span class="string">'#app'</span>,</div><div class="line">				data: &#123;</div><div class="line">					msg:<span class="string">'Hello Message'</span></div><div class="line">				&#125;</div><div class="line">			&#125;)</div><div class="line">		&lt;/script&gt;</div><div class="line">	&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+<h4 id="Checkbox"><a href="#Checkbox" class="headerlink" title="Checkbox"></a>Checkbox</h4><p>单个勾选框，逻辑值：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">&lt;html&gt;</div><div class="line">	&lt;head&gt;</div><div class="line">		&lt;meta charset=&quot;utf-8&quot;&gt;</div><div class="line">		&lt;title&gt;hello word&lt;/title&gt;</div><div class="line">		&lt;script src=&quot;http://static.runoob.com/assets/vue/1.0.11/vue.min.js&quot;&gt;&lt;/script&gt;</div><div class="line">	&lt;/head&gt;</div><div class="line">	&lt;body&gt;</div><div class="line">		&lt;div id=&quot;app&quot;&gt;</div><div class="line">			&lt;input type=&quot;checkbox&quot; id=&quot;checkbox&quot; v-model=&quot;checked&quot;&gt;</div><div class="line">			&lt;label for=&quot;checkbox&quot;&gt;&#123;&#123; checked &#125;&#125;&lt;/label&gt;</div><div class="line">		&lt;/div&gt;</div><div class="line">		&lt;script&gt;</div><div class="line">			var vm = new Vue(&#123;</div><div class="line">				el:&apos;#app&apos;,</div><div class="line">			&#125;)</div><div class="line">		&lt;/script&gt;</div><div class="line">	&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+<p>多个勾选框，绑定到同一个数组：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">&lt;html&gt;</div><div class="line">	&lt;head&gt;</div><div class="line">		&lt;meta charset=&quot;utf-8&quot;&gt;</div><div class="line">		&lt;title&gt;hello word&lt;/title&gt;</div><div class="line">		&lt;script src=&quot;http://static.runoob.com/assets/vue/1.0.11/vue.min.js&quot;&gt;&lt;/script&gt;</div><div class="line">	&lt;/head&gt;</div><div class="line">	&lt;body&gt;</div><div class="line">		&lt;div id=&quot;app&quot;&gt;</div><div class="line">			&lt;input type=&quot;checkbox&quot; id=&quot;jack&quot; value=&quot;Jack&quot; v-model=&quot;checkedNames&quot;&gt;</div><div class="line">			&lt;label for=&quot;jack&quot;&gt;Jack&lt;/label&gt;</div><div class="line">			&lt;input type=&quot;checkbox&quot; id=&quot;john&quot; value=&quot;John&quot; v-model=&quot;checkedNames&quot;&gt;</div><div class="line">			&lt;label for=&quot;john&quot;&gt;John&lt;/label&gt;</div><div class="line">			&lt;input type=&quot;checkbox&quot; id=&quot;mike&quot; value=&quot;Mike&quot; v-model=&quot;checkedNames&quot;&gt;</div><div class="line">			&lt;label for=&quot;mike&quot;&gt;Mike&lt;/label&gt;</div><div class="line">			&lt;br&gt;</div><div class="line">			&lt;span&gt;Checked names: &#123;&#123; checkedNames&#125;&#125;&lt;/span&gt;</div><div class="line">		&lt;/div&gt;</div><div class="line">		&lt;script&gt;</div><div class="line">			var vm = new Vue(&#123;</div><div class="line">				el:&apos;#app&apos;,</div><div class="line">				data: &#123;</div><div class="line">				    checkedNames: []</div><div class="line">				  &#125;</div><div class="line">			&#125;)</div><div class="line">		&lt;/script&gt;</div><div class="line">	&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+<h4 id="Radio"><a href="#Radio" class="headerlink" title="Radio"></a>Radio</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">&lt;html&gt;</div><div class="line">		&lt;head&gt;</div><div class="line">			&lt;meta charset=<span class="string">"utf-8"</span>&gt;</div><div class="line">			&lt;title&gt;hello word&lt;/title&gt;</div><div class="line">			&lt;script src=<span class="string">"http://static.runoob.com/assets/vue/1.0.11/vue.min.js"</span>&gt;&lt;/script&gt;</div><div class="line">		&lt;/head&gt;</div><div class="line">		&lt;body&gt;</div><div class="line">			&lt;div id=<span class="string">"app"</span>&gt;</div><div class="line">				&lt;input <span class="built_in">type</span>=<span class="string">"radio"</span> id=<span class="string">"one"</span> value=<span class="string">"One"</span> v-model=<span class="string">"picked"</span>&gt;</div><div class="line">				&lt;label <span class="keyword">for</span>=<span class="string">"one"</span>&gt;One&lt;/label&gt;</div><div class="line">				&lt;br&gt;</div><div class="line">				&lt;input <span class="built_in">type</span>=<span class="string">"radio"</span> id=<span class="string">"two"</span> value=<span class="string">"Two"</span> v-model=<span class="string">"picked"</span>&gt;</div><div class="line">				&lt;label <span class="keyword">for</span>=<span class="string">"two"</span>&gt;Two&lt;/label&gt;</div><div class="line">				&lt;br&gt;</div><div class="line">				&lt;span&gt;Picked: &#123;&#123; picked &#125;&#125;&lt;/span&gt;</div><div class="line">			&lt;/div&gt;</div><div class="line">			&lt;script&gt;</div><div class="line">				var vm = new Vue(&#123;</div><div class="line">					el:<span class="string">'#app'</span>,</div><div class="line">					data: &#123;</div><div class="line">					   </div><div class="line">					  &#125;</div><div class="line">				&#125;)</div><div class="line">			&lt;/script&gt;</div><div class="line">		&lt;/body&gt;</div><div class="line">	&lt;/html&gt;</div></pre></td></tr></table></figure>
+<h4 id="select"><a href="#select" class="headerlink" title="select"></a>select</h4><p>单选</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">&lt;html&gt;</div><div class="line">	&lt;head&gt;</div><div class="line">		&lt;meta charset=<span class="string">"utf-8"</span>&gt;</div><div class="line">		&lt;title&gt;hello word&lt;/title&gt;</div><div class="line">		&lt;script src=<span class="string">"http://static.runoob.com/assets/vue/1.0.11/vue.min.js"</span>&gt;&lt;/script&gt;</div><div class="line">	&lt;/head&gt;</div><div class="line">	&lt;body&gt;</div><div class="line">		&lt;div id=<span class="string">"app"</span>&gt;</div><div class="line">			&lt;select v-model=<span class="string">"selected"</span>&gt;</div><div class="line">			  &lt;option selected&gt;A&lt;/option&gt;</div><div class="line">			  &lt;option&gt;B&lt;/option&gt;</div><div class="line">			  &lt;option&gt;C&lt;/option&gt;</div><div class="line">			&lt;/select&gt;</div><div class="line">			&lt;span&gt;Selected: &#123;&#123; selected &#125;&#125;&lt;/span&gt;</div><div class="line">		&lt;/div&gt;</div><div class="line">		&lt;script&gt;</div><div class="line">			var vm = new Vue(&#123;</div><div class="line">				el:<span class="string">'#app'</span>,</div><div class="line">				data: &#123;</div><div class="line">				   </div><div class="line">				  &#125;</div><div class="line">			&#125;)</div><div class="line">		&lt;/script&gt;</div><div class="line">	&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+<p>多选（绑定到一个数组）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">&lt;html&gt;</div><div class="line">	&lt;head&gt;</div><div class="line">		&lt;meta charset=<span class="string">"utf-8"</span>&gt;</div><div class="line">		&lt;title&gt;hello word&lt;/title&gt;</div><div class="line">		&lt;script src=<span class="string">"http://static.runoob.com/assets/vue/1.0.11/vue.min.js"</span>&gt;&lt;/script&gt;</div><div class="line">	&lt;/head&gt;</div><div class="line">	&lt;body&gt;</div><div class="line">		&lt;div id=<span class="string">"app"</span>&gt;</div><div class="line">			&lt;select v-model=<span class="string">"selected"</span> multiple&gt;</div><div class="line">			  &lt;option selected&gt;A&lt;/option&gt;</div><div class="line">			  &lt;option&gt;B&lt;/option&gt;</div><div class="line">			  &lt;option&gt;C&lt;/option&gt;</div><div class="line">			&lt;/select&gt;</div><div class="line">			&lt;br&gt;</div><div class="line">			&lt;span&gt;Selected: &#123;&#123; selected | json &#125;&#125;&lt;/span&gt;</div><div class="line">		&lt;/div&gt;</div><div class="line">		&lt;script&gt;</div><div class="line">			var vm = new Vue(&#123;</div><div class="line">				el:<span class="string">'#app'</span>,</div><div class="line">				data: &#123;</div><div class="line">				   </div><div class="line">				  &#125;</div><div class="line">			&#125;)</div><div class="line">		&lt;/script&gt;</div><div class="line">	&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+<h4 id="动态选项，用-v-for-渲染："><a href="#动态选项，用-v-for-渲染：" class="headerlink" title="动态选项，用 v-for 渲染："></a>动态选项，用 v-for 渲染：</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line">&lt;html&gt;</div><div class="line">	&lt;head&gt;</div><div class="line">		&lt;meta charset=<span class="string">"utf-8"</span>&gt;</div><div class="line">		&lt;title&gt;hello word&lt;/title&gt;</div><div class="line">		&lt;script src=<span class="string">"http://static.runoob.com/assets/vue/1.0.11/vue.min.js"</span>&gt;&lt;/script&gt;</div><div class="line">	&lt;/head&gt;</div><div class="line">	&lt;body&gt;</div><div class="line">		&lt;div id=<span class="string">"app"</span>&gt;</div><div class="line">			&lt;select v-model=<span class="string">"selected"</span>&gt;</div><div class="line">			  &lt;option v-for=<span class="string">"option in options"</span> v-bind:value=<span class="string">"option.value"</span>&gt;</div><div class="line">			    &#123;&#123; option.text &#125;&#125;</div><div class="line">			  &lt;/option&gt;</div><div class="line">			&lt;/select&gt;</div><div class="line">			&lt;span&gt;Selected: &#123;&#123; selected &#125;&#125;&lt;/span&gt;</div><div class="line">		&lt;/div&gt;</div><div class="line">		&lt;script&gt;</div><div class="line">			var vm = new Vue(&#123;</div><div class="line">				el:<span class="string">'#app'</span>,</div><div class="line">				data: &#123;</div><div class="line">				    selected: <span class="string">'A'</span>,</div><div class="line">				    options: [</div><div class="line">				      &#123; text: <span class="string">'One'</span>, value: <span class="string">'A'</span> &#125;,</div><div class="line">				      &#123; text: <span class="string">'Two'</span>, value: <span class="string">'B'</span> &#125;,</div><div class="line">				      &#123; text: <span class="string">'Three'</span>, value: <span class="string">'C'</span> &#125;</div><div class="line">				    ]</div><div class="line">				  &#125;</div><div class="line">			&#125;)</div><div class="line">		&lt;/script&gt;</div><div class="line">	&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+<h4 id="绑定-value"><a href="#绑定-value" class="headerlink" title="绑定 value"></a>绑定 value</h4><p>对于单选按钮，勾选框及选择框选项，v-model 绑定的 value 通常是静态字符串（对于勾选框是逻辑值）, 但是有时我们想绑定 value 到 Vue 实例的一个动态属性上，这时可以用 v-bind实现，并且这个属性的值可以不是字符串。</p>
+<h5 id="Checkbox-1"><a href="#Checkbox-1" class="headerlink" title="Checkbox"></a>Checkbox</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">&lt;html&gt;</div><div class="line">	&lt;head&gt;</div><div class="line">		&lt;meta charset=<span class="string">"utf-8"</span>&gt;</div><div class="line">		&lt;title&gt;hello word&lt;/title&gt;</div><div class="line">		&lt;script src=<span class="string">"http://static.runoob.com/assets/vue/1.0.11/vue.min.js"</span>&gt;&lt;/script&gt;</div><div class="line">	&lt;/head&gt;</div><div class="line">	&lt;body&gt;</div><div class="line">		&lt;div id=<span class="string">"app"</span>&gt;</div><div class="line">			&lt;input <span class="built_in">type</span>=<span class="string">"checkbox"</span> </div><div class="line">				v-model=<span class="string">"toggle"</span> </div><div class="line">				v-bind:<span class="literal">true</span>-value=<span class="string">"a"</span> </div><div class="line">				v-bind:<span class="literal">false</span>-value=<span class="string">"b"</span>&gt;</div><div class="line">				&lt;p&gt;&#123;&#123;toggle&#125;&#125;&lt;/p&gt;</div><div class="line">		&lt;/div&gt;</div><div class="line">		&lt;script&gt;</div><div class="line">			var vm = new Vue(&#123;</div><div class="line">					el:<span class="string">'#app'</span>,</div><div class="line">					data:&#123;</div><div class="line">						a:<span class="string">'aaa'</span>,</div><div class="line">						b:<span class="string">'bbb'</span></div><div class="line">					&#125;</div><div class="line">				&#125;)</div><div class="line">		&lt;/script&gt;</div><div class="line">	&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+<h5 id="Radio-1"><a href="#Radio-1" class="headerlink" title="Radio"></a>Radio</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">&lt;html&gt;</div><div class="line">	&lt;head&gt;</div><div class="line">		&lt;meta charset=<span class="string">"utf-8"</span>&gt;</div><div class="line">		&lt;title&gt;hello word&lt;/title&gt;</div><div class="line">		&lt;script src=<span class="string">"http://static.runoob.com/assets/vue/1.0.11/vue.min.js"</span>&gt;&lt;/script&gt;</div><div class="line">	&lt;/head&gt;</div><div class="line">	&lt;body&gt;</div><div class="line">		&lt;div id=<span class="string">"app"</span>&gt;</div><div class="line">			&lt;input <span class="built_in">type</span>=<span class="string">"radio"</span> v-model=<span class="string">"pick"</span> v-bind:value=<span class="string">"a"</span>&gt;</div><div class="line">				&lt;p&gt;&#123;&#123;pick&#125;&#125;&lt;/p&gt;</div><div class="line">		&lt;/div&gt;</div><div class="line">		&lt;script&gt;</div><div class="line">			var vm = new Vue(&#123;</div><div class="line">				el:<span class="string">'#app'</span>,</div><div class="line">					data:&#123;</div><div class="line">						a:<span class="string">'aaa'</span></div><div class="line">					&#125;</div><div class="line">				&#125;)</div><div class="line">		&lt;/script&gt;</div><div class="line">	&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div><div class="line">// 当选中时</div><div class="line">vm.pick === vm.a</div><div class="line">p标签内的值也也会变化</div></pre></td></tr></table></figure>
+<h5 id="Select-Options"><a href="#Select-Options" class="headerlink" title="Select Options"></a>Select Options</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">&lt;html&gt;</div><div class="line">	&lt;head&gt;</div><div class="line">		&lt;meta charset=<span class="string">"utf-8"</span>&gt;</div><div class="line">		&lt;title&gt;hello word&lt;/title&gt;</div><div class="line">		&lt;script src=<span class="string">"http://static.runoob.com/assets/vue/1.0.11/vue.min.js"</span>&gt;&lt;/script&gt;</div><div class="line">	&lt;/head&gt;</div><div class="line">	&lt;body&gt;</div><div class="line">		&lt;div id=<span class="string">"app"</span>&gt;</div><div class="line">			&lt;select v-model=<span class="string">"selected"</span>&gt;</div><div class="line">			  &lt;!-- 对象字面量 --&gt;</div><div class="line">			  &lt;option v-bind:value=<span class="string">"&#123;number: 123&#125;"</span>&gt;123&lt;/option&gt;</div><div class="line">			&lt;/select&gt;</div><div class="line">				&lt;p&gt;&#123;&#123;selected.number&#125;&#125;&lt;/p&gt;</div><div class="line">		&lt;/div&gt;</div><div class="line">		&lt;script&gt;</div><div class="line">			var vm = new Vue(&#123;</div><div class="line">					el:<span class="string">'#app'</span>,</div><div class="line">					data:&#123;</div><div class="line">					&#125;</div><div class="line">				&#125;)</div><div class="line">		&lt;/script&gt;</div><div class="line">	&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div><div class="line">// 当选中时</div><div class="line">typeof vm.selected // -&gt; ‘object’</div><div class="line">vm.selected.number // -&gt; 123</div></pre></td></tr></table></figure>
+<h4 id="参数特性"><a href="#参数特性" class="headerlink" title="参数特性"></a>参数特性</h4><h5 id="lazy"><a href="#lazy" class="headerlink" title="lazy"></a>lazy</h5><p>在默认情况下，v-model 在input 事件中同步输入框值与数据，可以添加一个特性 lazy，从而改到在 change 事件中同步：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;!-- 在 <span class="string">"change"</span> 而不是 <span class="string">"input"</span> 事件中更新 --&gt;</div><div class="line">&lt;input v-model=<span class="string">"msg"</span> lazy&gt;</div></pre></td></tr></table></figure>
+<h5 id="number"><a href="#number" class="headerlink" title="number"></a>number</h5><p>如果想自动将用户的输入转为 Number 类型（如果原值的转换结果为 NaN 则返回原值），可以添加一个特性 number：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;input v-model=<span class="string">"age"</span> number&gt;</div></pre></td></tr></table></figure>
+<h5 id="debounce"><a href="#debounce" class="headerlink" title="debounce"></a>debounce</h5><p>debounce 设置一个最小的延时，在每次敲击之后延时同步输入框的值与数据。如果每次更新都要进行高耗操作（例如在输入提示中 Ajax 请求），它较为有用。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;input v-model=<span class="string">"msg"</span> debounce=<span class="string">"500"</span>&gt;</div></pre></td></tr></table></figure>
+<p>注意 debounce 参数不会延迟 input 事件：它延迟“写入”底层数据。因此在使用 debounce 时应当用 vm.$watch() 响应数据的变化。若想延迟 DOM 事件，应当使用 debounce 过滤器</p>
+</span>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/javascript/" rel="tag">#javascript</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/09/21/vue过度/" rel="prev">Vue 过渡</a>
+            
+          </div>
+
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/09/03/vue方法与事件处理器/" rel="next">Vue 方法与事件处理器</a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div>
+      
+        <style type="text/css">
+
+    .donate_bar {
+        text-align: center;
+        margin-top : 5%;
+    }
+
+    .donate_bar.hidden {
+        display:none;
+    }
+/*
+    .donate_bar a.btn_donate {
+        display: inline-block;
+        width: 82px;
+        height: 82px;
+        margin-left:auto;
+        margin-right:auto;
+
+        background: url("http://img.t.sinajs.cn/t5/style/images/apps_PRF/e_media/btn_reward.gif") no-repeat;
+        _background: url("http://img.t.sinajs.cn/t5/style/images/apps_PRF/e_media/btn_reward.gif") no-repeat; 
+
+        -webkit-transition: background 0s;
+        -moz-transition: background 0s;
+        -o-transition: background 0s;
+        -ms-transition: background 0s;
+        transition: background 0s;
+    }
+*/
+    .donate_bar a.btn_donate:hover { 
+        // background-position: 0px -82px;
+        color: #87daff
+    }
+
+    .donate_bar .donate_txt {
+        display: block;
+        color: #9d9d9d;
+        font: 14px/2 "Microsoft Yahei";
+    }
+
+    .bold { 
+        font-weight: bold; 
+    }
+
+    .post-donate a {
+        border-bottom: 0px;
+    }
+
+    #donate_guide table {
+        border: none;
+    }
+
+    #donate_guide td {
+        border-bottom: none;
+        border-right: none;
+        background: #333333;
+        valign: top;
+    }
+
+</style>
+
+
+
+    
+
+    <div class ="post-donate">
+        <div id="donate_board" class="donate_bar center">
+              <a id="btn_donate" class="btn_donate" href="javascript:;" title="打赏">赏</a>
+              <span id="donate_txt" class="donate_txt">
+                   
+                        仅仅是一个功能
+                   
+              </span>
+            <br>
+        </div>  
+  
+        <div id="donate_guide" class="donate_bar center hidden">
+            <!--
+            
+                <a href="https://coding.net/u/antcljx/p/imgstore/git/raw/master/myblogimg/zfb.jpg" title="支付宝打赏" class="fancybox" rel="article0" 
+                    style="float:left;margin-left:25%;margin-right:10px;">
+                    <img src="https://coding.net/u/antcljx/p/imgstore/git/raw/master/myblogimg/zfb.jpg" title="" height="164px" width="164px">
+                </a> 
+              
+
+            
+                <a href="https://coding.net/u/antcljx/p/imgstore/git/raw/master/myblogimg/wx.jpg" title="微信打赏" class="fancybox" rel="article0"
+                    style="margin-right:30%">
+                    <img src="https://coding.net/u/antcljx/p/imgstore/git/raw/master/myblogimg/wx.jpg" title="" height="164px" width="164px">
+                </a>
+            
+            -->
+            <table>
+                <tr>
+                    <td>
+                        
+                            <a href="https://coding.net/u/antcljx/p/imgstore/git/raw/master/myblogimg/zfb.jpg" title="支付宝打赏" class="fancybox" rel="article0" 
+                                style="float:left;margin-left:25%;margin-right:10px;">
+                                <img src="https://coding.net/u/antcljx/p/imgstore/git/raw/master/myblogimg/zfb.jpg" title="" height="164px" width="164px">
+                            </a> 
+                         
+                    </td>
+                    <td>
+                        
+                            <a href="https://coding.net/u/antcljx/p/imgstore/git/raw/master/myblogimg/wx.jpg" title="微信打赏" class="fancybox" rel="article0"
+                                style="margin-right:30%">
+                                <img src="https://coding.net/u/antcljx/p/imgstore/git/raw/master/myblogimg/wx.jpg" title="" height="164px" width="164px">
+                            </a>
+                        
+                    </td>
+                </tr>
+            </table>
+
+        </div>
+
+        <script type="text/javascript">
+            document.getElementById('btn_donate').onclick = function() {
+                $('#donate_board').addClass('hidden');
+                // $('#donate_guide').removeClass('hidden');
+                $('#donate_guide').show(2000);
+            }
+
+        </script>
+    </div>
+
+    
+
+
+      
+    </div>
+
+    <div class="post-spread">
+      
+        <div class="bdsharebuttonbox">
+	<a href="#" class="bds_more" data-cmd="more"></a>
+	<a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+	<a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+	<a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+	<a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a>
+	<a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
+</div>
+<script>
+    window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
+
+ </div>
+
+        
+
+        
+          <div class="comments" id="comments">
+            
+              <div class="ds-thread" data-thread-key="2016/09/12/vue表单控件绑定/"
+                   data-title="Vue 表单控件绑定" data-url="http://yoursite.com/2016/09/12/vue表单控件绑定/">
+              </div>
+            
+          </div>
+        
+      </div>
+
+      
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" src="/images/default_avatar.jpg" alt="author" itemprop="image"/>
+          <p class="site-author-name" itemprop="name">author</p>
+        </div>
+        <p class="site-description motion-element" itemprop="description">description</p>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">37</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            <a href="/categories">
+              <span class="site-state-item-count">8</span>
+              <span class="site-state-item-name">分类</span>
+              </a>
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">17</span>
+              <span class="site-state-item-name">标签</span>
+              </a>
+          </div>
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        <div class="links-of-friendly motion-element">
+          
+        </div>
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator"></div>
+          <div class="post-toc">
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Text"><span class="nav-number">1.</span> <span class="nav-text">Text</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Checkbox"><span class="nav-number">2.</span> <span class="nav-text">Checkbox</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Radio"><span class="nav-number">3.</span> <span class="nav-text">Radio</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#select"><span class="nav-number">4.</span> <span class="nav-text">select</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#动态选项，用-v-for-渲染："><span class="nav-number">5.</span> <span class="nav-text">动态选项，用 v-for 渲染：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#绑定-value"><span class="nav-number">6.</span> <span class="nav-text">绑定 value</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Checkbox-1"><span class="nav-number">6.1.</span> <span class="nav-text">Checkbox</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Radio-1"><span class="nav-number">6.2.</span> <span class="nav-text">Radio</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Select-Options"><span class="nav-number">6.3.</span> <span class="nav-text">Select Options</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#参数特性"><span class="nav-number">7.</span> <span class="nav-text">参数特性</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#lazy"><span class="nav-number">7.1.</span> <span class="nav-text">lazy</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#number"><span class="nav-number">7.2.</span> <span class="nav-text">number</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#debounce"><span class="nav-number">7.3.</span> <span class="nav-text">debounce</span></a></li></ol></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner"> <div class="copyright" >
+  
+  &copy; &nbsp; 
+  <span itemprop="copyrightYear">2017
+  </span>
+  <span class="with-love">
+    <i class="icon-next-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">author
+  </span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme by <a class="theme-link" href="http://blog.idhyt.com">idhyt</a>.<a class="theme-link" href="https://github.com/idhyt/hexo-theme-next/tree/magiclamp">Mala</a>
+</div>
+
+<!-- busuanzi -->
+
+
+
+ </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+  
+    
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"antsljx"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+    
+
+    
+  
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.5.1"></script>
+
+
+  <script type="text/javascript" src="/js/helpers.js?v=0.4.5.1"></script>
+  
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/js/motion_global.js?v=0.4.5.1" id="motion.global"></script>
+
+
+
+
+  <script type="text/javascript" src="/js/nav-toggle.js?v=0.4.5.1"></script>
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.5.1" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 0.4 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    var $tocContent = $('.post-toc-content');
+    if (isDesktop() && CONFIG.sidebar === 'post') {
+      if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+        displaySidebar();
+      }
+    }
+  });
+</script>
+
+
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      if (CONFIG.sidebar === 'always') {
+        displaySidebar();
+      }
+      if (isMobile()) {
+        FastClick.attach(document.body);
+      }
+    });
+  </script>
+
+  
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/lazyload.js"></script>
+  <script type="text/javascript">
+    $(function () {
+      $("#posts").find('img').lazyload({
+        placeholder: "/images/loading.gif",
+        effect: "fadeIn"
+      });
+    });
+  </script>
+</body>
+</html>

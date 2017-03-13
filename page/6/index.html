@@ -3388,8 +3388,8 @@
           
           
             
-              <a class="post-title-link" href="/2015/02/13/03-js数组/" itemprop="url">
-                JavaScript-数组
+              <a class="post-title-link" href="/2015/04/29/12-js实现单例模式的几种方法/" itemprop="url">
+                JavaScript-实现单例模式的几种方法
               </a>
             
           
@@ -3399,8 +3399,8 @@
       <div class="post-meta">
         <span class="post-time">
           发表于
-          <time itemprop="dateCreated" datetime="2015-02-13T12:26:56+08:00" content="2015-02-13">
-            2015-02-13
+          <time itemprop="dateCreated" datetime="2015-04-29T15:27:42+08:00" content="2015-04-29">
+            2015-04-29
           </time>
         </span>
 
@@ -3426,11 +3426,11 @@
             <span class="post-comments-count">
               &nbsp; | &nbsp;
               <!--
-              <a href="/2015/02/13/03-js数组/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2015/02/13/03-js数组/" itemprop="commentsCount"></span>
+              <a href="/2015/04/29/12-js实现单例模式的几种方法/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2015/04/29/12-js实现单例模式的几种方法/" itemprop="commentsCount"></span>
               </a>
               -->
-              <a href="/2015/02/13/03-js数组/#comments" itemprop="discussionUrl">
+              <a href="/2015/04/29/12-js实现单例模式的几种方法/#comments" itemprop="discussionUrl">
                 <span>评论</span>
               </a>
             </span>
@@ -3448,13 +3448,11 @@
         
           <span itemprop="articleBody">
             
-            数组arry1.随机产生一个大于0小于1的数值(0&lt;x&lt;1)方法为：1Math.random()
-随机产生一个大于0小于n的数值(0&lt;x&lt;n)方法为：1Math.random()*n
-随机产生一个大于0小于n+1的数值(0&lt;x&lt;n+1)方法为：1Math.rand
+            1.构造函数内部判断实现单例模式123456789101112131415161718192021function Person() &#123;		if (Person.unique !== undefined) &#123;			return Person.unique;			//若构造函数Pe
             ...
           </span>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2015/02/13/03-js数组/#more" rel="contents">
+            <a class="btn" href="/2015/04/29/12-js实现单例模式的几种方法/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -3487,8 +3485,8 @@
           
           
             
-              <a class="post-title-link" href="/2015/02/09/02-js基础语法/" itemprop="url">
-                JavaScript基础语法
+              <a class="post-title-link" href="/2015/04/21/11-js数据交互/" itemprop="url">
+                JavaScript-数据交互
               </a>
             
           
@@ -3498,8 +3496,8 @@
       <div class="post-meta">
         <span class="post-time">
           发表于
-          <time itemprop="dateCreated" datetime="2015-02-09T10:11:41+08:00" content="2015-02-09">
-            2015-02-09
+          <time itemprop="dateCreated" datetime="2015-04-21T15:19:26+08:00" content="2015-04-21">
+            2015-04-21
           </time>
         </span>
 
@@ -3525,11 +3523,11 @@
             <span class="post-comments-count">
               &nbsp; | &nbsp;
               <!--
-              <a href="/2015/02/09/02-js基础语法/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2015/02/09/02-js基础语法/" itemprop="commentsCount"></span>
+              <a href="/2015/04/21/11-js数据交互/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2015/04/21/11-js数据交互/" itemprop="commentsCount"></span>
               </a>
               -->
-              <a href="/2015/02/09/02-js基础语法/#comments" itemprop="discussionUrl">
+              <a href="/2015/04/21/11-js数据交互/#comments" itemprop="discussionUrl">
                 <span>评论</span>
               </a>
             </span>
@@ -3545,9 +3543,15 @@
 
       
         
-          <span itemprop="description">JavaScript 有六种数据类型。主要的类型有 number、string、object 以及 Boolean 类型,其他两种类型为 null 和 undefined。String 字符串类型:字符串是用单引号或双引号来说明的。（使用单引号来输入包含引号的字符串。）如：“The cow jumped over the moon.”</span>
+          <span itemprop="articleBody">
+            
+            1.可以使用eval函数将字符串转换为JSON对象。1eval('('+string+')');
+高级版本的浏览器中将字符串转为JSON格式：JSON.parse(string);高级版本的浏览器中将JSON转为字符串：JSON.stringify(obj)
+2.用for in解析JSON数据。12
+            ...
+          </span>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2015/02/09/02-js基础语法/">
+            <a class="btn" href="/2015/04/21/11-js数据交互/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -3580,8 +3584,8 @@
           
           
             
-              <a class="post-title-link" href="/2015/01/12/01-js简介/" itemprop="url">
-                JavaScript简介
+              <a class="post-title-link" href="/2015/04/10/10-js继承/" itemprop="url">
+                JavaScript-继承
               </a>
             
           
@@ -3591,8 +3595,8 @@
       <div class="post-meta">
         <span class="post-time">
           发表于
-          <time itemprop="dateCreated" datetime="2015-01-12T21:22:20+08:00" content="2015-01-12">
-            2015-01-12
+          <time itemprop="dateCreated" datetime="2015-04-10T15:12:16+08:00" content="2015-04-10">
+            2015-04-10
           </time>
         </span>
 
@@ -3618,11 +3622,11 @@
             <span class="post-comments-count">
               &nbsp; | &nbsp;
               <!--
-              <a href="/2015/01/12/01-js简介/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2015/01/12/01-js简介/" itemprop="commentsCount"></span>
+              <a href="/2015/04/10/10-js继承/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2015/04/10/10-js继承/" itemprop="commentsCount"></span>
               </a>
               -->
-              <a href="/2015/01/12/01-js简介/#comments" itemprop="discussionUrl">
+              <a href="/2015/04/10/10-js继承/#comments" itemprop="discussionUrl">
                 <span>评论</span>
               </a>
             </span>
@@ -3638,9 +3642,210 @@
 
       
         
-          <span itemprop="description">JavaScript语言的前身叫作Livescript。自从Sun公司推出著名的Java语言之后，Netscape公司引进了Sun公司有关Java的程序概念，将自己原有的Livescript 重新进行设计，并改名为JavaScript。</span>
+          <span itemprop="articleBody">
+            
+            继承默认情况：子类—prototype→子类的原型
+123子类的原型—constructor→子类 Student.prototype=Student.prototype	Student.prototype.constructor=Student;
+1.继承的第一种方法：call、apply、bin
+            ...
+          </span>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2015/01/12/01-js简介/">
+            <a class="btn" href="/2015/04/10/10-js继承/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              <a class="post-title-link" href="/2015/03/25/09-js闭包/" itemprop="url">
+                JavaScript-闭包
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2015-03-25T15:03:11+08:00" content="2015-03-25">
+            2015-03-25
+          </time>
+        </span>
+
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; 分类于
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <a href="/categories/js-基础学习/" itemprop="url" rel="index">
+                  <span itemprop="name">js_基础学习</span>
+                </a>
+              </span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <!--
+              <a href="/2015/03/25/09-js闭包/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2015/03/25/09-js闭包/" itemprop="commentsCount"></span>
+              </a>
+              -->
+              <a href="/2015/03/25/09-js闭包/#comments" itemprop="discussionUrl">
+                <span>评论</span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody">
+            
+            闭包1.概念：将父函数的局部变量放在子函数中，将子函数作为父函数的返回值，扩展局部变量的访问范围，使函数外可以访问和修改局部变量。
+2.任何一个函数都是一个对象的方法，函数中的this指代该函数作为一个方法所属于的对象。一个自由函数是全局变量window的方法。3.对象属性的访问权限：①私有变量(v
+            ...
+          </span>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/03/25/09-js闭包/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              <a class="post-title-link" href="/2015/03/13/08-js基础补充-01/" itemprop="url">
+                JavaScript-基础补充_01
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2015-03-13T14:49:07+08:00" content="2015-03-13">
+            2015-03-13
+          </time>
+        </span>
+
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; 分类于
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <a href="/categories/js-基础学习/" itemprop="url" rel="index">
+                  <span itemprop="name">js_基础学习</span>
+                </a>
+              </span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <!--
+              <a href="/2015/03/13/08-js基础补充-01/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2015/03/13/08-js基础补充-01/" itemprop="commentsCount"></span>
+              </a>
+              -->
+              <a href="/2015/03/13/08-js基础补充-01/#comments" itemprop="discussionUrl">
+                <span>评论</span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody">
+            
+            1.parseInt(‘n进制数字’,n) ——将n进制数字转化为10进制数字，当n等于10时，可以简写为parseInt(‘10进制数字’)。1234alert(parseInt('23',10))		//弹出23。alert(parseInt('23',16)) 		//弹出35。alert(p
+            ...
+          </span>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/03/13/08-js基础补充-01/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -3666,7 +3871,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/5/">&laquo;</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span>
+    <a class="extend prev" rel="prev" href="/page/5/">&laquo;</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/7/">&raquo;</a>
   </nav>
 
  </div>
@@ -3700,21 +3905,21 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">28</span>
+              <span class="site-state-item-count">37</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
 
           <div class="site-state-item site-state-categories">
             <a href="/categories">
-              <span class="site-state-item-count">7</span>
+              <span class="site-state-item-count">8</span>
               <span class="site-state-item-name">分类</span>
               </a>
           </div>
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">14</span>
+              <span class="site-state-item-count">17</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>
