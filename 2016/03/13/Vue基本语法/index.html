@@ -29,7 +29,7 @@
 
 
 
-  <meta name="keywords" content="js基础," />
+  <meta name="keywords" content="javascript," />
 
 
 
@@ -38,16 +38,16 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
 
 
-<meta name="description" content="1.ECMAScript是一种标准和规范，JavaScript和JScript是这种规范的实现和扩展。2.ECMAScript5中关于对象(Object)的新方法：(1)获取对象某个属性的描述符：Object.getOwnPropertyDescriptor(对象, “属性名”) 。(2)定义或修改对象某个属性的属性特征(不常用)：描述符.value/writable/enumerable/con">
+<meta name="description" content="Vue.js 的模板是基于 DOM 实现的。所以所有的的 Vue。js模板都可以解析成 html。Vue 模板从根本上不同于基于字符串的模板。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JavaScript-基础补充_02">
-<meta property="og:url" content="http://yoursite.com/2015/06/08/15-js基础补充-02/index.html">
+<meta property="og:title" content="Vue 基本语法">
+<meta property="og:url" content="http://yoursite.com/2016/03/13/Vue基本语法/index.html">
 <meta property="og:site_name" content="ants的博客">
-<meta property="og:description" content="1.ECMAScript是一种标准和规范，JavaScript和JScript是这种规范的实现和扩展。2.ECMAScript5中关于对象(Object)的新方法：(1)获取对象某个属性的描述符：Object.getOwnPropertyDescriptor(对象, “属性名”) 。(2)定义或修改对象某个属性的属性特征(不常用)：描述符.value/writable/enumerable/con">
-<meta property="og:updated_time" content="2017-03-13T08:31:45.000Z">
+<meta property="og:description" content="Vue.js 的模板是基于 DOM 实现的。所以所有的的 Vue。js模板都可以解析成 html。Vue 模板从根本上不同于基于字符串的模板。">
+<meta property="og:updated_time" content="2017-03-13T11:41:00.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JavaScript-基础补充_02">
-<meta name="twitter:description" content="1.ECMAScript是一种标准和规范，JavaScript和JScript是这种规范的实现和扩展。2.ECMAScript5中关于对象(Object)的新方法：(1)获取对象某个属性的描述符：Object.getOwnPropertyDescriptor(对象, “属性名”) 。(2)定义或修改对象某个属性的属性特征(不常用)：描述符.value/writable/enumerable/con">
+<meta name="twitter:title" content="Vue 基本语法">
+<meta name="twitter:description" content="Vue.js 的模板是基于 DOM 实现的。所以所有的的 Vue。js模板都可以解析成 html。Vue 模板从根本上不同于基于字符串的模板。">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -57,7 +57,7 @@
   };
 </script>
 
-  <title> JavaScript-基础补充_02 | ants的博客 </title>
+  <title> Vue 基本语法 | ants的博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -307,7 +307,7 @@
           
           
             
-              JavaScript-基础补充_02
+              Vue 基本语法
             
           
         </h1>
@@ -316,8 +316,8 @@
       <div class="post-meta">
         <span class="post-time">
           发表于
-          <time itemprop="dateCreated" datetime="2015-06-08T16:24:40+08:00" content="2015-06-08">
-            2015-06-08
+          <time itemprop="dateCreated" datetime="2016-03-13T19:34:07+08:00" content="2016-03-13">
+            2016-03-13
           </time>
         </span>
 
@@ -326,8 +326,8 @@
             &nbsp; | &nbsp; 分类于
             
               <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/js-基础学习/" itemprop="url" rel="index">
-                  <span itemprop="name">js_基础学习</span>
+                <a href="/categories/vuejs/" itemprop="url" rel="index">
+                  <span itemprop="name">vuejs</span>
                 </a>
               </span>
 
@@ -343,11 +343,11 @@
             <span class="post-comments-count">
               &nbsp; | &nbsp;
               <!--
-              <a href="/2015/06/08/15-js基础补充-02/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2015/06/08/15-js基础补充-02/" itemprop="commentsCount"></span>
+              <a href="/2016/03/13/Vue基本语法/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/13/Vue基本语法/" itemprop="commentsCount"></span>
               </a>
               -->
-              <a href="/2015/06/08/15-js基础补充-02/#comments" itemprop="discussionUrl">
+              <a href="/2016/03/13/Vue基本语法/#comments" itemprop="discussionUrl">
                 <span>评论</span>
               </a>
             </span>
@@ -362,19 +362,21 @@
       
 
       
-        <span itemprop="articleBody"><h4 id="1-ECMAScript是一种标准和规范，JavaScript和JScript是这种规范的实现和扩展。"><a href="#1-ECMAScript是一种标准和规范，JavaScript和JScript是这种规范的实现和扩展。" class="headerlink" title="1.ECMAScript是一种标准和规范，JavaScript和JScript是这种规范的实现和扩展。"></a>1.ECMAScript是一种标准和规范，JavaScript和JScript是这种规范的实现和扩展。</h4><h4 id="2-ECMAScript5中关于对象-Object-的新方法："><a href="#2-ECMAScript5中关于对象-Object-的新方法：" class="headerlink" title="2.ECMAScript5中关于对象(Object)的新方法："></a>2.ECMAScript5中关于对象(Object)的新方法：</h4><p>(1)获取对象某个属性的描述符：<br>Object.getOwnPropertyDescriptor(对象, “属性名”) 。<br>(2)定义或修改对象某个属性的属性特征(不常用)：<br>描述符.value/writable/enumerable/configurable=”值”/true/false Object.defineProperty(对象,”属性名”,描述符);</p>
-<h5 id="注意：这种方法不常用。若使用，则需要两步：修改描述符—→定义-修改属性"><a href="#注意：这种方法不常用。若使用，则需要两步：修改描述符—→定义-修改属性" class="headerlink" title="注意：这种方法不常用。若使用，则需要两步：修改描述符—→定义/修改属性"></a>注意：这种方法不常用。若使用，则需要两步：修改描述符—→定义/修改属性</h5><p>(3)定义或修改对象某个自有属性的属性特征(常用)：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">Object.defineProperty(对象,<span class="string">"属性名"</span>,&#123;</div><div class="line">	value:<span class="string">"属性值"</span>,</div><div class="line">	writable:<span class="literal">true</span>/<span class="literal">false</span>,</div><div class="line">	enumerable:<span class="literal">true</span>/<span class="literal">false</span>,</div><div class="line">	configurable:<span class="literal">true</span>/<span class="literal">false</span>,</div><div class="line">  		&#125;);</div></pre></td></tr></table></figure>
-<h5 id="注意-这种方法只能定义对象自有属性的属性特征，而不能定义对象原型属性的属性特征。"><a href="#注意-这种方法只能定义对象自有属性的属性特征，而不能定义对象原型属性的属性特征。" class="headerlink" title="注意:这种方法只能定义对象自有属性的属性特征，而不能定义对象原型属性的属性特征。"></a>注意:这种方法只能定义对象自有属性的属性特征，而不能定义对象原型属性的属性特征。</h5><p>(4) Object.preventExtensions(对象)—属性不可添加、可删除、可修改<br>Object.seal(对象) —属性不可添加、不可删除、可修改<br>Object.freeze(对象) —属性不可添加、不可删除、不可修改</p>
-<p>注意：(3)为定义或修改对象某个属性的属性特征，(4)为定义或修改对象所有属性的特征。定义或修改对象某个属性的属性特征时，有四个可定义/修改项：属性值、可修改、可枚举、可删除。定义或修改对象所有属性的特征时，有三个可定义/修改项：可添加、可删除、可修改。</p>
-<p>(5) Object.getPrototypeOf(对象) 得到对象的proto属性值。</p>
-<h4 id="3-ECMAScript5中关于数组-Array-的新方法："><a href="#3-ECMAScript5中关于数组-Array-的新方法：" class="headerlink" title="3.ECMAScript5中关于数组(Array)的新方法："></a>3.ECMAScript5中关于数组(Array)的新方法：</h4><p>ECMAScript5中，大部分数组新方法的参数为一个匿名函数，并且数组的每一个元素调用一次该匿名函数，该匿名函数一般有两个参数:数组元素和索引值。</p>
-<h5 id="1-数组-forEach-从头到位遍历数组，每个元素都调用指定的函数（该方法的参数），该方法在元素遍历结束之前无法终止。"><a href="#1-数组-forEach-从头到位遍历数组，每个元素都调用指定的函数（该方法的参数），该方法在元素遍历结束之前无法终止。" class="headerlink" title="(1)数组.forEach():从头到位遍历数组，每个元素都调用指定的函数（该方法的参数），该方法在元素遍历结束之前无法终止。"></a>(1)数组.forEach():从头到位遍历数组，每个元素都调用指定的函数（该方法的参数），该方法在元素遍历结束之前无法终止。</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">var arr=[1,3,5,7,9];</div><div class="line">var sum=0</div><div class="line">arr.forEach(<span class="keyword">function</span>(item,index)&#123;</div><div class="line">	sum=sum+item;</div><div class="line">&#125;);</div><div class="line">alert(sum);//弹出25。</div><div class="line">arr.forEach(<span class="keyword">function</span>(item,index)&#123;</div><div class="line">//			item=item+1;语法错误，只能通过arr[index]改变数组元素的值。</div><div class="line">	arr[index]=item+1;</div><div class="line">&#125;);</div><div class="line">alert(arr[1]);//弹出4。</div></pre></td></tr></table></figure>
-<p>注意：数组.forEach()可以取代for循环在数组中的应用，无返回值(return)。</p>
-<h5 id="2-数组-map-调用数组的每一个元素传递给指定函数，并返回一个数组，它包含该函数的返回值。"><a href="#2-数组-map-调用数组的每一个元素传递给指定函数，并返回一个数组，它包含该函数的返回值。" class="headerlink" title="(2)数组.map():调用数组的每一个元素传递给指定函数，并返回一个数组，它包含该函数的返回值。"></a>(2)数组.map():调用数组的每一个元素传递给指定函数，并返回一个数组，它包含该函数的返回值。</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var arr = [1, 2, 3, 4, 5]</div><div class="line">var arr1 = arr.map(<span class="keyword">function</span>(item) &#123;</div><div class="line">	<span class="built_in">return</span> item * item;</div><div class="line">&#125;);</div><div class="line">alert(arr1) //弹出1,4,9,16,25</div></pre></td></tr></table></figure>
-<h5 id="3-数组-filter-创建一个新的匹配过滤条件的数组。"><a href="#3-数组-filter-创建一个新的匹配过滤条件的数组。" class="headerlink" title="(3)数组.filter():创建一个新的匹配过滤条件的数组。"></a>(3)数组.filter():创建一个新的匹配过滤条件的数组。</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var arr1 = [<span class="string">'Charles'</span>, <span class="string">'Mark'</span>, <span class="string">'Bill'</span>, <span class="string">'Vincent'</span>, <span class="string">'William'</span>, <span class="string">'Joseph'</span>]</div><div class="line">var arr2 = arr1.filter(</div><div class="line"><span class="keyword">function</span>(item, index) &#123;</div><div class="line">	<span class="built_in">return</span> item.indexOf(<span class="string">"ll"</span>) &gt; -1</div><div class="line">&#125;);</div><div class="line">alert(arr2); //弹出Bill、William。</div></pre></td></tr></table></figure>
-<h5 id="4-数组-some-查看数组是否有符合条件的元素"><a href="#4-数组-some-查看数组是否有符合条件的元素" class="headerlink" title="(4)数组.some()查看数组是否有符合条件的元素"></a>(4)数组.some()查看数组是否有符合条件的元素</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">var arr1 = <span class="string">"Charles,Mark,Bill,Vincent,William,Joseph"</span>.split(<span class="string">","</span>);</div><div class="line">alert(arr1.some(</div><div class="line">	<span class="keyword">function</span>(item, index) &#123;</div><div class="line">		<span class="built_in">return</span> item.length &lt; 5;</div><div class="line">	&#125;</div><div class="line">)); //<span class="literal">true</span>  </div><div class="line">alert(arr1.some(</div><div class="line">	<span class="keyword">function</span>(item, index) &#123;</div><div class="line">		<span class="built_in">return</span> item.length &lt; 10;</div><div class="line">	&#125;</div><div class="line">)) //<span class="literal">true</span></div></pre></td></tr></table></figure>
-<h5 id="5-数组-every-查看数组元素是否全部符合条件。"><a href="#5-数组-every-查看数组元素是否全部符合条件。" class="headerlink" title="(5)数组.every()查看数组元素是否全部符合条件。"></a>(5)数组.every()查看数组元素是否全部符合条件。</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">var arr1 = <span class="string">"Charles,Mark,Bill,Vincent,William,Joseph"</span>.split(<span class="string">","</span>);</div><div class="line">alert(arr1.every(</div><div class="line">	<span class="keyword">function</span>(item, index) &#123;</div><div class="line">		<span class="built_in">return</span> item.length &lt; 5;</div><div class="line">	&#125;</div><div class="line">)); //<span class="literal">false</span>  </div><div class="line">alert(arr1.every(</div><div class="line">	<span class="keyword">function</span>(item, index) &#123;</div><div class="line">		<span class="built_in">return</span> item.length &lt; 10;</div><div class="line">&#125;</div><div class="line">)) //<span class="literal">true</span></div></pre></td></tr></table></figure></span>
+        <span itemprop="articleBody"><h4 id="插值"><a href="#插值" class="headerlink" title="插值"></a>插值</h4><p>插值是通过“Mustache” 语法（双大括号）,Mustache 标签也可以用在 HTML 特性 (Attributes) 内：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">&lt;html&gt;</div><div class="line">	&lt;head&gt;</div><div class="line">		&lt;meta charset=<span class="string">"utf-8"</span>&gt;</div><div class="line">		&lt;title&gt;hello word&lt;/title&gt;</div><div class="line">		&lt;script src=<span class="string">"http://static.runoob.com/assets/vue/1.0.11/vue.min.js"</span>&gt;&lt;/script&gt;</div><div class="line">	&lt;/head&gt;</div><div class="line">	&lt;body&gt;</div><div class="line">		&lt;div id=<span class="string">"app"</span>&gt;</div><div class="line">			//Mustache 标签会被相应数据对象的 msg 属性的值替换。每当这个属性变化时它也会更新。</div><div class="line">			&lt;p&gt;message:&#123;&#123;&#123; msg &#125;&#125;&#125;&lt;/p&gt;</div><div class="line">			//只处理单次插值，今后的数据变化就不会再引起插值更新了</div><div class="line">			&lt;p&gt;message:&#123;&#123;* msg &#125;&#125;&lt;/p&gt;</div><div class="line">			//双 Mustache 标签将数据解析为纯文本而不是 HTML。为了输出真的 HTML 字符串，需要用三 Mustache 标签</div><div class="line">			&lt;p&gt;message:&#123;&#123;&#123; msg &#125;&#125;&#125;&lt;/p&gt;</div><div class="line">			//Mustache 标签也可以用在 HTML 特性 (Attributes) 内</div><div class="line">			&lt;div id=<span class="string">"item-&#123;&#123; msg &#125;&#125;"</span>&gt;&lt;/div&gt;  </div><div class="line">		&lt;/div&gt;</div><div class="line">		&lt;script&gt;</div><div class="line">			new Vue(&#123;</div><div class="line">				el: <span class="string">"#app"</span>,</div><div class="line">				data:&#123;</div><div class="line">					msg:<span class="string">'Hello hello word!'</span></div><div class="line">				&#125;</div><div class="line">			&#125;)	</div><div class="line">		&lt;/script&gt;</div><div class="line">	&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+<p>注意在 Vue.js 指令和特殊特性内不能用插值。</p>
+<h4 id="几种常见的绑定表达式"><a href="#几种常见的绑定表达式" class="headerlink" title="几种常见的绑定表达式"></a>几种常见的绑定表达式</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">放在 Mustache 标签内的文本称为绑定表达式。在 Vue 中，一般绑定表达式由一个简单的 JavaScript 表达式和可选的一个或多个过滤器构成。</div></pre></td></tr></table></figure>
+<h4 id="表达式"><a href="#表达式" class="headerlink" title="表达式"></a>表达式</h4><p>一般模板只绑定到简单的属性键。实际上 Vue 在数据绑定内几乎支持所有的 JavaScript 表达式：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&#123;&#123; number + 1 &#125;&#125;</div><div class="line">&#123;&#123; ok ? <span class="string">'YES'</span> : <span class="string">'NO'</span> &#125;&#125;</div><div class="line">&#123;&#123; message.split(<span class="string">''</span>).reverse().join(<span class="string">''</span>) &#125;&#125;</div><div class="line">// &#123;&#123; var a = 1 &#125;&#125; //这是一个语句，不是一个表达式不能执行</div><div class="line">// &#123;&#123; <span class="keyword">if</span> (ok) &#123; <span class="built_in">return</span> message &#125; &#125;&#125; //流程控制也不可以，可改用三元表达式</div></pre></td></tr></table></figure>
+<p>这些表达式将在所属的 Vue 实例的作用域内计算。但是每个绑定只能包含单个表达式。</p>
+<h4 id="过滤器"><a href="#过滤器" class="headerlink" title="过滤器"></a>过滤器</h4><p>Vue.js 允许在表达式后添加可选的“过滤器 (Filter) ”，以“管道符”指示（与angular的过滤器基本相同）：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&#123;&#123; message | capitalize &#125;&#125;</div><div class="line">这里我们将表达式 message 的值“管输（pipe）”到内置的 capitalize 过滤器，这个过滤器其实只是一个 JavaScript 函数，</div><div class="line">返回大写化的值。Vue.js 提供数个内置过滤器，过滤器也可以根据我们的需要进行自定义。</div><div class="line">注：管道语法不是 JavaScript 语法，因此不能在表达式内使用过滤器，只能添加到表达式的后面。</div><div class="line">过滤器可以串联：</div><div class="line">&#123;&#123; message | filterA | filterB &#125;&#125;</div><div class="line">过滤器也可以接受参数：</div><div class="line">&#123;&#123; message | filterA <span class="string">'arg1'</span> arg2 &#125;&#125;</div><div class="line">过滤器函数始终以表达式的值作为第一个参数。带引号的参数视为字符串，而不带引号的参数按表达式计算。这里，字符串 <span class="string">'arg1'</span> 将传给过滤器作为第二个参数，表达式 arg2 的值在计算出来之后作为第三个参数。</div></pre></td></tr></table></figure>
+<h4 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h4><p>指令 (Directives) 是特殊的带有前缀 v- 的特性。指令的值限定为绑定表达式，因此上面提到的 JavaScript 表达式及过滤器规则在这里也适用。指令的职责就是当其表达式的值改变时把某些特殊的行为应用到 DOM 上：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&lt;p v-if=&quot;greeting&quot;&gt;Hello!&lt;/p&gt;</div><div class="line">//这里 v-if 指令将根据表达式 greeting 值的真假删除/插入 p 元素。</div><div class="line">&lt;a v-bind:href=&quot;url&quot;&gt;&lt;/a&gt;</div><div class="line">有些指令可以在其名称后面带一个“参数” (Argument)，中间放一个冒号隔开。</div><div class="line">这里 href 是参数，它告诉 v-bind 指令将元素的 href 特性跟表达式 url 的值绑定。</div><div class="line">也可以用特性插值 href=&quot;&#123;&#123;url&#125;&#125;&quot; 获得同样的结果。</div><div class="line">这里仅仅是介绍指令带参数的语法。</div><div class="line">&lt;a v-on:click=&quot;doSomething&quot;&gt;</div><div class="line">这里参数是被监听的事件的名字。绑定的是一个方法到点击的时候会触发这个方法。</div></pre></td></tr></table></figure>
+<h4 id="修饰符"><a href="#修饰符" class="headerlink" title="修饰符"></a>修饰符</h4><p>修饰符 (Modifiers) 是以半角句号 . 开始的特殊后缀，用于表示指令应当以特殊方式绑定。修饰符的主要作用是告诉指令一种规范。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;a v-bind:href.literal=<span class="string">"/a/b/c"</span>&gt;&lt;/a&gt;</div><div class="line">.literal 修饰符告诉指令将它的值解析为一个字面字符串而不是一个表达式</div></pre></td></tr></table></figure>
+<h4 id="v-bind、v-on的缩写"><a href="#v-bind、v-on的缩写" class="headerlink" title="v-bind、v-on的缩写"></a>v-bind、v-on的缩写</h4><p>v- 前缀是一种标识模板中特定的 Vue 特性的视觉暗示。Vue.js 为两个最常用的指令 v-bind 和 v-on 提供特别的缩写：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">v-bind 缩写</div><div class="line">&lt;!-- 完整语法 --&gt;</div><div class="line">&lt;a v-bind:href=<span class="string">"url"</span>&gt;&lt;/a&gt;</div><div class="line">&lt;!-- 缩写 --&gt;</div><div class="line">&lt;a :href=<span class="string">"url"</span>&gt;&lt;/a&gt;</div><div class="line">&lt;!-- 完整语法 --&gt;</div><div class="line">&lt;button v-bind:disabled=<span class="string">"someDynamicCondition"</span>&gt;Button&lt;/button&gt;</div><div class="line">&lt;!-- 缩写 --&gt;</div><div class="line">&lt;button :disabled=<span class="string">"someDynamicCondition"</span>&gt;Button&lt;/button&gt;</div><div class="line">v-on 缩写</div><div class="line">&lt;!-- 完整语法 --&gt;</div><div class="line">&lt;a v-on:click=<span class="string">"doSomething"</span>&gt;&lt;/a&gt;</div><div class="line">&lt;!-- 缩写 --&gt;</div><div class="line">&lt;a @click=<span class="string">"doSomething"</span>&gt;&lt;/a&gt;</div></pre></td></tr></table></figure></span>
       
     </div>
 
@@ -382,7 +384,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/js基础/" rel="tag">#js基础</a>
+            <a href="/tags/javascript/" rel="tag">#javascript</a>
           
         </div>
       
@@ -391,13 +393,13 @@
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/01/19/将图片转换为base64的demo/" rel="prev">图片转换为base64</a>
+              <a href="/2016/03/14/Less封装flex布局常用方法及小工具/" rel="prev">Less封装flex布局常用方法及小工具</a>
             
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/05/23/14-js原生ajax/" rel="next">原生ajax</a>
+              <a href="/2016/03/06/less入门笔记/" rel="next">less 入门笔记</a>
             
           </div>
         </div>
@@ -568,8 +570,8 @@
         
           <div class="comments" id="comments">
             
-              <div class="ds-thread" data-thread-key="2015/06/08/15-js基础补充-02/"
-                   data-title="JavaScript-基础补充_02" data-url="http://yoursite.com/2015/06/08/15-js基础补充-02/">
+              <div class="ds-thread" data-thread-key="2016/03/13/Vue基本语法/"
+                   data-title="Vue 基本语法" data-url="http://yoursite.com/2016/03/13/Vue基本语法/">
               </div>
             
           </div>
@@ -651,7 +653,7 @@
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-ECMAScript是一种标准和规范，JavaScript和JScript是这种规范的实现和扩展。"><span class="nav-number">1.</span> <span class="nav-text">1.ECMAScript是一种标准和规范，JavaScript和JScript是这种规范的实现和扩展。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-ECMAScript5中关于对象-Object-的新方法："><span class="nav-number">2.</span> <span class="nav-text">2.ECMAScript5中关于对象(Object)的新方法：</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#注意：这种方法不常用。若使用，则需要两步：修改描述符—→定义-修改属性"><span class="nav-number">2.1.</span> <span class="nav-text">注意：这种方法不常用。若使用，则需要两步：修改描述符—→定义/修改属性</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#注意-这种方法只能定义对象自有属性的属性特征，而不能定义对象原型属性的属性特征。"><span class="nav-number">2.2.</span> <span class="nav-text">注意:这种方法只能定义对象自有属性的属性特征，而不能定义对象原型属性的属性特征。</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-ECMAScript5中关于数组-Array-的新方法："><span class="nav-number">3.</span> <span class="nav-text">3.ECMAScript5中关于数组(Array)的新方法：</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-数组-forEach-从头到位遍历数组，每个元素都调用指定的函数（该方法的参数），该方法在元素遍历结束之前无法终止。"><span class="nav-number">3.1.</span> <span class="nav-text">(1)数组.forEach():从头到位遍历数组，每个元素都调用指定的函数（该方法的参数），该方法在元素遍历结束之前无法终止。</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-数组-map-调用数组的每一个元素传递给指定函数，并返回一个数组，它包含该函数的返回值。"><span class="nav-number">3.2.</span> <span class="nav-text">(2)数组.map():调用数组的每一个元素传递给指定函数，并返回一个数组，它包含该函数的返回值。</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-数组-filter-创建一个新的匹配过滤条件的数组。"><span class="nav-number">3.3.</span> <span class="nav-text">(3)数组.filter():创建一个新的匹配过滤条件的数组。</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-数组-some-查看数组是否有符合条件的元素"><span class="nav-number">3.4.</span> <span class="nav-text">(4)数组.some()查看数组是否有符合条件的元素</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-数组-every-查看数组元素是否全部符合条件。"><span class="nav-number">3.5.</span> <span class="nav-text">(5)数组.every()查看数组元素是否全部符合条件。</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#插值"><span class="nav-number">1.</span> <span class="nav-text">插值</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#几种常见的绑定表达式"><span class="nav-number">2.</span> <span class="nav-text">几种常见的绑定表达式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#表达式"><span class="nav-number">3.</span> <span class="nav-text">表达式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#过滤器"><span class="nav-number">4.</span> <span class="nav-text">过滤器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#指令"><span class="nav-number">5.</span> <span class="nav-text">指令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#修饰符"><span class="nav-number">6.</span> <span class="nav-text">修饰符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#v-bind、v-on的缩写"><span class="nav-number">7.</span> <span class="nav-text">v-bind、v-on的缩写</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
