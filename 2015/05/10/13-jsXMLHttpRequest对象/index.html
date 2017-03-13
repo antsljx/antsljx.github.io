@@ -29,7 +29,7 @@
 
 
 
-  <meta name="keywords" content="js基础," />
+  <meta name="keywords" content="js基础 XMLHttpRequest对象," />
 
 
 
@@ -38,22 +38,31 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
 
 
-<meta name="description" content="继承默认情况：子类—prototype→子类的原型
-123子类的原型—constructor→子类 Student.prototype=Student.prototype	Student.prototype.constructor=Student;
-1.继承的第一种方法：call、apply、bind1234567call、apply、bind 略有不同；call和apply主要是传递参数的方法不">
+<meta name="description" content="1.XMLHttpRequest对象：发送请求到服务器并获得返回结果。
+2.aJax使用步骤：①创建一个XMLHttpRequest对象； 
+②使用open方法设置ajax参数； 
+③与服务器建立连接，发送数据到服务端； 
+④在onreadystatechange事件函数中接收服务器数据。
+3.onreadyStatechange事件：当XMLHttpRequest对象的readyState属性值">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JavaScript-继承">
-<meta property="og:url" content="http://yoursite.com/2015/04/10/10-js继承/index.html">
+<meta property="og:title" content="XMLHttpRequest对象">
+<meta property="og:url" content="http://yoursite.com/2015/05/10/13-jsXMLHttpRequest对象/index.html">
 <meta property="og:site_name" content="ants的博客">
-<meta property="og:description" content="继承默认情况：子类—prototype→子类的原型
-123子类的原型—constructor→子类 Student.prototype=Student.prototype	Student.prototype.constructor=Student;
-1.继承的第一种方法：call、apply、bind1234567call、apply、bind 略有不同；call和apply主要是传递参数的方法不">
-<meta property="og:updated_time" content="2017-03-13T07:19:06.000Z">
+<meta property="og:description" content="1.XMLHttpRequest对象：发送请求到服务器并获得返回结果。
+2.aJax使用步骤：①创建一个XMLHttpRequest对象； 
+②使用open方法设置ajax参数； 
+③与服务器建立连接，发送数据到服务端； 
+④在onreadystatechange事件函数中接收服务器数据。
+3.onreadyStatechange事件：当XMLHttpRequest对象的readyState属性值">
+<meta property="og:updated_time" content="2017-03-13T07:57:20.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JavaScript-继承">
-<meta name="twitter:description" content="继承默认情况：子类—prototype→子类的原型
-123子类的原型—constructor→子类 Student.prototype=Student.prototype	Student.prototype.constructor=Student;
-1.继承的第一种方法：call、apply、bind1234567call、apply、bind 略有不同；call和apply主要是传递参数的方法不">
+<meta name="twitter:title" content="XMLHttpRequest对象">
+<meta name="twitter:description" content="1.XMLHttpRequest对象：发送请求到服务器并获得返回结果。
+2.aJax使用步骤：①创建一个XMLHttpRequest对象； 
+②使用open方法设置ajax参数； 
+③与服务器建立连接，发送数据到服务端； 
+④在onreadystatechange事件函数中接收服务器数据。
+3.onreadyStatechange事件：当XMLHttpRequest对象的readyState属性值">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -63,7 +72,7 @@
   };
 </script>
 
-  <title> JavaScript-继承 | ants的博客 </title>
+  <title> XMLHttpRequest对象 | ants的博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -313,7 +322,7 @@
           
           
             
-              JavaScript-继承
+              XMLHttpRequest对象
             
           
         </h1>
@@ -322,8 +331,8 @@
       <div class="post-meta">
         <span class="post-time">
           发表于
-          <time itemprop="dateCreated" datetime="2015-04-10T15:12:16+08:00" content="2015-04-10">
-            2015-04-10
+          <time itemprop="dateCreated" datetime="2015-05-10T15:53:25+08:00" content="2015-05-10">
+            2015-05-10
           </time>
         </span>
 
@@ -349,11 +358,11 @@
             <span class="post-comments-count">
               &nbsp; | &nbsp;
               <!--
-              <a href="/2015/04/10/10-js继承/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2015/04/10/10-js继承/" itemprop="commentsCount"></span>
+              <a href="/2015/05/10/13-jsXMLHttpRequest对象/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2015/05/10/13-jsXMLHttpRequest对象/" itemprop="commentsCount"></span>
               </a>
               -->
-              <a href="/2015/04/10/10-js继承/#comments" itemprop="discussionUrl">
+              <a href="/2015/05/10/13-jsXMLHttpRequest对象/#comments" itemprop="discussionUrl">
                 <span>评论</span>
               </a>
             </span>
@@ -368,14 +377,15 @@
       
 
       
-        <span itemprop="articleBody"><h3 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h3><p>默认情况：子类—prototype→子类的原型</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">子类的原型—constructor→子类 </div><div class="line">Student.prototype=Student.prototype	</div><div class="line">Student.prototype.constructor=Student;</div></pre></td></tr></table></figure>
-<h4 id="1-继承的第一种方法：call、apply、bind"><a href="#1-继承的第一种方法：call、apply、bind" class="headerlink" title="1.继承的第一种方法：call、apply、bind"></a>1.继承的第一种方法：call、apply、bind</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">call、apply、<span class="built_in">bind</span> 略有不同；</div><div class="line">call和apply主要是传递参数的方法不同</div><div class="line">call(对象，实参1，实参2……)</div><div class="line">apply(对象，[实参1，实参2……])</div><div class="line"><span class="built_in">bind</span> 与call和apply的区别是需要自执行(方法后加个小口号“()”)，如下两种方式否可以实现用<span class="built_in">bind</span>继承：</div><div class="line"><span class="built_in">bind</span>(对象，实参1，实参2……)()</div><div class="line"><span class="built_in">bind</span>(对象，[实参1，实参2……])()</div></pre></td></tr></table></figure>
-<h4 id="2-继承的第二种方法：子类—prototype→父类实例"><a href="#2-继承的第二种方法：子类—prototype→父类实例" class="headerlink" title="2.继承的第二种方法：子类—prototype→父类实例"></a>2.继承的第二种方法：子类—prototype→父类实例</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">子类原型指向父类实例 父类实例（子类原型）—constructor→子类</div><div class="line">Student.prototype=new Person();			</div><div class="line">Student.prototype.constructor=Student;</div></pre></td></tr></table></figure>
-<h4 id="3-继承的第三种方法：-子类—prototype→父类原型"><a href="#3-继承的第三种方法：-子类—prototype→父类原型" class="headerlink" title="3.继承的第三种方法： 子类—prototype→父类原型"></a>3.继承的第三种方法： 子类—prototype→父类原型</h4><p>子类原型指向父类原型 父类原型（子类原型）—constructor→子类<br>Student.prototype=Person.prototype;<br>Student.prototype.constructor=Student;</p>
-<h4 id="4-继承的第四种方法：-定义一个空类"><a href="#4-继承的第四种方法：-定义一个空类" class="headerlink" title="4.继承的第四种方法： 定义一个空类"></a>4.继承的第四种方法： 定义一个空类</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">定义空类作为桥梁      </div><div class="line">    空类—prototype→父类</div><div class="line">     子类—prototype→空类实例</div><div class="line">空类实例（子类原型）—constructor→子类</div><div class="line">    var F=<span class="function"><span class="title">function</span></span>()&#123;&#125;</div><div class="line">    F.prototype=Parent.prototype;</div><div class="line">    Child.prototype=new F;</div><div class="line">    Child.prototype.constructor=Child;</div></pre></td></tr></table></figure>
-<h4 id="5-继承的第五种方法：-①拷贝类的原型属性for-in"><a href="#5-继承的第五种方法：-①拷贝类的原型属性for-in" class="headerlink" title="5.继承的第五种方法： ①拷贝类的原型属性for in"></a>5.继承的第五种方法： ①拷贝类的原型属性for in</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">①<span class="keyword">for</span> (i <span class="keyword">in</span> Parent.prototype) &#123;</div><div class="line">                    Child.prototype[i]=Parent.prototype[i];</div><div class="line">                    &#125;;</div><div class="line">②拷贝对象的所有属性（浅拷贝）<span class="keyword">for</span> <span class="keyword">in</span></div><div class="line"><span class="keyword">for</span> (i <span class="keyword">in</span> p1) &#123;</div><div class="line">            c1[i]=p1[i];</div><div class="line">            &#125;; </div><div class="line">③拷贝对象的所有属性（深拷贝） <span class="keyword">for</span> <span class="keyword">in</span></div><div class="line">实现数组与对象数据本身的拷贝，而不仅复制栈地址。</div><div class="line"><span class="keyword">function</span> extend(child, parent) &#123;   //深拷贝封装函数</div><div class="line">        <span class="keyword">for</span> (i <span class="keyword">in</span> parent) &#123;</div><div class="line">            <span class="keyword">if</span> ((typeof parent[i]) === <span class="string">'object'</span>) &#123;</div><div class="line">                child[i] = (parent[i].constructor === Array) ? [] : &#123;&#125;;</div><div class="line">                            extend(child[i], parent[i])</div><div class="line">                        &#125; <span class="keyword">else</span> &#123;</div><div class="line">                            child[i] = parent[i];</div><div class="line">                        &#125;;</div><div class="line">                    &#125;;</div><div class="line">            &#125;</div></pre></td></tr></table></figure>
-<h4 id="6-继承的第六种方法：对象继承对象的属性，与类无关。"><a href="#6-继承的第六种方法：对象继承对象的属性，与类无关。" class="headerlink" title="6. 继承的第六种方法：对象继承对象的属性，与类无关。"></a>6. 继承的第六种方法：对象继承对象的属性，与类无关。</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">语法：var 子对象=Object.create(父对象，子对象的自有属性) 。</div><div class="line">举例：var 子对象名 = Object.create(父对象名, &#123;</div><div class="line">                        属性名1: &#123;</div><div class="line">                            writable: <span class="literal">true</span>,//该属性是否可修改</div><div class="line">                            enumerable: <span class="literal">true</span>,//该属性是否可枚举</div><div class="line">                            configurable: <span class="literal">true</span>,//该属性是否可删除</div><div class="line">                            value: ‘属性值’, //该属性的属性值。</div><div class="line">                        &#125;,</div><div class="line">                        属性名2: &#123;</div><div class="line">                            writable: <span class="literal">true</span>,</div><div class="line">                            enumerable: <span class="literal">true</span>,</div><div class="line">                            configurable: <span class="literal">true</span>,</div><div class="line">                            value: ‘属性值’</div><div class="line">                        &#125;);</div></pre></td></tr></table></figure></span>
+        <span itemprop="articleBody"><h4 id="1-XMLHttpRequest对象："><a href="#1-XMLHttpRequest对象：" class="headerlink" title="1.XMLHttpRequest对象："></a>1.XMLHttpRequest对象：</h4><p>发送请求到服务器并获得返回结果。</p>
+<h4 id="2-aJax使用步骤："><a href="#2-aJax使用步骤：" class="headerlink" title="2.aJax使用步骤："></a>2.aJax使用步骤：</h4><pre><code>①创建一个XMLHttpRequest对象； 
+②使用open方法设置ajax参数； 
+③与服务器建立连接，发送数据到服务端； 
+④在onreadystatechange事件函数中接收服务器数据。
+</code></pre><h4 id="3-onreadyStatechange事件："><a href="#3-onreadyStatechange事件：" class="headerlink" title="3.onreadyStatechange事件："></a>3.onreadyStatechange事件：</h4><p>当XMLHttpRequest对象的readyState属性值发生变化时，触发该事件。</p>
+<h4 id="4-readyState属性-XMLHttpRequest对象的状态信息"><a href="#4-readyState属性-XMLHttpRequest对象的状态信息" class="headerlink" title="4.readyState属性:XMLHttpRequest对象的状态信息"></a>4.readyState属性:XMLHttpRequest对象的状态信息</h4><p>0——XMLHttpRequest对象没有完成初始化。<br>1——XMLHttpRequest对象开始发送请求。<br>2——XMLHttpRequest对象请求发送完成，已收到全部响应内容。<br>3——XMLHttpRequest对象开始读取响应，还没有结束<br>4——XMLHttpRequest对象读取响应结束。<br>(0)未初始化—→(1)发送请求—→(2)发送完成—→(3)读取响应—→(4)读取结束<br>new XMLHttpRequest()—(0)→open()—(1)→send()—(1)—(4)→responseText</p>
+<h4 id="5-status属性-XMLHttpRequest对象的状态码"><a href="#5-status属性-XMLHttpRequest对象的状态码" class="headerlink" title="5.status属性:XMLHttpRequest对象的状态码"></a>5.status属性:XMLHttpRequest对象的状态码</h4><p>200——服务器响应正常<br>400——无法找到请求的资源<br>403——没有访问权限<br>404——访问的资源不存在<br>500——服务器内部错误<br>new XMLHttpRequest()—(0)→open()—(0)→send()—(0)—(200)→responseText</p>
+<h4 id="6-responseText获得响应的文本内容；responseXML获得响应的XML文档对象"><a href="#6-responseText获得响应的文本内容；responseXML获得响应的XML文档对象" class="headerlink" title="6.responseText获得响应的文本内容；responseXML获得响应的XML文档对象"></a>6.responseText获得响应的文本内容；responseXML获得响应的XML文档对象</h4><h4 id="7-创建一个服务器，并在页面上输出-”hello-world-”"><a href="#7-创建一个服务器，并在页面上输出-”hello-world-”" class="headerlink" title="7.创建一个服务器，并在页面上输出:”hello world!”"></a>7.创建一个服务器，并在页面上输出:”hello world!”</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">//加载和返回内置的HTTP模块</div><div class="line">var http = require(<span class="string">"http"</span>);</div><div class="line">//创建一个http的服务器</div><div class="line">http.createServer(<span class="keyword">function</span>(request, response) &#123;</div><div class="line">	//向请求的客户端发送响应,其中第一个参数为状态码，第二个参数为设置信息的键值对</div><div class="line">	response.writeHead(200, &#123;</div><div class="line">		<span class="string">"context-type"</span>: <span class="string">"text/html"</span></div><div class="line">	&#125;);</div><div class="line">	//页面上打印的内容</div><div class="line">	response.write(<span class="string">"hello world!"</span>);</div><div class="line">	//结束请求响应</div><div class="line">	response.end();</div><div class="line">	//服务器运行在8080端口</div><div class="line">&#125;).listen(8080);</div><div class="line">//控制台上输出Server running at localhost:8080</div><div class="line"> console.log(<span class="string">"Server running at localhost:8080"</span>);</div></pre></td></tr></table></figure></span>
       
     </div>
 
@@ -383,7 +393,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/js基础/" rel="tag">#js基础</a>
+            <a href="/tags/js基础-XMLHttpRequest对象/" rel="tag">#js基础 XMLHttpRequest对象</a>
           
         </div>
       
@@ -392,13 +402,11 @@
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/04/21/11-js数据交互/" rel="prev">JavaScript-数据交互</a>
-            
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/03/25/09-js闭包/" rel="next">JavaScript-闭包</a>
+              <a href="/2015/04/29/12-js实现单例模式的几种方法/" rel="next">JavaScript-实现单例模式的几种方法</a>
             
           </div>
         </div>
@@ -569,8 +577,8 @@
         
           <div class="comments" id="comments">
             
-              <div class="ds-thread" data-thread-key="2015/04/10/10-js继承/"
-                   data-title="JavaScript-继承" data-url="http://yoursite.com/2015/04/10/10-js继承/">
+              <div class="ds-thread" data-thread-key="2015/05/10/13-jsXMLHttpRequest对象/"
+                   data-title="XMLHttpRequest对象" data-url="http://yoursite.com/2015/05/10/13-jsXMLHttpRequest对象/">
               </div>
             
           </div>
@@ -652,7 +660,7 @@
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#继承"><span class="nav-number">1.</span> <span class="nav-text">继承</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-继承的第一种方法：call、apply、bind"><span class="nav-number">1.1.</span> <span class="nav-text">1.继承的第一种方法：call、apply、bind</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-继承的第二种方法：子类—prototype→父类实例"><span class="nav-number">1.2.</span> <span class="nav-text">2.继承的第二种方法：子类—prototype→父类实例</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-继承的第三种方法：-子类—prototype→父类原型"><span class="nav-number">1.3.</span> <span class="nav-text">3.继承的第三种方法： 子类—prototype→父类原型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-继承的第四种方法：-定义一个空类"><span class="nav-number">1.4.</span> <span class="nav-text">4.继承的第四种方法： 定义一个空类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-继承的第五种方法：-①拷贝类的原型属性for-in"><span class="nav-number">1.5.</span> <span class="nav-text">5.继承的第五种方法： ①拷贝类的原型属性for in</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-继承的第六种方法：对象继承对象的属性，与类无关。"><span class="nav-number">1.6.</span> <span class="nav-text">6. 继承的第六种方法：对象继承对象的属性，与类无关。</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-XMLHttpRequest对象："><span class="nav-number">1.</span> <span class="nav-text">1.XMLHttpRequest对象：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-aJax使用步骤："><span class="nav-number">2.</span> <span class="nav-text">2.aJax使用步骤：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-onreadyStatechange事件："><span class="nav-number">3.</span> <span class="nav-text">3.onreadyStatechange事件：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-readyState属性-XMLHttpRequest对象的状态信息"><span class="nav-number">4.</span> <span class="nav-text">4.readyState属性:XMLHttpRequest对象的状态信息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-status属性-XMLHttpRequest对象的状态码"><span class="nav-number">5.</span> <span class="nav-text">5.status属性:XMLHttpRequest对象的状态码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-responseText获得响应的文本内容；responseXML获得响应的XML文档对象"><span class="nav-number">6.</span> <span class="nav-text">6.responseText获得响应的文本内容；responseXML获得响应的XML文档对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-创建一个服务器，并在页面上输出-”hello-world-”"><span class="nav-number">7.</span> <span class="nav-text">7.创建一个服务器，并在页面上输出:”hello world!”</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
