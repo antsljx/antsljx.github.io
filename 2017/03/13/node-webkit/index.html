@@ -29,7 +29,7 @@
 
 
 
-  <meta name="keywords" content="js基础," />
+  <meta name="keywords" content="Hexo,Mala" />
 
 
 
@@ -38,22 +38,16 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
 
 
-<meta name="description" content="继承默认情况：子类—prototype→子类的原型
-123子类的原型—constructor→子类 Student.prototype=Student.prototype	Student.prototype.constructor=Student;
-1.继承的第一种方法：call、apply、bind1234567call、apply、bind 略有不同；call和apply主要是传递参数的方法不">
+<meta name="description" content="description">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JavaScript-继承">
-<meta property="og:url" content="http://yoursite.com/2015/04/10/10-js继承/index.html">
+<meta property="og:title" content="node-webkit">
+<meta property="og:url" content="http://yoursite.com/2017/03/13/node-webkit/index.html">
 <meta property="og:site_name" content="ants的博客">
-<meta property="og:description" content="继承默认情况：子类—prototype→子类的原型
-123子类的原型—constructor→子类 Student.prototype=Student.prototype	Student.prototype.constructor=Student;
-1.继承的第一种方法：call、apply、bind1234567call、apply、bind 略有不同；call和apply主要是传递参数的方法不">
-<meta property="og:updated_time" content="2017-03-13T07:19:06.000Z">
+<meta property="og:description" content="description">
+<meta property="og:updated_time" content="2017-03-13T09:54:05.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JavaScript-继承">
-<meta name="twitter:description" content="继承默认情况：子类—prototype→子类的原型
-123子类的原型—constructor→子类 Student.prototype=Student.prototype	Student.prototype.constructor=Student;
-1.继承的第一种方法：call、apply、bind1234567call、apply、bind 略有不同；call和apply主要是传递参数的方法不">
+<meta name="twitter:title" content="node-webkit">
+<meta name="twitter:description" content="description">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -63,7 +57,7 @@
   };
 </script>
 
-  <title> JavaScript-继承 | ants的博客 </title>
+  <title> node-webkit | ants的博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -313,7 +307,7 @@
           
           
             
-              JavaScript-继承
+              node-webkit
             
           
         </h1>
@@ -322,26 +316,11 @@
       <div class="post-meta">
         <span class="post-time">
           发表于
-          <time itemprop="dateCreated" datetime="2015-04-10T15:12:16+08:00" content="2015-04-10">
-            2015-04-10
+          <time itemprop="dateCreated" datetime="2017-03-13T17:54:05+08:00" content="2017-03-13">
+            2017-03-13
           </time>
         </span>
 
-        
-          <span class="post-category" >
-            &nbsp; | &nbsp; 分类于
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/js-基础学习/" itemprop="url" rel="index">
-                  <span itemprop="name">js_基础学习</span>
-                </a>
-              </span>
-
-              
-              
-
-            
-          </span>
         
 
         
@@ -349,11 +328,11 @@
             <span class="post-comments-count">
               &nbsp; | &nbsp;
               <!--
-              <a href="/2015/04/10/10-js继承/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2015/04/10/10-js继承/" itemprop="commentsCount"></span>
+              <a href="/2017/03/13/node-webkit/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/13/node-webkit/" itemprop="commentsCount"></span>
               </a>
               -->
-              <a href="/2015/04/10/10-js继承/#comments" itemprop="discussionUrl">
+              <a href="/2017/03/13/node-webkit/#comments" itemprop="discussionUrl">
                 <span>评论</span>
               </a>
             </span>
@@ -368,37 +347,22 @@
       
 
       
-        <span itemprop="articleBody"><h3 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h3><p>默认情况：子类—prototype→子类的原型</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">子类的原型—constructor→子类 </div><div class="line">Student.prototype=Student.prototype	</div><div class="line">Student.prototype.constructor=Student;</div></pre></td></tr></table></figure>
-<h4 id="1-继承的第一种方法：call、apply、bind"><a href="#1-继承的第一种方法：call、apply、bind" class="headerlink" title="1.继承的第一种方法：call、apply、bind"></a>1.继承的第一种方法：call、apply、bind</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">call、apply、<span class="built_in">bind</span> 略有不同；</div><div class="line">call和apply主要是传递参数的方法不同</div><div class="line">call(对象，实参1，实参2……)</div><div class="line">apply(对象，[实参1，实参2……])</div><div class="line"><span class="built_in">bind</span> 与call和apply的区别是需要自执行(方法后加个小口号“()”)，如下两种方式否可以实现用<span class="built_in">bind</span>继承：</div><div class="line"><span class="built_in">bind</span>(对象，实参1，实参2……)()</div><div class="line"><span class="built_in">bind</span>(对象，[实参1，实参2……])()</div></pre></td></tr></table></figure>
-<h4 id="2-继承的第二种方法：子类—prototype→父类实例"><a href="#2-继承的第二种方法：子类—prototype→父类实例" class="headerlink" title="2.继承的第二种方法：子类—prototype→父类实例"></a>2.继承的第二种方法：子类—prototype→父类实例</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">子类原型指向父类实例 父类实例（子类原型）—constructor→子类</div><div class="line">Student.prototype=new Person();			</div><div class="line">Student.prototype.constructor=Student;</div></pre></td></tr></table></figure>
-<h4 id="3-继承的第三种方法：-子类—prototype→父类原型"><a href="#3-继承的第三种方法：-子类—prototype→父类原型" class="headerlink" title="3.继承的第三种方法： 子类—prototype→父类原型"></a>3.继承的第三种方法： 子类—prototype→父类原型</h4><p>子类原型指向父类原型 父类原型（子类原型）—constructor→子类<br>Student.prototype=Person.prototype;<br>Student.prototype.constructor=Student;</p>
-<h4 id="4-继承的第四种方法：-定义一个空类"><a href="#4-继承的第四种方法：-定义一个空类" class="headerlink" title="4.继承的第四种方法： 定义一个空类"></a>4.继承的第四种方法： 定义一个空类</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">定义空类作为桥梁      </div><div class="line">    空类—prototype→父类</div><div class="line">     子类—prototype→空类实例</div><div class="line">空类实例（子类原型）—constructor→子类</div><div class="line">    var F=<span class="function"><span class="title">function</span></span>()&#123;&#125;</div><div class="line">    F.prototype=Parent.prototype;</div><div class="line">    Child.prototype=new F;</div><div class="line">    Child.prototype.constructor=Child;</div></pre></td></tr></table></figure>
-<h4 id="5-继承的第五种方法：-①拷贝类的原型属性for-in"><a href="#5-继承的第五种方法：-①拷贝类的原型属性for-in" class="headerlink" title="5.继承的第五种方法： ①拷贝类的原型属性for in"></a>5.继承的第五种方法： ①拷贝类的原型属性for in</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">①<span class="keyword">for</span> (i <span class="keyword">in</span> Parent.prototype) &#123;</div><div class="line">                    Child.prototype[i]=Parent.prototype[i];</div><div class="line">                    &#125;;</div><div class="line">②拷贝对象的所有属性（浅拷贝）<span class="keyword">for</span> <span class="keyword">in</span></div><div class="line"><span class="keyword">for</span> (i <span class="keyword">in</span> p1) &#123;</div><div class="line">            c1[i]=p1[i];</div><div class="line">            &#125;; </div><div class="line">③拷贝对象的所有属性（深拷贝） <span class="keyword">for</span> <span class="keyword">in</span></div><div class="line">实现数组与对象数据本身的拷贝，而不仅复制栈地址。</div><div class="line"><span class="keyword">function</span> extend(child, parent) &#123;   //深拷贝封装函数</div><div class="line">        <span class="keyword">for</span> (i <span class="keyword">in</span> parent) &#123;</div><div class="line">            <span class="keyword">if</span> ((typeof parent[i]) === <span class="string">'object'</span>) &#123;</div><div class="line">                child[i] = (parent[i].constructor === Array) ? [] : &#123;&#125;;</div><div class="line">                            extend(child[i], parent[i])</div><div class="line">                        &#125; <span class="keyword">else</span> &#123;</div><div class="line">                            child[i] = parent[i];</div><div class="line">                        &#125;;</div><div class="line">                    &#125;;</div><div class="line">            &#125;</div></pre></td></tr></table></figure>
-<h4 id="6-继承的第六种方法：对象继承对象的属性，与类无关。"><a href="#6-继承的第六种方法：对象继承对象的属性，与类无关。" class="headerlink" title="6. 继承的第六种方法：对象继承对象的属性，与类无关。"></a>6. 继承的第六种方法：对象继承对象的属性，与类无关。</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">语法：var 子对象=Object.create(父对象，子对象的自有属性) 。</div><div class="line">举例：var 子对象名 = Object.create(父对象名, &#123;</div><div class="line">                        属性名1: &#123;</div><div class="line">                            writable: <span class="literal">true</span>,//该属性是否可修改</div><div class="line">                            enumerable: <span class="literal">true</span>,//该属性是否可枚举</div><div class="line">                            configurable: <span class="literal">true</span>,//该属性是否可删除</div><div class="line">                            value: ‘属性值’, //该属性的属性值。</div><div class="line">                        &#125;,</div><div class="line">                        属性名2: &#123;</div><div class="line">                            writable: <span class="literal">true</span>,</div><div class="line">                            enumerable: <span class="literal">true</span>,</div><div class="line">                            configurable: <span class="literal">true</span>,</div><div class="line">                            value: ‘属性值’</div><div class="line">                        &#125;);</div></pre></td></tr></table></figure></span>
+        <span itemprop="articleBody"></span>
       
     </div>
 
     <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/js基础/" rel="tag">#js基础</a>
-          
-        </div>
       
 
       
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/04/21/11-js数据交互/" rel="prev">JavaScript-数据交互</a>
-            
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/03/25/09-js闭包/" rel="next">JavaScript-闭包</a>
+              <a href="/2016/03/14/Less封装flex布局常用方法及小工具/" rel="next">Less封装flex布局常用方法及小工具</a>
             
           </div>
         </div>
@@ -569,8 +533,8 @@
         
           <div class="comments" id="comments">
             
-              <div class="ds-thread" data-thread-key="2015/04/10/10-js继承/"
-                   data-title="JavaScript-继承" data-url="http://yoursite.com/2015/04/10/10-js继承/">
+              <div class="ds-thread" data-thread-key="2017/03/13/node-webkit/"
+                   data-title="node-webkit" data-url="http://yoursite.com/2017/03/13/node-webkit/">
               </div>
             
           </div>
@@ -652,7 +616,7 @@
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#继承"><span class="nav-number">1.</span> <span class="nav-text">继承</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-继承的第一种方法：call、apply、bind"><span class="nav-number">1.1.</span> <span class="nav-text">1.继承的第一种方法：call、apply、bind</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-继承的第二种方法：子类—prototype→父类实例"><span class="nav-number">1.2.</span> <span class="nav-text">2.继承的第二种方法：子类—prototype→父类实例</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-继承的第三种方法：-子类—prototype→父类原型"><span class="nav-number">1.3.</span> <span class="nav-text">3.继承的第三种方法： 子类—prototype→父类原型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-继承的第四种方法：-定义一个空类"><span class="nav-number">1.4.</span> <span class="nav-text">4.继承的第四种方法： 定义一个空类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-继承的第五种方法：-①拷贝类的原型属性for-in"><span class="nav-number">1.5.</span> <span class="nav-text">5.继承的第五种方法： ①拷贝类的原型属性for in</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-继承的第六种方法：对象继承对象的属性，与类无关。"><span class="nav-number">1.6.</span> <span class="nav-text">6. 继承的第六种方法：对象继承对象的属性，与类无关。</span></a></li></ol></li></ol></div>
+              <p class="post-toc-empty">此文章未包含目录</p>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
