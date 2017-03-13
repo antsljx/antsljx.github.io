@@ -29,7 +29,7 @@
 
 
 
-  <meta name="keywords" content="js基础 XMLHttpRequest对象," />
+  <meta name="keywords" content="js基础," />
 
 
 
@@ -38,31 +38,16 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
 
 
-<meta name="description" content="1.XMLHttpRequest对象：发送请求到服务器并获得返回结果。
-2.aJax使用步骤：①创建一个XMLHttpRequest对象； 
-②使用open方法设置ajax参数； 
-③与服务器建立连接，发送数据到服务端； 
-④在onreadystatechange事件函数中接收服务器数据。
-3.onreadyStatechange事件：当XMLHttpRequest对象的readyState属性值">
+<meta name="description" content="1.ECMAScript是一种标准和规范，JavaScript和JScript是这种规范的实现和扩展。2.ECMAScript5中关于对象(Object)的新方法：(1)获取对象某个属性的描述符：Object.getOwnPropertyDescriptor(对象, “属性名”) 。(2)定义或修改对象某个属性的属性特征(不常用)：描述符.value/writable/enumerable/con">
 <meta property="og:type" content="article">
-<meta property="og:title" content="XMLHttpRequest对象">
-<meta property="og:url" content="http://yoursite.com/2015/05/10/13-jsXMLHttpRequest对象/index.html">
+<meta property="og:title" content="JavaScript-基础补充_02">
+<meta property="og:url" content="http://yoursite.com/2015/06/08/15-js基础补充-02/index.html">
 <meta property="og:site_name" content="ants的博客">
-<meta property="og:description" content="1.XMLHttpRequest对象：发送请求到服务器并获得返回结果。
-2.aJax使用步骤：①创建一个XMLHttpRequest对象； 
-②使用open方法设置ajax参数； 
-③与服务器建立连接，发送数据到服务端； 
-④在onreadystatechange事件函数中接收服务器数据。
-3.onreadyStatechange事件：当XMLHttpRequest对象的readyState属性值">
-<meta property="og:updated_time" content="2017-03-13T07:57:20.000Z">
+<meta property="og:description" content="1.ECMAScript是一种标准和规范，JavaScript和JScript是这种规范的实现和扩展。2.ECMAScript5中关于对象(Object)的新方法：(1)获取对象某个属性的描述符：Object.getOwnPropertyDescriptor(对象, “属性名”) 。(2)定义或修改对象某个属性的属性特征(不常用)：描述符.value/writable/enumerable/con">
+<meta property="og:updated_time" content="2017-03-13T08:31:45.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="XMLHttpRequest对象">
-<meta name="twitter:description" content="1.XMLHttpRequest对象：发送请求到服务器并获得返回结果。
-2.aJax使用步骤：①创建一个XMLHttpRequest对象； 
-②使用open方法设置ajax参数； 
-③与服务器建立连接，发送数据到服务端； 
-④在onreadystatechange事件函数中接收服务器数据。
-3.onreadyStatechange事件：当XMLHttpRequest对象的readyState属性值">
+<meta name="twitter:title" content="JavaScript-基础补充_02">
+<meta name="twitter:description" content="1.ECMAScript是一种标准和规范，JavaScript和JScript是这种规范的实现和扩展。2.ECMAScript5中关于对象(Object)的新方法：(1)获取对象某个属性的描述符：Object.getOwnPropertyDescriptor(对象, “属性名”) 。(2)定义或修改对象某个属性的属性特征(不常用)：描述符.value/writable/enumerable/con">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -72,7 +57,7 @@
   };
 </script>
 
-  <title> XMLHttpRequest对象 | ants的博客 </title>
+  <title> JavaScript-基础补充_02 | ants的博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -322,7 +307,7 @@
           
           
             
-              XMLHttpRequest对象
+              JavaScript-基础补充_02
             
           
         </h1>
@@ -331,8 +316,8 @@
       <div class="post-meta">
         <span class="post-time">
           发表于
-          <time itemprop="dateCreated" datetime="2015-05-10T15:53:25+08:00" content="2015-05-10">
-            2015-05-10
+          <time itemprop="dateCreated" datetime="2015-06-08T16:24:40+08:00" content="2015-06-08">
+            2015-06-08
           </time>
         </span>
 
@@ -358,11 +343,11 @@
             <span class="post-comments-count">
               &nbsp; | &nbsp;
               <!--
-              <a href="/2015/05/10/13-jsXMLHttpRequest对象/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2015/05/10/13-jsXMLHttpRequest对象/" itemprop="commentsCount"></span>
+              <a href="/2015/06/08/15-js基础补充-02/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2015/06/08/15-js基础补充-02/" itemprop="commentsCount"></span>
               </a>
               -->
-              <a href="/2015/05/10/13-jsXMLHttpRequest对象/#comments" itemprop="discussionUrl">
+              <a href="/2015/06/08/15-js基础补充-02/#comments" itemprop="discussionUrl">
                 <span>评论</span>
               </a>
             </span>
@@ -377,15 +362,19 @@
       
 
       
-        <span itemprop="articleBody"><h4 id="1-XMLHttpRequest对象："><a href="#1-XMLHttpRequest对象：" class="headerlink" title="1.XMLHttpRequest对象："></a>1.XMLHttpRequest对象：</h4><p>发送请求到服务器并获得返回结果。</p>
-<h4 id="2-aJax使用步骤："><a href="#2-aJax使用步骤：" class="headerlink" title="2.aJax使用步骤："></a>2.aJax使用步骤：</h4><pre><code>①创建一个XMLHttpRequest对象； 
-②使用open方法设置ajax参数； 
-③与服务器建立连接，发送数据到服务端； 
-④在onreadystatechange事件函数中接收服务器数据。
-</code></pre><h4 id="3-onreadyStatechange事件："><a href="#3-onreadyStatechange事件：" class="headerlink" title="3.onreadyStatechange事件："></a>3.onreadyStatechange事件：</h4><p>当XMLHttpRequest对象的readyState属性值发生变化时，触发该事件。</p>
-<h4 id="4-readyState属性-XMLHttpRequest对象的状态信息"><a href="#4-readyState属性-XMLHttpRequest对象的状态信息" class="headerlink" title="4.readyState属性:XMLHttpRequest对象的状态信息"></a>4.readyState属性:XMLHttpRequest对象的状态信息</h4><p>0——XMLHttpRequest对象没有完成初始化。<br>1——XMLHttpRequest对象开始发送请求。<br>2——XMLHttpRequest对象请求发送完成，已收到全部响应内容。<br>3——XMLHttpRequest对象开始读取响应，还没有结束<br>4——XMLHttpRequest对象读取响应结束。<br>(0)未初始化—→(1)发送请求—→(2)发送完成—→(3)读取响应—→(4)读取结束<br>new XMLHttpRequest()—(0)→open()—(1)→send()—(1)—(4)→responseText</p>
-<h4 id="5-status属性-XMLHttpRequest对象的状态码"><a href="#5-status属性-XMLHttpRequest对象的状态码" class="headerlink" title="5.status属性:XMLHttpRequest对象的状态码"></a>5.status属性:XMLHttpRequest对象的状态码</h4><p>200——服务器响应正常<br>400——无法找到请求的资源<br>403——没有访问权限<br>404——访问的资源不存在<br>500——服务器内部错误<br>new XMLHttpRequest()—(0)→open()—(0)→send()—(0)—(200)→responseText</p>
-<h4 id="6-responseText获得响应的文本内容；responseXML获得响应的XML文档对象"><a href="#6-responseText获得响应的文本内容；responseXML获得响应的XML文档对象" class="headerlink" title="6.responseText获得响应的文本内容；responseXML获得响应的XML文档对象"></a>6.responseText获得响应的文本内容；responseXML获得响应的XML文档对象</h4><h4 id="7-创建一个服务器，并在页面上输出-”hello-world-”"><a href="#7-创建一个服务器，并在页面上输出-”hello-world-”" class="headerlink" title="7.创建一个服务器，并在页面上输出:”hello world!”"></a>7.创建一个服务器，并在页面上输出:”hello world!”</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">//加载和返回内置的HTTP模块</div><div class="line">var http = require(<span class="string">"http"</span>);</div><div class="line">//创建一个http的服务器</div><div class="line">http.createServer(<span class="keyword">function</span>(request, response) &#123;</div><div class="line">	//向请求的客户端发送响应,其中第一个参数为状态码，第二个参数为设置信息的键值对</div><div class="line">	response.writeHead(200, &#123;</div><div class="line">		<span class="string">"context-type"</span>: <span class="string">"text/html"</span></div><div class="line">	&#125;);</div><div class="line">	//页面上打印的内容</div><div class="line">	response.write(<span class="string">"hello world!"</span>);</div><div class="line">	//结束请求响应</div><div class="line">	response.end();</div><div class="line">	//服务器运行在8080端口</div><div class="line">&#125;).listen(8080);</div><div class="line">//控制台上输出Server running at localhost:8080</div><div class="line"> console.log(<span class="string">"Server running at localhost:8080"</span>);</div></pre></td></tr></table></figure></span>
+        <span itemprop="articleBody"><h4 id="1-ECMAScript是一种标准和规范，JavaScript和JScript是这种规范的实现和扩展。"><a href="#1-ECMAScript是一种标准和规范，JavaScript和JScript是这种规范的实现和扩展。" class="headerlink" title="1.ECMAScript是一种标准和规范，JavaScript和JScript是这种规范的实现和扩展。"></a>1.ECMAScript是一种标准和规范，JavaScript和JScript是这种规范的实现和扩展。</h4><h4 id="2-ECMAScript5中关于对象-Object-的新方法："><a href="#2-ECMAScript5中关于对象-Object-的新方法：" class="headerlink" title="2.ECMAScript5中关于对象(Object)的新方法："></a>2.ECMAScript5中关于对象(Object)的新方法：</h4><p>(1)获取对象某个属性的描述符：<br>Object.getOwnPropertyDescriptor(对象, “属性名”) 。<br>(2)定义或修改对象某个属性的属性特征(不常用)：<br>描述符.value/writable/enumerable/configurable=”值”/true/false Object.defineProperty(对象,”属性名”,描述符);</p>
+<h5 id="注意：这种方法不常用。若使用，则需要两步：修改描述符—→定义-修改属性"><a href="#注意：这种方法不常用。若使用，则需要两步：修改描述符—→定义-修改属性" class="headerlink" title="注意：这种方法不常用。若使用，则需要两步：修改描述符—→定义/修改属性"></a>注意：这种方法不常用。若使用，则需要两步：修改描述符—→定义/修改属性</h5><p>(3)定义或修改对象某个自有属性的属性特征(常用)：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">Object.defineProperty(对象,<span class="string">"属性名"</span>,&#123;</div><div class="line">	value:<span class="string">"属性值"</span>,</div><div class="line">	writable:<span class="literal">true</span>/<span class="literal">false</span>,</div><div class="line">	enumerable:<span class="literal">true</span>/<span class="literal">false</span>,</div><div class="line">	configurable:<span class="literal">true</span>/<span class="literal">false</span>,</div><div class="line">  		&#125;);</div></pre></td></tr></table></figure>
+<h5 id="注意-这种方法只能定义对象自有属性的属性特征，而不能定义对象原型属性的属性特征。"><a href="#注意-这种方法只能定义对象自有属性的属性特征，而不能定义对象原型属性的属性特征。" class="headerlink" title="注意:这种方法只能定义对象自有属性的属性特征，而不能定义对象原型属性的属性特征。"></a>注意:这种方法只能定义对象自有属性的属性特征，而不能定义对象原型属性的属性特征。</h5><p>(4) Object.preventExtensions(对象)—属性不可添加、可删除、可修改<br>Object.seal(对象) —属性不可添加、不可删除、可修改<br>Object.freeze(对象) —属性不可添加、不可删除、不可修改</p>
+<p>注意：(3)为定义或修改对象某个属性的属性特征，(4)为定义或修改对象所有属性的特征。定义或修改对象某个属性的属性特征时，有四个可定义/修改项：属性值、可修改、可枚举、可删除。定义或修改对象所有属性的特征时，有三个可定义/修改项：可添加、可删除、可修改。</p>
+<p>(5) Object.getPrototypeOf(对象) 得到对象的proto属性值。</p>
+<h4 id="3-ECMAScript5中关于数组-Array-的新方法："><a href="#3-ECMAScript5中关于数组-Array-的新方法：" class="headerlink" title="3.ECMAScript5中关于数组(Array)的新方法："></a>3.ECMAScript5中关于数组(Array)的新方法：</h4><p>ECMAScript5中，大部分数组新方法的参数为一个匿名函数，并且数组的每一个元素调用一次该匿名函数，该匿名函数一般有两个参数:数组元素和索引值。</p>
+<h5 id="1-数组-forEach-从头到位遍历数组，每个元素都调用指定的函数（该方法的参数），该方法在元素遍历结束之前无法终止。"><a href="#1-数组-forEach-从头到位遍历数组，每个元素都调用指定的函数（该方法的参数），该方法在元素遍历结束之前无法终止。" class="headerlink" title="(1)数组.forEach():从头到位遍历数组，每个元素都调用指定的函数（该方法的参数），该方法在元素遍历结束之前无法终止。"></a>(1)数组.forEach():从头到位遍历数组，每个元素都调用指定的函数（该方法的参数），该方法在元素遍历结束之前无法终止。</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">var arr=[1,3,5,7,9];</div><div class="line">var sum=0</div><div class="line">arr.forEach(<span class="keyword">function</span>(item,index)&#123;</div><div class="line">	sum=sum+item;</div><div class="line">&#125;);</div><div class="line">alert(sum);//弹出25。</div><div class="line">arr.forEach(<span class="keyword">function</span>(item,index)&#123;</div><div class="line">//			item=item+1;语法错误，只能通过arr[index]改变数组元素的值。</div><div class="line">	arr[index]=item+1;</div><div class="line">&#125;);</div><div class="line">alert(arr[1]);//弹出4。</div></pre></td></tr></table></figure>
+<p>注意：数组.forEach()可以取代for循环在数组中的应用，无返回值(return)。</p>
+<h5 id="2-数组-map-调用数组的每一个元素传递给指定函数，并返回一个数组，它包含该函数的返回值。"><a href="#2-数组-map-调用数组的每一个元素传递给指定函数，并返回一个数组，它包含该函数的返回值。" class="headerlink" title="(2)数组.map():调用数组的每一个元素传递给指定函数，并返回一个数组，它包含该函数的返回值。"></a>(2)数组.map():调用数组的每一个元素传递给指定函数，并返回一个数组，它包含该函数的返回值。</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var arr = [1, 2, 3, 4, 5]</div><div class="line">var arr1 = arr.map(<span class="keyword">function</span>(item) &#123;</div><div class="line">	<span class="built_in">return</span> item * item;</div><div class="line">&#125;);</div><div class="line">alert(arr1) //弹出1,4,9,16,25</div></pre></td></tr></table></figure>
+<h5 id="3-数组-filter-创建一个新的匹配过滤条件的数组。"><a href="#3-数组-filter-创建一个新的匹配过滤条件的数组。" class="headerlink" title="(3)数组.filter():创建一个新的匹配过滤条件的数组。"></a>(3)数组.filter():创建一个新的匹配过滤条件的数组。</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var arr1 = [<span class="string">'Charles'</span>, <span class="string">'Mark'</span>, <span class="string">'Bill'</span>, <span class="string">'Vincent'</span>, <span class="string">'William'</span>, <span class="string">'Joseph'</span>]</div><div class="line">var arr2 = arr1.filter(</div><div class="line"><span class="keyword">function</span>(item, index) &#123;</div><div class="line">	<span class="built_in">return</span> item.indexOf(<span class="string">"ll"</span>) &gt; -1</div><div class="line">&#125;);</div><div class="line">alert(arr2); //弹出Bill、William。</div></pre></td></tr></table></figure>
+<h5 id="4-数组-some-查看数组是否有符合条件的元素"><a href="#4-数组-some-查看数组是否有符合条件的元素" class="headerlink" title="(4)数组.some()查看数组是否有符合条件的元素"></a>(4)数组.some()查看数组是否有符合条件的元素</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">var arr1 = <span class="string">"Charles,Mark,Bill,Vincent,William,Joseph"</span>.split(<span class="string">","</span>);</div><div class="line">alert(arr1.some(</div><div class="line">	<span class="keyword">function</span>(item, index) &#123;</div><div class="line">		<span class="built_in">return</span> item.length &lt; 5;</div><div class="line">	&#125;</div><div class="line">)); //<span class="literal">true</span>  </div><div class="line">alert(arr1.some(</div><div class="line">	<span class="keyword">function</span>(item, index) &#123;</div><div class="line">		<span class="built_in">return</span> item.length &lt; 10;</div><div class="line">	&#125;</div><div class="line">)) //<span class="literal">true</span></div></pre></td></tr></table></figure>
+<h5 id="5-数组-every-查看数组元素是否全部符合条件。"><a href="#5-数组-every-查看数组元素是否全部符合条件。" class="headerlink" title="(5)数组.every()查看数组元素是否全部符合条件。"></a>(5)数组.every()查看数组元素是否全部符合条件。</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">var arr1 = <span class="string">"Charles,Mark,Bill,Vincent,William,Joseph"</span>.split(<span class="string">","</span>);</div><div class="line">alert(arr1.every(</div><div class="line">	<span class="keyword">function</span>(item, index) &#123;</div><div class="line">		<span class="built_in">return</span> item.length &lt; 5;</div><div class="line">	&#125;</div><div class="line">)); //<span class="literal">false</span>  </div><div class="line">alert(arr1.every(</div><div class="line">	<span class="keyword">function</span>(item, index) &#123;</div><div class="line">		<span class="built_in">return</span> item.length &lt; 10;</div><div class="line">&#125;</div><div class="line">)) //<span class="literal">true</span></div></pre></td></tr></table></figure></span>
       
     </div>
 
@@ -393,7 +382,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/js基础-XMLHttpRequest对象/" rel="tag">#js基础 XMLHttpRequest对象</a>
+            <a href="/tags/js基础/" rel="tag">#js基础</a>
           
         </div>
       
@@ -402,13 +391,11 @@
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/05/23/14-js原生ajax/" rel="prev">原生ajax</a>
-            
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/04/29/12-js实现单例模式的几种方法/" rel="next">JavaScript-实现单例模式的几种方法</a>
+              <a href="/2015/05/23/14-js原生ajax/" rel="next">原生ajax</a>
             
           </div>
         </div>
@@ -579,8 +566,8 @@
         
           <div class="comments" id="comments">
             
-              <div class="ds-thread" data-thread-key="2015/05/10/13-jsXMLHttpRequest对象/"
-                   data-title="XMLHttpRequest对象" data-url="http://yoursite.com/2015/05/10/13-jsXMLHttpRequest对象/">
+              <div class="ds-thread" data-thread-key="2015/06/08/15-js基础补充-02/"
+                   data-title="JavaScript-基础补充_02" data-url="http://yoursite.com/2015/06/08/15-js基础补充-02/">
               </div>
             
           </div>
@@ -662,7 +649,7 @@
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-XMLHttpRequest对象："><span class="nav-number">1.</span> <span class="nav-text">1.XMLHttpRequest对象：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-aJax使用步骤："><span class="nav-number">2.</span> <span class="nav-text">2.aJax使用步骤：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-onreadyStatechange事件："><span class="nav-number">3.</span> <span class="nav-text">3.onreadyStatechange事件：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-readyState属性-XMLHttpRequest对象的状态信息"><span class="nav-number">4.</span> <span class="nav-text">4.readyState属性:XMLHttpRequest对象的状态信息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-status属性-XMLHttpRequest对象的状态码"><span class="nav-number">5.</span> <span class="nav-text">5.status属性:XMLHttpRequest对象的状态码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-responseText获得响应的文本内容；responseXML获得响应的XML文档对象"><span class="nav-number">6.</span> <span class="nav-text">6.responseText获得响应的文本内容；responseXML获得响应的XML文档对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-创建一个服务器，并在页面上输出-”hello-world-”"><span class="nav-number">7.</span> <span class="nav-text">7.创建一个服务器，并在页面上输出:”hello world!”</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-ECMAScript是一种标准和规范，JavaScript和JScript是这种规范的实现和扩展。"><span class="nav-number">1.</span> <span class="nav-text">1.ECMAScript是一种标准和规范，JavaScript和JScript是这种规范的实现和扩展。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-ECMAScript5中关于对象-Object-的新方法："><span class="nav-number">2.</span> <span class="nav-text">2.ECMAScript5中关于对象(Object)的新方法：</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#注意：这种方法不常用。若使用，则需要两步：修改描述符—→定义-修改属性"><span class="nav-number">2.1.</span> <span class="nav-text">注意：这种方法不常用。若使用，则需要两步：修改描述符—→定义/修改属性</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#注意-这种方法只能定义对象自有属性的属性特征，而不能定义对象原型属性的属性特征。"><span class="nav-number">2.2.</span> <span class="nav-text">注意:这种方法只能定义对象自有属性的属性特征，而不能定义对象原型属性的属性特征。</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-ECMAScript5中关于数组-Array-的新方法："><span class="nav-number">3.</span> <span class="nav-text">3.ECMAScript5中关于数组(Array)的新方法：</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-数组-forEach-从头到位遍历数组，每个元素都调用指定的函数（该方法的参数），该方法在元素遍历结束之前无法终止。"><span class="nav-number">3.1.</span> <span class="nav-text">(1)数组.forEach():从头到位遍历数组，每个元素都调用指定的函数（该方法的参数），该方法在元素遍历结束之前无法终止。</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-数组-map-调用数组的每一个元素传递给指定函数，并返回一个数组，它包含该函数的返回值。"><span class="nav-number">3.2.</span> <span class="nav-text">(2)数组.map():调用数组的每一个元素传递给指定函数，并返回一个数组，它包含该函数的返回值。</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-数组-filter-创建一个新的匹配过滤条件的数组。"><span class="nav-number">3.3.</span> <span class="nav-text">(3)数组.filter():创建一个新的匹配过滤条件的数组。</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-数组-some-查看数组是否有符合条件的元素"><span class="nav-number">3.4.</span> <span class="nav-text">(4)数组.some()查看数组是否有符合条件的元素</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-数组-every-查看数组元素是否全部符合条件。"><span class="nav-number">3.5.</span> <span class="nav-text">(5)数组.every()查看数组元素是否全部符合条件。</span></a></li></ol></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
