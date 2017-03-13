@@ -29,7 +29,7 @@
 
 
 
-  <meta name="keywords" content="less," />
+  <meta name="keywords" content="box-sizing," />
 
 
 
@@ -38,16 +38,19 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
 
 
-<meta name="description" content="Less封装flex布局常用方法及小工具">
+<meta name="description" content="盒子模型及box-sizing属性html中的每个dom元素都被描述为矩形的盒子。渲染引擎的目的是判断大小，属性（颜色，背景，边框，边距，位置等信息）。在css中，这些盒子用标准的盒模型来描述。这个模型描述了一个元素所占用的空间。每一个盒子有四条边界，分别是：外边距边界（margin）、边框边界（border）、内边距边界（padding）和内容边界（content）
+盒模型盒模型主要分为两种：I">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Less封装flex布局常用方法及小工具">
-<meta property="og:url" content="http://yoursite.com/2016/03/14/Less封装flex布局常用方法及小工具/index.html">
+<meta property="og:title" content="盒子模型及box-sizing属性">
+<meta property="og:url" content="http://yoursite.com/2016/04/22/盒子模型及box-sizing属性/index.html">
 <meta property="og:site_name" content="ants的博客">
-<meta property="og:description" content="Less封装flex布局常用方法及小工具">
-<meta property="og:updated_time" content="2017-03-13T09:41:22.000Z">
+<meta property="og:description" content="盒子模型及box-sizing属性html中的每个dom元素都被描述为矩形的盒子。渲染引擎的目的是判断大小，属性（颜色，背景，边框，边距，位置等信息）。在css中，这些盒子用标准的盒模型来描述。这个模型描述了一个元素所占用的空间。每一个盒子有四条边界，分别是：外边距边界（margin）、边框边界（border）、内边距边界（padding）和内容边界（content）
+盒模型盒模型主要分为两种：I">
+<meta property="og:updated_time" content="2017-03-13T10:58:09.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Less封装flex布局常用方法及小工具">
-<meta name="twitter:description" content="Less封装flex布局常用方法及小工具">
+<meta name="twitter:title" content="盒子模型及box-sizing属性">
+<meta name="twitter:description" content="盒子模型及box-sizing属性html中的每个dom元素都被描述为矩形的盒子。渲染引擎的目的是判断大小，属性（颜色，背景，边框，边距，位置等信息）。在css中，这些盒子用标准的盒模型来描述。这个模型描述了一个元素所占用的空间。每一个盒子有四条边界，分别是：外边距边界（margin）、边框边界（border）、内边距边界（padding）和内容边界（content）
+盒模型盒模型主要分为两种：I">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -57,7 +60,7 @@
   };
 </script>
 
-  <title> Less封装flex布局常用方法及小工具 | ants的博客 </title>
+  <title> 盒子模型及box-sizing属性 | ants的博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -307,7 +310,7 @@
           
           
             
-              Less封装flex布局常用方法及小工具
+              盒子模型及box-sizing属性
             
           
         </h1>
@@ -316,8 +319,8 @@
       <div class="post-meta">
         <span class="post-time">
           发表于
-          <time itemprop="dateCreated" datetime="2016-03-14T17:32:23+08:00" content="2016-03-14">
-            2016-03-14
+          <time itemprop="dateCreated" datetime="2016-04-22T18:54:59+08:00" content="2016-04-22">
+            2016-04-22
           </time>
         </span>
 
@@ -326,8 +329,8 @@
             &nbsp; | &nbsp; 分类于
             
               <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/工具/" itemprop="url" rel="index">
-                  <span itemprop="name">工具</span>
+                <a href="/categories/css/" itemprop="url" rel="index">
+                  <span itemprop="name">css</span>
                 </a>
               </span>
 
@@ -343,11 +346,11 @@
             <span class="post-comments-count">
               &nbsp; | &nbsp;
               <!--
-              <a href="/2016/03/14/Less封装flex布局常用方法及小工具/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/14/Less封装flex布局常用方法及小工具/" itemprop="commentsCount"></span>
+              <a href="/2016/04/22/盒子模型及box-sizing属性/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/22/盒子模型及box-sizing属性/" itemprop="commentsCount"></span>
               </a>
               -->
-              <a href="/2016/03/14/Less封装flex布局常用方法及小工具/#comments" itemprop="discussionUrl">
+              <a href="/2016/04/22/盒子模型及box-sizing属性/#comments" itemprop="discussionUrl">
                 <span>评论</span>
               </a>
             </span>
@@ -362,7 +365,14 @@
       
 
       
-        <span itemprop="articleBody"><h3 id="Less封装flex布局常用方法及小工具"><a href="#Less封装flex布局常用方法及小工具" class="headerlink" title="Less封装flex布局常用方法及小工具"></a>Less封装flex布局常用方法及小工具</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div></pre></td><td class="code"><pre><div class="line">//flex 布局</div><div class="line"></div><div class="line">.flex-<span class="function"><span class="title">main</span></span>()&#123;</div><div class="line">  width: 100%;</div><div class="line">  display: inline-flex;</div><div class="line">  display: flex;</div><div class="line">  display: -ms-flexbox;</div><div class="line">  display: -webkit-flex;</div><div class="line">  display: -moz-box;</div><div class="line">  position: relative;</div><div class="line">&#125;</div><div class="line">//宽度100% 垂直居中 自左到右 不换行</div><div class="line"></div><div class="line">.flex-<span class="function"><span class="title">nomal</span></span>()&#123;</div><div class="line">  .flex-main;</div><div class="line">  align-items: center;</div><div class="line">  -webkit-align-items: center;</div><div class="line">  -moz-align-items: center;</div><div class="line">&#125;</div><div class="line">//宽度100% 垂直居中 两端对齐 不换行</div><div class="line"></div><div class="line">.flex-<span class="function"><span class="title">between</span></span>()&#123;</div><div class="line">  .flex-nomal;</div><div class="line">  justify-content: space-between;</div><div class="line">  -webkit-justify-content: space-between;</div><div class="line">  -moz-justify-content: space-between;</div><div class="line">  align-items: center;</div><div class="line">  -webkit-align-items: center;</div><div class="line">  -moz-align-items: center;</div><div class="line">&#125;</div><div class="line">//宽度100% 垂直居中 右对齐 不换行</div><div class="line"></div><div class="line">.flex-<span class="function"><span class="title">end</span></span>()&#123;</div><div class="line">  .flex-nomal;</div><div class="line">  justify-content: flex-end;</div><div class="line">  -webkit-justify-content: flex-end;</div><div class="line">  -moz-justify-content: flex-end;</div><div class="line">  align-items: center;</div><div class="line">  -webkit-align-items: center;</div><div class="line">  -moz-align-items: center;</div><div class="line">&#125;</div><div class="line">//宽度100% 垂直居中 两端有空隙对齐 不换行</div><div class="line"></div><div class="line">.flex-<span class="function"><span class="title">around</span></span>()&#123;</div><div class="line">  .flex-between;</div><div class="line">  justify-content: space-around;</div><div class="line">  -webkit-justify-content: space-around;</div><div class="line">  -moz-justify-content: space-around;</div><div class="line">&#125;</div><div class="line">//宽度100% 垂直居中 两端对齐 换行</div><div class="line"></div><div class="line">.flex-<span class="function"><span class="title">wrap</span></span>()&#123;</div><div class="line">  .flex-between;</div><div class="line">  flex-wrap: wrap;</div><div class="line">  -webkit-flex-wrap: wrap;</div><div class="line">  -moz-flex-wrap: wrap;</div><div class="line">&#125;</div><div class="line">//宽度100% 垂直居中 两端有空隙对齐 换行</div><div class="line"></div><div class="line">.flex-<span class="function"><span class="title">wrap</span></span>()&#123;</div><div class="line">  .flex-around;</div><div class="line">  flex-wrap: wrap;</div><div class="line">  -webkit-flex-wrap: wrap;</div><div class="line">  -moz-flex-wrap: wrap;</div><div class="line">&#125;</div><div class="line">//垂直 靠左</div><div class="line"></div><div class="line">.flex-<span class="function"><span class="title">colum</span></span>()&#123;</div><div class="line">  .flex-main;</div><div class="line">  flex-direction: column;</div><div class="line">  -webkit-flex-direction: column;</div><div class="line">  -moz-flex-direction: column;</div><div class="line">&#125;</div><div class="line">//垂直排列 水平居中</div><div class="line"></div><div class="line">.flex-<span class="function"><span class="title">colum_c</span></span>()&#123;</div><div class="line">  .flex-colum;</div><div class="line">  align-items: center;</div><div class="line">  -webkit-align-items: center;</div><div class="line">  -moz-align-items: center;</div><div class="line">&#125;</div><div class="line">//垂直排列 水平居中 垂直居中c</div><div class="line"></div><div class="line">.flex-<span class="function"><span class="title">colum_cc</span></span>()&#123;</div><div class="line">  .flex-colum_c;</div><div class="line">  justify-content: space-between;</div><div class="line">  -webkit-justify-content: space-between;</div><div class="line">  -moz-justify-content: space-between;</div><div class="line">&#125;</div><div class="line">//垂直排列 水平靠左 垂直居中c</div><div class="line"></div><div class="line">.<span class="function"><span class="title">flex_colum_l</span></span>()&#123;</div><div class="line">  .flex_colum;</div><div class="line">  align-items: flex-start;</div><div class="line">  -webkit-align-items: flex-start;</div><div class="line">  -moz-align-items: flex-start;</div><div class="line">&#125;</div><div class="line">三个常用小方法</div><div class="line"></div><div class="line">//图片自适应</div><div class="line"></div><div class="line">.<span class="function"><span class="title">img_free</span></span>()&#123;</div><div class="line">  width: 100%;</div><div class="line">  max-width: 100%;</div><div class="line">  display: block;</div><div class="line">&#125;</div><div class="line">//文字省略号</div><div class="line"></div><div class="line">.<span class="function"><span class="title">font_over</span></span>()&#123;</div><div class="line">  overflow: hidden;</div><div class="line">  text-overflow: ellipsis;</div><div class="line">  white-space: nowrap;</div><div class="line">&#125;</div><div class="line">//不能选择复制</div><div class="line"></div><div class="line">.noselect&#123;</div><div class="line">    -moz-user-select: none;</div><div class="line">    -khtml-user-select: none;</div><div class="line">    user-select: none;</div><div class="line">&#125;</div></pre></td></tr></table></figure></span>
+        <span itemprop="articleBody"><h3 id="盒子模型及box-sizing属性"><a href="#盒子模型及box-sizing属性" class="headerlink" title="盒子模型及box-sizing属性"></a>盒子模型及box-sizing属性</h3><p>html中的每个dom元素都被描述为矩形的盒子。渲染引擎的目的是判断大小，属性（颜色，背景，边框，边距，位置等信息）。在css中，这些盒子用标准的盒模型来描述。这个模型描述了一个元素所占用的空间。每一个盒子有四条边界，分别是：外边距边界（margin）、边框边界（border）、内边距边界（padding）和内容边界（content）</p>
+<h4 id="盒模型"><a href="#盒模型" class="headerlink" title="盒模型"></a>盒模型</h4><p>盒模型主要分为两种：IE盒模型与标准盒模型 确切的说IE盒模型仅是在IE8以下的情况</p>
+<p>在W3C模型中: 总宽度 = margin-left + border-left + padding-left + width + padding-right + border-right + margin-right 在IE模型中: 总宽度 = margin-left + width + margin-right</p>
+<p>在CSS3中引入了box-sizing属性, 它可以允许改变默认的CSS盒模型对元素宽高的计算方式.</p>
+<p>共包括两个选项： content-box：标准盒模型，CSS定义的宽高只包含content的宽高(默认) border-box：IE盒模型，CSS定义的宽高包括了content，padding和border</p>
+<h4 id="共包括两个选项：-content-box：标准盒模型，CSS定义的宽高只包含content的宽高-默认-border-box：IE盒模型，CSS定义的宽高包括了content，padding和border"><a href="#共包括两个选项：-content-box：标准盒模型，CSS定义的宽高只包含content的宽高-默认-border-box：IE盒模型，CSS定义的宽高包括了content，padding和border" class="headerlink" title="共包括两个选项： content-box：标准盒模型，CSS定义的宽高只包含content的宽高(默认) border-box：IE盒模型，CSS定义的宽高包括了content，padding和border"></a>共包括两个选项： content-box：标准盒模型，CSS定义的宽高只包含content的宽高(默认) border-box：IE盒模型，CSS定义的宽高包括了content，padding和border</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">&lt;head lang=<span class="string">"en"</span>&gt;     </div><div class="line">    &lt;meta charset=<span class="string">"UTF-8"</span>&gt;     </div><div class="line">    &lt;title&gt;&lt;/title&gt;     </div><div class="line">    &lt;style&gt;     </div><div class="line">        .con&#123;width: 100px; height: 100px;background-color:royalblue;     </div><div class="line">             border:1px solid red; padding: 10px;&#125;     </div><div class="line">        .con1&#123;box-sizing: border-box;&#125;     </div><div class="line">    &lt;/style&gt;     </div><div class="line">&lt;/head&gt;     </div><div class="line">&lt;body&gt;     </div><div class="line">    &lt;div class=<span class="string">"con"</span>&gt;&lt;/div&gt;     </div><div class="line">    &lt;div class=<span class="string">"con con1"</span>&gt;&lt;/div&gt;     </div><div class="line">&lt;/body&gt;</div></pre></td></tr></table></figure>
+<p>通过调试可以一目了然box-sizing两个值得区别。</p>
+</span>
       
     </div>
 
@@ -370,7 +380,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/less/" rel="tag">#less</a>
+            <a href="/tags/box-sizing/" rel="tag">#box-sizing</a>
           
         </div>
       
@@ -379,13 +389,11 @@
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/03/20/node-webkit/" rel="prev">node-webkit把web应用打包成桌面应用</a>
-            
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/03/06/less入门笔记/" rel="next">less 入门笔记</a>
+              <a href="/2016/04/10/md5加密/" rel="next">md5加密</a>
             
           </div>
         </div>
@@ -556,8 +564,8 @@
         
           <div class="comments" id="comments">
             
-              <div class="ds-thread" data-thread-key="2016/03/14/Less封装flex布局常用方法及小工具/"
-                   data-title="Less封装flex布局常用方法及小工具" data-url="http://yoursite.com/2016/03/14/Less封装flex布局常用方法及小工具/">
+              <div class="ds-thread" data-thread-key="2016/04/22/盒子模型及box-sizing属性/"
+                   data-title="盒子模型及box-sizing属性" data-url="http://yoursite.com/2016/04/22/盒子模型及box-sizing属性/">
               </div>
             
           </div>
@@ -639,7 +647,7 @@
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Less封装flex布局常用方法及小工具"><span class="nav-number">1.</span> <span class="nav-text">Less封装flex布局常用方法及小工具</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#盒子模型及box-sizing属性"><span class="nav-number">1.</span> <span class="nav-text">盒子模型及box-sizing属性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#盒模型"><span class="nav-number">1.1.</span> <span class="nav-text">盒模型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#共包括两个选项：-content-box：标准盒模型，CSS定义的宽高只包含content的宽高-默认-border-box：IE盒模型，CSS定义的宽高包括了content，padding和border"><span class="nav-number">1.2.</span> <span class="nav-text">共包括两个选项： content-box：标准盒模型，CSS定义的宽高只包含content的宽高(默认) border-box：IE盒模型，CSS定义的宽高包括了content，padding和border</span></a></li></ol></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
