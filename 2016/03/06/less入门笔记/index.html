@@ -29,7 +29,7 @@
 
 
 
-  <meta name="keywords" content="js基础 函数," />
+  <meta name="keywords" content="less," />
 
 
 
@@ -38,16 +38,16 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
 
 
-<meta name="description" content="函数表达式是JavaScript中的一个强大又容易令人困惑的特点。定义函数有几种，这里仅通过例子用常用的方法进行编写demo">
+<meta name="description" content="Less是一种动态样式语言，属于CSS预处理语言的一种，它使用类似CSS的语法，为CSS的赋予了动态语言的特性，如变量、继承、运算、函数等，更方便CSS的编写和维护。 LessCss可以在多种语言、环境中使用，包括浏览器端、桌面客户端、服务端。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JavaScript-函数">
-<meta property="og:url" content="http://yoursite.com/2015/03/01/06-js函数/index.html">
+<meta property="og:title" content="less 入门笔记">
+<meta property="og:url" content="http://yoursite.com/2016/03/06/less入门笔记/index.html">
 <meta property="og:site_name" content="ants的博客">
-<meta property="og:description" content="函数表达式是JavaScript中的一个强大又容易令人困惑的特点。定义函数有几种，这里仅通过例子用常用的方法进行编写demo">
-<meta property="og:updated_time" content="2017-03-13T06:28:34.000Z">
+<meta property="og:description" content="Less是一种动态样式语言，属于CSS预处理语言的一种，它使用类似CSS的语法，为CSS的赋予了动态语言的特性，如变量、继承、运算、函数等，更方便CSS的编写和维护。 LessCss可以在多种语言、环境中使用，包括浏览器端、桌面客户端、服务端。">
+<meta property="og:updated_time" content="2017-03-13T09:51:58.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JavaScript-函数">
-<meta name="twitter:description" content="函数表达式是JavaScript中的一个强大又容易令人困惑的特点。定义函数有几种，这里仅通过例子用常用的方法进行编写demo">
+<meta name="twitter:title" content="less 入门笔记">
+<meta name="twitter:description" content="Less是一种动态样式语言，属于CSS预处理语言的一种，它使用类似CSS的语法，为CSS的赋予了动态语言的特性，如变量、继承、运算、函数等，更方便CSS的编写和维护。 LessCss可以在多种语言、环境中使用，包括浏览器端、桌面客户端、服务端。">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -57,7 +57,7 @@
   };
 </script>
 
-  <title> JavaScript-函数 | ants的博客 </title>
+  <title> less 入门笔记 | ants的博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -307,7 +307,7 @@
           
           
             
-              JavaScript-函数
+              less 入门笔记
             
           
         </h1>
@@ -316,8 +316,8 @@
       <div class="post-meta">
         <span class="post-time">
           发表于
-          <time itemprop="dateCreated" datetime="2015-03-01T13:58:30+08:00" content="2015-03-01">
-            2015-03-01
+          <time itemprop="dateCreated" datetime="2016-03-06T17:43:53+08:00" content="2016-03-06">
+            2016-03-06
           </time>
         </span>
 
@@ -326,8 +326,8 @@
             &nbsp; | &nbsp; 分类于
             
               <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/js-基础学习/" itemprop="url" rel="index">
-                  <span itemprop="name">js_基础学习</span>
+                <a href="/categories/css/" itemprop="url" rel="index">
+                  <span itemprop="name">css</span>
                 </a>
               </span>
 
@@ -343,11 +343,11 @@
             <span class="post-comments-count">
               &nbsp; | &nbsp;
               <!--
-              <a href="/2015/03/01/06-js函数/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2015/03/01/06-js函数/" itemprop="commentsCount"></span>
+              <a href="/2016/03/06/less入门笔记/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/06/less入门笔记/" itemprop="commentsCount"></span>
               </a>
               -->
-              <a href="/2015/03/01/06-js函数/#comments" itemprop="discussionUrl">
+              <a href="/2016/03/06/less入门笔记/#comments" itemprop="discussionUrl">
                 <span>评论</span>
               </a>
             </span>
@@ -362,13 +362,15 @@
       
 
       
-        <span itemprop="articleBody"><h3 id="函数基础学习总结"><a href="#函数基础学习总结" class="headerlink" title="函数基础学习总结"></a>函数基础学习总结</h3><h4 id="1-递归：函数调用自身的编程技巧称为递归。"><a href="#1-递归：函数调用自身的编程技巧称为递归。" class="headerlink" title="1.递归：函数调用自身的编程技巧称为递归。"></a>1.递归：函数调用自身的编程技巧称为递归。</h4><p>注意：①如果要用递归得到数学运算的最终结果，每一个递归函数的返回值即是当前递归次数的最终数学运算结果。②用历史递归函数所有的返回值（函数值）和参数（即递归次数）表示当前递归函数的返回值（函数值）。</p>
-<h5 id="例子1：求1-2-3-……100"><a href="#例子1：求1-2-3-……100" class="headerlink" title="例子1：求1+2+3+……100"></a>例子1：求1+2+3+……100</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> getSum(n)&#123;</div><div class="line">		<span class="keyword">if</span> (n==1) &#123;</div><div class="line">			<span class="built_in">return</span> 1;</div><div class="line">		&#125; <span class="keyword">else</span>&#123;</div><div class="line">			<span class="built_in">return</span> getSum(n-1)+n</div><div class="line">			&#125;</div><div class="line">	&#125;</div><div class="line">	alert(getSum(100))</div></pre></td></tr></table></figure>
-<h5 id="例子2：求1-1-2-3-5-8……的第25项"><a href="#例子2：求1-1-2-3-5-8……的第25项" class="headerlink" title="例子2：求1,1,2,3,5,8……的第25项"></a>例子2：求1,1,2,3,5,8……的第25项</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> getNum(n)&#123;</div><div class="line">	<span class="keyword">if</span> (n==1||n==2) &#123;</div><div class="line">		<span class="built_in">return</span> 1;</div><div class="line">	&#125; <span class="keyword">else</span>&#123;</div><div class="line">		<span class="built_in">return</span> getNum(n-1)+getNum(n-2);</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">alert(getNum(25))</div></pre></td></tr></table></figure>
-<h5 id="例子3：求1！-2！-3！-……-10！"><a href="#例子3：求1！-2！-3！-……-10！" class="headerlink" title="例子3：求1！+2！+3！+……+10！"></a>例子3：求1！+2！+3！+……+10！</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> getSum(n) &#123;</div><div class="line">	<span class="keyword">if</span> (n == 0) &#123;</div><div class="line">		<span class="built_in">return</span> 0;</div><div class="line">	&#125; <span class="keyword">else</span> <span class="keyword">if</span> (n == 1) &#123;</div><div class="line">		<span class="built_in">return</span> 1;</div><div class="line">	&#125; <span class="keyword">else</span> &#123;</div><div class="line">		<span class="built_in">return</span> getSum(n - 1) + (getSum(n - 1) - getSum(n - 2)) * n;</div><div class="line">		//用上一次和上上一次递归函数的返回值（函数值）以及n表示当前递归函数的返回值（函数值）。</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">alert(getSum(10))</div></pre></td></tr></table></figure>
-<h4 id="2-创建一个函数，将html元素的id名作为函数的参数，将该html元素作为函数相对应的返回值。"><a href="#2-创建一个函数，将html元素的id名作为函数的参数，将该html元素作为函数相对应的返回值。" class="headerlink" title="2.创建一个函数，将html元素的id名作为函数的参数，将该html元素作为函数相对应的返回值。"></a>2.创建一个函数，将html元素的id名作为函数的参数，将该html元素作为函数相对应的返回值。</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&lt;p id=<span class="string">"pid"</span>&gt;123&lt;/p&gt;</div><div class="line">&lt;div id=<span class="string">"div"</span>&gt;abc&lt;/div&gt;</div><div class="line">&lt;script&gt;</div><div class="line">	<span class="keyword">function</span> id(a)&#123;</div><div class="line">		<span class="built_in">return</span> document.getElementById(a)</div><div class="line">	&#125; </div><div class="line">	alert(id(<span class="string">"pid"</span>).innerHTML) //弹出123</div><div class="line">	alert(id(<span class="string">"div"</span>).innerHTML) //弹出abc</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
-<h5 id="注意：在调用此函数时，实际参数的赋值必须为带引号的ID名。"><a href="#注意：在调用此函数时，实际参数的赋值必须为带引号的ID名。" class="headerlink" title="注意：在调用此函数时，实际参数的赋值必须为带引号的ID名。"></a>注意：在调用此函数时，实际参数的赋值必须为带引号的ID名。</h5><h4 id="3-创建一个insertAfter-新子节点，旧子节点-函数，该函数可以使新子节点插入到旧子节点之后。"><a href="#3-创建一个insertAfter-新子节点，旧子节点-函数，该函数可以使新子节点插入到旧子节点之后。" class="headerlink" title="3.创建一个insertAfter(新子节点，旧子节点)函数，该函数可以使新子节点插入到旧子节点之后。"></a>3.创建一个insertAfter(新子节点，旧子节点)函数，该函数可以使新子节点插入到旧子节点之后。</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">&lt;div id=<span class="string">"div1"</span>&gt;第一个DIV&lt;/div&gt;</div><div class="line">&lt;div id=<span class="string">"div2"</span>&gt;第一个DIV&lt;/div&gt;</div><div class="line">&lt;div id=<span class="string">"div3"</span>&gt;第一个DIV&lt;/div&gt;</div><div class="line">&lt;script&gt;</div><div class="line">	var p=document.createElement(<span class="string">"p"</span>);</div><div class="line">	p.innerHTML=<span class="string">"这是新增的p元素"</span>;</div><div class="line">	var div1=document.getElementById(<span class="string">"div1"</span>);</div><div class="line">	var div2=document.getElementById(<span class="string">"div2"</span>);</div><div class="line">	var div3=document.getElementById(<span class="string">"div3"</span>);</div><div class="line">	<span class="keyword">function</span> insertAfter(new1,old1)&#123;</div><div class="line">		var parent=old1.parentNode</div><div class="line">			<span class="keyword">if</span> (old1==parent.lastChild) &#123;</div><div class="line">				parent.appendChild(new1)</div><div class="line">			&#125; <span class="keyword">else</span>&#123;</div><div class="line">				parent.insertBefore(new1,old1.nextSibling)</div><div class="line">			&#125;</div><div class="line">	&#125;</div><div class="line">	insertAfter(p,div2);</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
-<h5 id="注意：createElement-创建元素节点；parentNode父节点；childNodes子节点集；firstChild第一个子节点；lastChild最后个子节点；previousSibling前一个兄弟节点；nextSibling后一个兄弟节点。"><a href="#注意：createElement-创建元素节点；parentNode父节点；childNodes子节点集；firstChild第一个子节点；lastChild最后个子节点；previousSibling前一个兄弟节点；nextSibling后一个兄弟节点。" class="headerlink" title="注意：createElement()创建元素节点；parentNode父节点；childNodes子节点集；firstChild第一个子节点；lastChild最后个子节点；previousSibling前一个兄弟节点；nextSibling后一个兄弟节点。"></a>注意：createElement()创建元素节点；parentNode父节点；childNodes子节点集；firstChild第一个子节点；lastChild最后个子节点；previousSibling前一个兄弟节点；nextSibling后一个兄弟节点。</h5></span>
+        <span itemprop="articleBody"><h4 id="什么是Less"><a href="#什么是Less" class="headerlink" title="什么是Less"></a>什么是Less</h4><p>Less是一种动态样式语言，属于CSS预处理语言的一种，它使用类似CSS的语法，为CSS的赋予了动态语言的特性，如变量、继承、运算、函数等，更方便CSS的编写和维护。 LessCss可以在多种语言、环境中使用，包括浏览器端、桌面客户端、服务端。</p>
+<h4 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h4><p>变量允许我们单独定义一系列通用的样式，然后在需要的时候去调用。所以在做全局样式调整的时候我们可能只需要修改几行代码就可以了。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">//less 源码</div><div class="line"></div><div class="line">	@color: <span class="comment">#4D926F;</span></div><div class="line">	<span class="comment">#header &#123;</span></div><div class="line">	    color: @color;</div><div class="line">	&#125;</div><div class="line">	h2 &#123;</div><div class="line">	    color: @color;</div><div class="line">	&#125;</div><div class="line">	//编译后的CSS：</div><div class="line"></div><div class="line">	<span class="comment">#header &#123;</span></div><div class="line">	    color: <span class="comment">#4D926F;</span></div><div class="line">	&#125;</div><div class="line">	h2 &#123;</div><div class="line">	    color: <span class="comment">#4D926F;</span></div><div class="line">	&#125;</div></pre></td></tr></table></figure>
+<h4 id="混合（Mixins）"><a href="#混合（Mixins）" class="headerlink" title="混合（Mixins）"></a>混合（Mixins）</h4><p>混合可以将一个定义好的class A轻松的引入到另一个class B中，从而简单实现class B继承class A中的所有属性。我们还可以带参数地调用，就像使用函数一样。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">//LESS源码：</div><div class="line">	.rounded-corners (@radius: 5px) &#123;</div><div class="line">	    -webkit-border-radius: @radius;</div><div class="line">	    -moz-border-radius: @radius;</div><div class="line">	    -ms-border-radius: @radius;</div><div class="line">	    -o-border-radius: @radius;</div><div class="line">	    border-radius: @radius;</div><div class="line">	&#125;</div><div class="line">	<span class="comment">#header &#123;</span></div><div class="line">	    .rounded-corners;</div><div class="line">	&#125;</div><div class="line">	<span class="comment">#footer &#123;</span></div><div class="line">	    .rounded-corners(10px);</div><div class="line">	&#125;</div><div class="line">//编译后的CSS：</div><div class="line">	<span class="comment">#header &#123;</span></div><div class="line">	    -webkit-border-radius: 5px;</div><div class="line">	    -moz-border-radius: 5px;</div><div class="line">	    -ms-border-radius: 5px;</div><div class="line">	    -o-border-radius: 5px;</div><div class="line">	    border-radius: 5px;</div><div class="line">		&#125;</div><div class="line">	<span class="comment">#footer &#123;</span></div><div class="line">	    -webkit-border-radius: 10px;</div><div class="line">	    -moz-border-radius: 10px;</div><div class="line">	    -ms-border-radius: 10px;</div><div class="line">	    -o-border-radius: 10px;</div><div class="line">	    border-radius: 10px;</div><div class="line">	&#125;</div></pre></td></tr></table></figure>
+<h4 id="嵌套"><a href="#嵌套" class="headerlink" title="嵌套"></a>嵌套</h4><p>我们可以在一个选择器中嵌套另一个选择器来实现继承，这样很大程度减少了代码量，并且代码看起来更加的清晰。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line">//LESS源码：</div><div class="line">	<span class="comment">#header &#123;</span></div><div class="line">	    h1 &#123;</div><div class="line">	        font-size: 26px;</div><div class="line">	        font-weight: bold;</div><div class="line">	    &#125;</div><div class="line">	    p &#123;</div><div class="line">	        font-size: 12px;</div><div class="line">	        a &#123;</div><div class="line">	            text-decoration: none;</div><div class="line">	            &amp;:hover &#123;</div><div class="line">	                border-width: 1px</div><div class="line">	            &#125;</div><div class="line">	        &#125;</div><div class="line">	    &#125;</div><div class="line">	&#125;</div><div class="line">//编译后的CSS：</div><div class="line">	<span class="comment">#header h1 &#123;</span></div><div class="line">	    font-size: 26px;</div><div class="line">	    font-weight: bold;</div><div class="line">	&#125;</div><div class="line">	<span class="comment">#header p &#123;</span></div><div class="line">	    font-size: 12px;</div><div class="line">	&#125;</div><div class="line">	<span class="comment">#header p a &#123;</span></div><div class="line">	    text-decoration: none;</div><div class="line">	&#125;</div><div class="line">	<span class="comment">#header p a:hover &#123;</span></div><div class="line">	    border-width: 1px;</div><div class="line">	&#125;</div></pre></td></tr></table></figure>
+<h4 id="函数和运算"><a href="#函数和运算" class="headerlink" title="函数和运算"></a>函数和运算</h4><p>运算提供了加，减，乘，除操作；我们可以做属性值和颜色的运算，这样就可以实现属性值之间的复杂关系。LESS中的函数一一映射了JavaScript代码，如果你愿意的话可以操作属性值。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">//LESS源码：</div><div class="line">	@the-border: 1px;</div><div class="line">	@base-color: <span class="comment">#111;</span></div><div class="line">	@red:        <span class="comment">#842210;</span></div><div class="line">	<span class="comment">#header &#123;</span></div><div class="line">	    color: (@base-color * 3);</div><div class="line">	    border-left: @the-border;</div><div class="line">	    border-right: (@the-border * 2);</div><div class="line">	&#125;</div><div class="line">	<span class="comment">#footer &#123;</span></div><div class="line">	    color: (@base-color + <span class="comment">#003300);</span></div><div class="line">	    border-color: desaturate(@red, 10%);</div><div class="line">	&#125;</div><div class="line">//编译后的CSS：	</div><div class="line">	<span class="comment">#header &#123;</span></div><div class="line">	    color: <span class="comment">#333;</span></div><div class="line">	    border-left: 1px;</div><div class="line">	    border-right: 2px;</div><div class="line">	&#125;</div><div class="line">	<span class="comment">#footer &#123;</span></div><div class="line">	    color: <span class="comment">#114411;</span></div><div class="line">	    border-color: <span class="comment">#7d2717;</span></div><div class="line">	&#125;</div></pre></td></tr></table></figure></span>
       
     </div>
 
@@ -376,7 +378,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/js基础-函数/" rel="tag">#js基础 函数</a>
+            <a href="/tags/less/" rel="tag">#less</a>
           
         </div>
       
@@ -385,13 +387,13 @@
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/03/08/07-js原型与原型链/" rel="prev">JavaScript-原型与原型链</a>
+              <a href="/2016/03/14/Less封装flex布局常用方法及小工具/" rel="prev">Less封装flex布局常用方法及小工具</a>
             
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/02/25/05-jsDOM基础知识总结/" rel="next">DOM 基础知识总结</a>
+              <a href="/2016/02/13/常用宽度高度/" rel="next">常用宽度高度</a>
             
           </div>
         </div>
@@ -562,8 +564,8 @@
         
           <div class="comments" id="comments">
             
-              <div class="ds-thread" data-thread-key="2015/03/01/06-js函数/"
-                   data-title="JavaScript-函数" data-url="http://yoursite.com/2015/03/01/06-js函数/">
+              <div class="ds-thread" data-thread-key="2016/03/06/less入门笔记/"
+                   data-title="less 入门笔记" data-url="http://yoursite.com/2016/03/06/less入门笔记/">
               </div>
             
           </div>
@@ -645,7 +647,7 @@
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#函数基础学习总结"><span class="nav-number">1.</span> <span class="nav-text">函数基础学习总结</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-递归：函数调用自身的编程技巧称为递归。"><span class="nav-number">1.1.</span> <span class="nav-text">1.递归：函数调用自身的编程技巧称为递归。</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#例子1：求1-2-3-……100"><span class="nav-number">1.1.1.</span> <span class="nav-text">例子1：求1+2+3+……100</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#例子2：求1-1-2-3-5-8……的第25项"><span class="nav-number">1.1.2.</span> <span class="nav-text">例子2：求1,1,2,3,5,8……的第25项</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#例子3：求1！-2！-3！-……-10！"><span class="nav-number">1.1.3.</span> <span class="nav-text">例子3：求1！+2！+3！+……+10！</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-创建一个函数，将html元素的id名作为函数的参数，将该html元素作为函数相对应的返回值。"><span class="nav-number">1.2.</span> <span class="nav-text">2.创建一个函数，将html元素的id名作为函数的参数，将该html元素作为函数相对应的返回值。</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#注意：在调用此函数时，实际参数的赋值必须为带引号的ID名。"><span class="nav-number">1.2.1.</span> <span class="nav-text">注意：在调用此函数时，实际参数的赋值必须为带引号的ID名。</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-创建一个insertAfter-新子节点，旧子节点-函数，该函数可以使新子节点插入到旧子节点之后。"><span class="nav-number">1.3.</span> <span class="nav-text">3.创建一个insertAfter(新子节点，旧子节点)函数，该函数可以使新子节点插入到旧子节点之后。</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#注意：createElement-创建元素节点；parentNode父节点；childNodes子节点集；firstChild第一个子节点；lastChild最后个子节点；previousSibling前一个兄弟节点；nextSibling后一个兄弟节点。"><span class="nav-number">1.3.1.</span> <span class="nav-text">注意：createElement()创建元素节点；parentNode父节点；childNodes子节点集；firstChild第一个子节点；lastChild最后个子节点；previousSibling前一个兄弟节点；nextSibling后一个兄弟节点。</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#什么是Less"><span class="nav-number">1.</span> <span class="nav-text">什么是Less</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#变量"><span class="nav-number">2.</span> <span class="nav-text">变量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#混合（Mixins）"><span class="nav-number">3.</span> <span class="nav-text">混合（Mixins）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#嵌套"><span class="nav-number">4.</span> <span class="nav-text">嵌套</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#函数和运算"><span class="nav-number">5.</span> <span class="nav-text">函数和运算</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
