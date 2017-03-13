@@ -39,21 +39,18 @@
 
 
 <meta name="description" content="闭包1.概念：将父函数的局部变量放在子函数中，将子函数作为父函数的返回值，扩展局部变量的访问范围，使函数外可以访问和修改局部变量。
-2.任何一个函数都是一个对象的方法，函数中的this指代该函数作为一个方法所属于的对象。一个自由函数是全局变量window的方法。
-3.对象属性的访问权限：①私有变量(var a=1;)只能被私有函数或特权方法访问。 ②私有函数(var fn=function(){}">
+2.任何一个函数都是一个对象的方法，函数中的this指代该函数作为一个方法所属于的对象。一个自由函数是全局变量window的方法。3.对象属性的访问权限：①私有变量(var a=1;)只能被私有函数或特权方法访问。 ②私有函数(var fn=function(){};">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JavaScript-闭包">
 <meta property="og:url" content="http://yoursite.com/2015/03/25/09-js闭包/index.html">
 <meta property="og:site_name" content="ants的博客">
 <meta property="og:description" content="闭包1.概念：将父函数的局部变量放在子函数中，将子函数作为父函数的返回值，扩展局部变量的访问范围，使函数外可以访问和修改局部变量。
-2.任何一个函数都是一个对象的方法，函数中的this指代该函数作为一个方法所属于的对象。一个自由函数是全局变量window的方法。
-3.对象属性的访问权限：①私有变量(var a=1;)只能被私有函数或特权方法访问。 ②私有函数(var fn=function(){}">
-<meta property="og:updated_time" content="2017-03-13T07:08:08.000Z">
+2.任何一个函数都是一个对象的方法，函数中的this指代该函数作为一个方法所属于的对象。一个自由函数是全局变量window的方法。3.对象属性的访问权限：①私有变量(var a=1;)只能被私有函数或特权方法访问。 ②私有函数(var fn=function(){};">
+<meta property="og:updated_time" content="2017-03-13T07:09:57.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript-闭包">
 <meta name="twitter:description" content="闭包1.概念：将父函数的局部变量放在子函数中，将子函数作为父函数的返回值，扩展局部变量的访问范围，使函数外可以访问和修改局部变量。
-2.任何一个函数都是一个对象的方法，函数中的this指代该函数作为一个方法所属于的对象。一个自由函数是全局变量window的方法。
-3.对象属性的访问权限：①私有变量(var a=1;)只能被私有函数或特权方法访问。 ②私有函数(var fn=function(){}">
+2.任何一个函数都是一个对象的方法，函数中的this指代该函数作为一个方法所属于的对象。一个自由函数是全局变量window的方法。3.对象属性的访问权限：①私有变量(var a=1;)只能被私有函数或特权方法访问。 ②私有函数(var fn=function(){};">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -368,9 +365,8 @@
       
 
       
-        <span itemprop="articleBody"><h3 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h3><p>1.概念：将父函数的局部变量放在子函数中，将子函数作为父函数的返回值，扩展局部变量的访问范围，使函数外可以访问和修改局部变量。</p>
-<p>2.任何一个函数都是一个对象的方法，函数中的this指代该函数作为一个方法所属于的对象。一个自由函数是全局变量window的方法。</p>
-<h4 id="3-对象属性的访问权限："><a href="#3-对象属性的访问权限：" class="headerlink" title="3.对象属性的访问权限："></a>3.对象属性的访问权限：</h4><p>①私有变量(var a=1;)只能被私有函数或特权方法访问。 ②私有函数(var fn=function(){};)只能被特权方法访问。 ③特权方法(this.say=function(){})可以在对象外部访问。</p>
+        <span itemprop="articleBody"><h3 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h3><h4 id="1-概念："><a href="#1-概念：" class="headerlink" title="1.概念："></a>1.概念：</h4><p>将父函数的局部变量放在子函数中，将子函数作为父函数的返回值，扩展局部变量的访问范围，使函数外可以访问和修改局部变量。</p>
+<h4 id="2-任何一个函数都是一个对象的方法，函数中的this指代该函数作为一个方法所属于的对象。一个自由函数是全局变量window的方法。"><a href="#2-任何一个函数都是一个对象的方法，函数中的this指代该函数作为一个方法所属于的对象。一个自由函数是全局变量window的方法。" class="headerlink" title="2.任何一个函数都是一个对象的方法，函数中的this指代该函数作为一个方法所属于的对象。一个自由函数是全局变量window的方法。"></a>2.任何一个函数都是一个对象的方法，函数中的this指代该函数作为一个方法所属于的对象。一个自由函数是全局变量window的方法。</h4><h4 id="3-对象属性的访问权限："><a href="#3-对象属性的访问权限：" class="headerlink" title="3.对象属性的访问权限："></a>3.对象属性的访问权限：</h4><p>①私有变量(var a=1;)只能被私有函数或特权方法访问。 ②私有函数(var fn=function(){};)只能被特权方法访问。 ③特权方法(this.say=function(){})可以在对象外部访问。</p>
 <h4 id="特点："><a href="#特点：" class="headerlink" title="特点："></a>特点：</h4><p>1.逻辑连续，当闭包作为另一个函数调用的参数时，避免你脱离当前逻辑而单独编写额外逻辑。 2.方便调用上下文的局部变量。 3.加强封装性，第2点的延伸，可以达到对变量的保护作用。</p>
 <h4 id="优点："><a href="#优点：" class="headerlink" title="优点："></a>优点：</h4><p>1.保护函数内的变量安全,加强了封装性 2.在内存中维持一个变量(用的太多就变成了缺点，占内存)</p>
 <h4 id="缺点："><a href="#缺点：" class="headerlink" title="缺点："></a>缺点：</h4><p>闭包有一个非常严重的问题，那就是内存浪费问题， 这个内存浪费不仅仅因为它常驻内存，更重要的是， 对闭包的使用不当会造成无效内存的产生。</p>
@@ -393,13 +389,13 @@
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/03/13/08-js基础补充-01/" rel="prev">JavaScript-基础补充_01</a>
+              <a href="/2015/04/10/10-js继承/" rel="prev">JavaScript-继承</a>
             
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/03/08/07-js原型与原型链/" rel="next">JavaScript-原型与原型链</a>
+              <a href="/2015/03/13/08-js基础补充-01/" rel="next">JavaScript-基础补充_01</a>
             
           </div>
         </div>
@@ -611,7 +607,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">9</span>
+              <span class="site-state-item-count">10</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -653,7 +649,7 @@
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#闭包"><span class="nav-number">1.</span> <span class="nav-text">闭包</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-对象属性的访问权限："><span class="nav-number">1.1.</span> <span class="nav-text">3.对象属性的访问权限：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#特点："><span class="nav-number">1.2.</span> <span class="nav-text">特点：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#优点："><span class="nav-number">1.3.</span> <span class="nav-text">优点：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#缺点："><span class="nav-number">1.4.</span> <span class="nav-text">缺点：</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#闭包之所以会占用资源是当父函数执行结束后，子函数扩展的变量不随着销毁。以为执行子函数的时候需要依赖父函数中的变量。"><span class="nav-number">1.4.1.</span> <span class="nav-text">闭包之所以会占用资源是当父函数执行结束后，子函数扩展的变量不随着销毁。以为执行子函数的时候需要依赖父函数中的变量。</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#不适合场景："><span class="nav-number">1.5.</span> <span class="nav-text">不适合场景：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#应用："><span class="nav-number">1.6.</span> <span class="nav-text">应用：</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#闭包"><span class="nav-number">1.</span> <span class="nav-text">闭包</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-概念："><span class="nav-number">1.1.</span> <span class="nav-text">1.概念：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-任何一个函数都是一个对象的方法，函数中的this指代该函数作为一个方法所属于的对象。一个自由函数是全局变量window的方法。"><span class="nav-number">1.2.</span> <span class="nav-text">2.任何一个函数都是一个对象的方法，函数中的this指代该函数作为一个方法所属于的对象。一个自由函数是全局变量window的方法。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-对象属性的访问权限："><span class="nav-number">1.3.</span> <span class="nav-text">3.对象属性的访问权限：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#特点："><span class="nav-number">1.4.</span> <span class="nav-text">特点：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#优点："><span class="nav-number">1.5.</span> <span class="nav-text">优点：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#缺点："><span class="nav-number">1.6.</span> <span class="nav-text">缺点：</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#闭包之所以会占用资源是当父函数执行结束后，子函数扩展的变量不随着销毁。以为执行子函数的时候需要依赖父函数中的变量。"><span class="nav-number">1.6.1.</span> <span class="nav-text">闭包之所以会占用资源是当父函数执行结束后，子函数扩展的变量不随着销毁。以为执行子函数的时候需要依赖父函数中的变量。</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#不适合场景："><span class="nav-number">1.7.</span> <span class="nav-text">不适合场景：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#应用："><span class="nav-number">1.8.</span> <span class="nav-text">应用：</span></a></li></ol></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
