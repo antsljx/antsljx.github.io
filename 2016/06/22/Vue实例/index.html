@@ -38,16 +38,16 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
 
 
-<meta name="description" content="简单的几个小栗子">
+<meta name="description" content="一个 Vue 实例其实正是一个 MVVM 模式中所描述的 ViewModel - 因此习惯上会使用 vm（并不是固定的） 这个变量名。在实例化 Vue 时，需要传入一个对象，它可以包含数据、模板、挂载元素、方法、生命周期钩子等选项。全部的选项可以在 API 文档中查看">
 <meta property="og:type" content="article">
-<meta property="og:title" content="vuejs入门篇">
-<meta property="og:url" content="http://yoursite.com/2016/06/13/vuejs入门/index.html">
+<meta property="og:title" content="Vue 实例">
+<meta property="og:url" content="http://yoursite.com/2016/06/22/Vue实例/index.html">
 <meta property="og:site_name" content="ants的博客">
-<meta property="og:description" content="简单的几个小栗子">
-<meta property="og:updated_time" content="2017-03-13T11:23:39.000Z">
+<meta property="og:description" content="一个 Vue 实例其实正是一个 MVVM 模式中所描述的 ViewModel - 因此习惯上会使用 vm（并不是固定的） 这个变量名。在实例化 Vue 时，需要传入一个对象，它可以包含数据、模板、挂载元素、方法、生命周期钩子等选项。全部的选项可以在 API 文档中查看">
+<meta property="og:updated_time" content="2017-03-13T11:31:52.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="vuejs入门篇">
-<meta name="twitter:description" content="简单的几个小栗子">
+<meta name="twitter:title" content="Vue 实例">
+<meta name="twitter:description" content="一个 Vue 实例其实正是一个 MVVM 模式中所描述的 ViewModel - 因此习惯上会使用 vm（并不是固定的） 这个变量名。在实例化 Vue 时，需要传入一个对象，它可以包含数据、模板、挂载元素、方法、生命周期钩子等选项。全部的选项可以在 API 文档中查看">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -57,7 +57,7 @@
   };
 </script>
 
-  <title> vuejs入门篇 | ants的博客 </title>
+  <title> Vue 实例 | ants的博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -307,7 +307,7 @@
           
           
             
-              vuejs入门篇
+              Vue 实例
             
           
         </h1>
@@ -316,8 +316,8 @@
       <div class="post-meta">
         <span class="post-time">
           发表于
-          <time itemprop="dateCreated" datetime="2016-06-13T19:16:05+08:00" content="2016-06-13">
-            2016-06-13
+          <time itemprop="dateCreated" datetime="2016-06-22T19:25:24+08:00" content="2016-06-22">
+            2016-06-22
           </time>
         </span>
 
@@ -343,11 +343,11 @@
             <span class="post-comments-count">
               &nbsp; | &nbsp;
               <!--
-              <a href="/2016/06/13/vuejs入门/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/13/vuejs入门/" itemprop="commentsCount"></span>
+              <a href="/2016/06/22/Vue实例/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/22/Vue实例/" itemprop="commentsCount"></span>
               </a>
               -->
-              <a href="/2016/06/13/vuejs入门/#comments" itemprop="discussionUrl">
+              <a href="/2016/06/22/Vue实例/#comments" itemprop="discussionUrl">
                 <span>评论</span>
               </a>
             </span>
@@ -362,15 +362,18 @@
       
 
       
-        <span itemprop="articleBody"><h4 id="hello-word"><a href="#hello-word" class="headerlink" title="hello word"></a>hello word</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">	&lt;html&gt;</div><div class="line">		&lt;head&gt;</div><div class="line">			&lt;meta charset=<span class="string">"utf-8"</span>&gt;</div><div class="line">			&lt;title&gt;hello word&lt;/title&gt;</div><div class="line">			&lt;script src=<span class="string">"http://static.runoob.com/assets/vue/1.0.11/vue.min.js"</span>&gt;&lt;/script&gt;//引入vuejs</div><div class="line">		&lt;/head&gt;</div><div class="line">		&lt;body&gt;</div><div class="line">			&lt;div id=<span class="string">"app"</span>&gt;</div><div class="line">			  &#123;&#123; message &#125;&#125;</div><div class="line">			&lt;/div&gt;</div><div class="line">			&lt;!-- JavaScript 代码需要放在尾部（指定的HTML元素之后） --&gt;</div><div class="line">			&lt;script&gt;</div><div class="line">			new Vue(&#123;</div><div class="line">			    el:<span class="string">'#app'</span>, //找到存放数据的容器</div><div class="line">			    data: &#123;</div><div class="line">			        message:<span class="string">'vue say：Hello World!'</span></div><div class="line">			    &#125;</div><div class="line">			&#125;);</div><div class="line">			&lt;/script&gt;</div><div class="line">		&lt;/body&gt;</div><div class="line">	&lt;/html&gt;</div></pre></td></tr></table></figure>
-<p>运行结果为： 页面显示 vue say：Hello World!</p>
-<h4 id="双向绑定"><a href="#双向绑定" class="headerlink" title="双向绑定"></a>双向绑定</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">	&lt;html&gt;</div><div class="line">		&lt;head&gt;</div><div class="line">			&lt;meta charset=<span class="string">"utf-8"</span>&gt;</div><div class="line">			&lt;title&gt;hello word&lt;/title&gt;</div><div class="line">			&lt;script src=<span class="string">"http://static.runoob.com/assets/vue/1.0.11/vue.min.js"</span>&gt;&lt;/script&gt;//引入vuejs</div><div class="line">		&lt;/head&gt;</div><div class="line">		&lt;body&gt;</div><div class="line">			&lt;div id=<span class="string">"app"</span>&gt;</div><div class="line">				&lt;p&gt;&#123;&#123;message&#125;&#125;&lt;/p&gt;</div><div class="line">				&lt;input <span class="built_in">type</span>=<span class="string">"text"</span> v-model=<span class="string">"message"</span>&gt;</div><div class="line">			&lt;/div&gt;</div><div class="line">			&lt;script&gt;</div><div class="line">				new Vue(&#123;</div><div class="line">					el: <span class="string">"#app"</span>,</div><div class="line">					data:&#123;</div><div class="line">						message:<span class="string">'vue say：Hello World!'</span></div><div class="line">					&#125;</div><div class="line">				&#125;)	</div><div class="line">			&lt;/script&gt;</div><div class="line">		&lt;/body&gt;</div><div class="line">	&lt;/html&gt;</div></pre></td></tr></table></figure>
-<p>页面初始渲染input内容与message相同，input内容发生改变的时候 p内的内容对应发生变化</p>
-<h4 id="列表输出"><a href="#列表输出" class="headerlink" title="列表输出"></a>列表输出</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">		&lt;html&gt;</div><div class="line">			&lt;head&gt;</div><div class="line">				&lt;meta charset=<span class="string">"utf-8"</span>&gt;</div><div class="line">				&lt;title&gt;hello word&lt;/title&gt;</div><div class="line">				&lt;script src=<span class="string">"http://static.runoob.com/assets/vue/1.0.11/vue.min.js"</span>&gt;&lt;/script&gt;</div><div class="line">			&lt;/head&gt;</div><div class="line">			&lt;body&gt;</div><div class="line">				&lt;div id=<span class="string">"app"</span>&gt;</div><div class="line">					&lt;ul&gt;</div><div class="line">						&lt;li v-for=<span class="string">"datas in datalist"</span>&gt;</div><div class="line">							&#123;&#123;datas.text&#125;&#125;</div><div class="line">						&lt;/li&gt;</div><div class="line">					&lt;/ul&gt;</div><div class="line">				&lt;/div&gt;</div><div class="line">				&lt;script&gt;</div><div class="line">					new Vue(&#123;</div><div class="line">						el: <span class="string">"#app"</span>,</div><div class="line">						data:&#123;</div><div class="line">							datalist:[</div><div class="line">							&#123;text: <span class="string">'data none'</span>&#125;,</div><div class="line">							&#123;text: <span class="string">'data two'</span>&#125;</div><div class="line">							]</div><div class="line">						&#125;</div><div class="line">					&#125;)	</div><div class="line">				&lt;/script&gt;</div><div class="line">			&lt;/body&gt;</div><div class="line">		&lt;/html&gt;</div></pre></td></tr></table></figure>
-<p>v-for 类似angular中的ng-repeat指令；循环遍历datalist内的数据渲染在页面上</p>
-<h4 id="绑定事件"><a href="#绑定事件" class="headerlink" title="绑定事件"></a>绑定事件</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div></pre></td><td class="code"><pre><div class="line">//demo01</div><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">		&lt;html&gt;</div><div class="line">			&lt;head&gt;</div><div class="line">				&lt;meta charset=<span class="string">"utf-8"</span>&gt;</div><div class="line">				&lt;title&gt;hello word&lt;/title&gt;</div><div class="line">				&lt;script src=<span class="string">"http://static.runoob.com/assets/vue/1.0.11/vue.min.js"</span>&gt;&lt;/script&gt;</div><div class="line">			&lt;/head&gt;</div><div class="line">			&lt;body&gt;</div><div class="line">				&lt;div id=<span class="string">"app"</span>&gt;</div><div class="line">					&lt;p&gt;&#123;&#123;message&#125;&#125;&lt;/p&gt;</div><div class="line">					&lt;input <span class="built_in">type</span>=<span class="string">"button"</span> v-on:click = <span class="string">"changemessage"</span> value=<span class="string">"change message"</span> /&gt;</div><div class="line">				&lt;/div&gt;</div><div class="line">				&lt;script&gt;</div><div class="line">					new Vue(&#123;</div><div class="line">						el: <span class="string">"#app"</span>,</div><div class="line">						data:&#123;</div><div class="line">							message:<span class="string">'Hello hello word!'</span></div><div class="line">						&#125;,</div><div class="line">						methods:&#123;</div><div class="line">							changemessage:<span class="function"><span class="title">function</span></span>()&#123;</div><div class="line">								this.message = <span class="string">'I also have methods!'</span></div><div class="line">							&#125;</div><div class="line">						&#125;</div><div class="line">					&#125;)	</div><div class="line">				&lt;/script&gt;</div><div class="line">			&lt;/body&gt;</div><div class="line">		&lt;/html&gt;</div><div class="line">//demo02</div><div class="line">		&lt;body&gt;</div><div class="line">			&lt;div id=<span class="string">"app"</span>&gt;</div><div class="line">				&lt;p&gt;&#123;&#123;message&#125;&#125;&lt;/p&gt;</div><div class="line">				&lt;input <span class="built_in">type</span>=<span class="string">"button"</span> v-on:click = <span class="string">"message = 'I also have methods!'"</span> value=<span class="string">"change message"</span> /&gt;</div><div class="line">			&lt;/div&gt;</div><div class="line">			&lt;script&gt;</div><div class="line">				new Vue(&#123;</div><div class="line">					el: <span class="string">"#app"</span>,</div><div class="line">					data:&#123;</div><div class="line">						message:<span class="string">'Hello hello word!'</span></div><div class="line">					&#125;</div><div class="line">				&#125;)	</div><div class="line">			&lt;/script&gt;</div><div class="line">		&lt;/body&gt;</div></pre></td></tr></table></figure>
-<p>vue的v-on:click 类似angular 的 ng-click指令，demo01和demo02实现的效果是一样的</p>
-<p>以上几个小栗子初步对vue有个初步的概念 如有不当之处可以评论反馈</p>
+        <span itemprop="articleBody"><p>每个vue应用开始都是通过构造函数 Vue创建一个 Vue 的根实例：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var vm = new Vue(&#123;  //Vue的v要大写</div><div class="line">  // 选项</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>一个 Vue 实例其实正是一个 MVVM 模式中所描述的 ViewModel - 因此习惯上会使用 vm（并不是固定的） 这个变量名。在实例化 Vue 时，需要传入一个对象，它可以包含数据、模板、挂载元素、方法、生命周期钩子等选项。全部的选项可以在 API 文档中查看。</p>
+<p>可以扩展 Vue 构造器，从而用预定义选项创建可复用的组件构造器：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">var MyComponent = Vue.extend(&#123;</div><div class="line">	  // 扩展选项</div><div class="line">	&#125;)</div><div class="line">	var myComponentInstance = new MyComponent()</div><div class="line">	// 所有的 `MyComponent` 实例都将以预定义的扩展选项被创建</div><div class="line">	//尽管可以命令式地创建扩展实例，不过在多数情况下将组件构造</div><div class="line">	//器注册为一个自定义元素，然后声明式地用在模板中。我们将在</div><div class="line">	//后面详细说明组件系统。现在你只需知道所有的Vue.js 组件其实都是被扩展的 Vue 实例。</div></pre></td></tr></table></figure>
+<h4 id="属性与方法"><a href="#属性与方法" class="headerlink" title="属性与方法"></a>属性与方法</h4><p>每个 Vue 实例都会代理其 data 对象里所有的属性：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">var data = &#123; a: 1 &#125;</div><div class="line">var vm = new Vue(&#123;</div><div class="line">  data: data</div><div class="line">&#125;)</div><div class="line">vm.a === data.a // -&gt; <span class="literal">true</span></div><div class="line">// 设置属性也会影响到原始数据</div><div class="line">vm.a = 2</div><div class="line">data.a // -&gt; 2</div><div class="line">// ... 反之亦然</div><div class="line">data.a = 3</div><div class="line">vm.a // -&gt; 3</div></pre></td></tr></table></figure>
+<p>注意只有这些被代理的属性是响应的。如果在实例创建之后添加新的属性到实例上，它不会触发视图更新。我们将在后面详细讨论响应系统</p>
+<h4 id="除了这些数据属性，Vue-实例暴露了一些有用的实例属性与方法。这些属性与方法都有前缀-，以便与代理的数据属性区分。例如："><a href="#除了这些数据属性，Vue-实例暴露了一些有用的实例属性与方法。这些属性与方法都有前缀-，以便与代理的数据属性区分。例如：" class="headerlink" title="除了这些数据属性，Vue 实例暴露了一些有用的实例属性与方法。这些属性与方法都有前缀 $，以便与代理的数据属性区分。例如："></a>除了这些数据属性，Vue 实例暴露了一些有用的实例属性与方法。这些属性与方法都有前缀 $，以便与代理的数据属性区分。例如：</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">var data = &#123; a: 1 &#125;</div><div class="line">	var vm = new Vue(&#123;</div><div class="line">	  el: <span class="string">'#example'</span>,</div><div class="line">	  data: data</div><div class="line">	&#125;)</div><div class="line">	vm.<span class="variable">$data</span> === data // -&gt; <span class="literal">true</span></div><div class="line">	vm.<span class="variable">$el</span> === document.getElementById(<span class="string">'example'</span>) // -&gt; <span class="literal">true</span></div><div class="line">	// <span class="variable">$watch</span> 是一个实例方法</div><div class="line">	vm.<span class="variable">$watch</span>(<span class="string">'a'</span>, <span class="keyword">function</span> (newVal, oldVal) &#123;</div><div class="line">  	// 这个回调将在 `vm.a`  改变后调用</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<h4 id="实例生命周期"><a href="#实例生命周期" class="headerlink" title="实例生命周期"></a>实例生命周期</h4><p>Vue 实例在创建时有一系列初始化步骤——例如，它需要建立数据观察，编译模板，创建必要的数据绑定。在此过程中，它也将调用一些生命周期钩子，给自定义逻辑提供运行机会。例如 created 钩子在实例创建后调用：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">var vm = new Vue(&#123;</div><div class="line">  data: &#123;</div><div class="line">    a: 1</div><div class="line">  &#125;,</div><div class="line">  created: <span class="function"><span class="title">function</span></span> () &#123;</div><div class="line">    // `this` 指向 vm 实例</div><div class="line">    console.log(<span class="string">'a is: '</span> + this.a)</div><div class="line">  &#125;</div><div class="line">&#125;)</div><div class="line">// -&gt; <span class="string">"a is: 1"</span></div></pre></td></tr></table></figure>
+<p>也有一些其它的钩子，在实例生命周期的不同阶段调用，如 compiled、 ready 、destroyed。钩子的 this 指向调用它的 Vue 实例。Vue.js 是没有有“控制器”的概念的。组件的自定义逻辑可以分割在这些钩子中。</p>
 </span>
       
     </div>
@@ -388,13 +391,11 @@
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/06/22/Vue实例/" rel="prev">Vue 实例</a>
-            
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/05/22/元素拖放/" rel="next">元素拖放</a>
+              <a href="/2016/06/13/vuejs入门/" rel="next">vuejs入门篇</a>
             
           </div>
         </div>
@@ -565,8 +566,8 @@
         
           <div class="comments" id="comments">
             
-              <div class="ds-thread" data-thread-key="2016/06/13/vuejs入门/"
-                   data-title="vuejs入门篇" data-url="http://yoursite.com/2016/06/13/vuejs入门/">
+              <div class="ds-thread" data-thread-key="2016/06/22/Vue实例/"
+                   data-title="Vue 实例" data-url="http://yoursite.com/2016/06/22/Vue实例/">
               </div>
             
           </div>
@@ -648,7 +649,7 @@
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#hello-word"><span class="nav-number">1.</span> <span class="nav-text">hello word</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#双向绑定"><span class="nav-number">2.</span> <span class="nav-text">双向绑定</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#列表输出"><span class="nav-number">3.</span> <span class="nav-text">列表输出</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#绑定事件"><span class="nav-number">4.</span> <span class="nav-text">绑定事件</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#属性与方法"><span class="nav-number">1.</span> <span class="nav-text">属性与方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#除了这些数据属性，Vue-实例暴露了一些有用的实例属性与方法。这些属性与方法都有前缀-，以便与代理的数据属性区分。例如："><span class="nav-number">2.</span> <span class="nav-text">除了这些数据属性，Vue 实例暴露了一些有用的实例属性与方法。这些属性与方法都有前缀 $，以便与代理的数据属性区分。例如：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实例生命周期"><span class="nav-number">3.</span> <span class="nav-text">实例生命周期</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
