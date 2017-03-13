@@ -29,7 +29,7 @@
 
 
 
-  <meta name="keywords" content="js基础," />
+  <meta name="keywords" content="Hexo,Mala" />
 
 
 
@@ -38,16 +38,16 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
 
 
-<meta name="description" content="Json属性值的访问方式12345678var person=&amp;#123;a:1,&apos;b&apos;:2,&apos;c&apos;:function()&amp;#123;alert(3)&amp;#125;&amp;#125;alert(person.a);//弹出1alert(person[&apos;a&apos;]);//弹出1alert(person[a]);//语法错误alert(person.b);//弹出2alert(person[&apos;b&apos;]);//弹出2">
+<meta name="description" content="description">
 <meta property="og:type" content="article">
-<meta property="og:title" content="原生ajax">
-<meta property="og:url" content="http://yoursite.com/2015/05/23/14-js原生ajax/index.html">
+<meta property="og:title" content="常用宽度高度">
+<meta property="og:url" content="http://yoursite.com/2017/03/13/常用宽度高度/index.html">
 <meta property="og:site_name" content="ants的博客">
-<meta property="og:description" content="Json属性值的访问方式12345678var person=&amp;#123;a:1,&apos;b&apos;:2,&apos;c&apos;:function()&amp;#123;alert(3)&amp;#125;&amp;#125;alert(person.a);//弹出1alert(person[&apos;a&apos;]);//弹出1alert(person[a]);//语法错误alert(person.b);//弹出2alert(person[&apos;b&apos;]);//弹出2">
-<meta property="og:updated_time" content="2017-03-13T08:22:27.000Z">
+<meta property="og:description" content="description">
+<meta property="og:updated_time" content="2017-03-13T09:12:24.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="原生ajax">
-<meta name="twitter:description" content="Json属性值的访问方式12345678var person=&amp;#123;a:1,&apos;b&apos;:2,&apos;c&apos;:function()&amp;#123;alert(3)&amp;#125;&amp;#125;alert(person.a);//弹出1alert(person[&apos;a&apos;]);//弹出1alert(person[a]);//语法错误alert(person.b);//弹出2alert(person[&apos;b&apos;]);//弹出2">
+<meta name="twitter:title" content="常用宽度高度">
+<meta name="twitter:description" content="description">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -57,7 +57,7 @@
   };
 </script>
 
-  <title> 原生ajax | ants的博客 </title>
+  <title> 常用宽度高度 | ants的博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -307,7 +307,7 @@
           
           
             
-              原生ajax
+              常用宽度高度
             
           
         </h1>
@@ -316,26 +316,11 @@
       <div class="post-meta">
         <span class="post-time">
           发表于
-          <time itemprop="dateCreated" datetime="2015-05-23T15:59:46+08:00" content="2015-05-23">
-            2015-05-23
+          <time itemprop="dateCreated" datetime="2017-03-13T17:12:24+08:00" content="2017-03-13">
+            2017-03-13
           </time>
         </span>
 
-        
-          <span class="post-category" >
-            &nbsp; | &nbsp; 分类于
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/js-基础学习/" itemprop="url" rel="index">
-                  <span itemprop="name">js_基础学习</span>
-                </a>
-              </span>
-
-              
-              
-
-            
-          </span>
         
 
         
@@ -343,11 +328,11 @@
             <span class="post-comments-count">
               &nbsp; | &nbsp;
               <!--
-              <a href="/2015/05/23/14-js原生ajax/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2015/05/23/14-js原生ajax/" itemprop="commentsCount"></span>
+              <a href="/2017/03/13/常用宽度高度/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/13/常用宽度高度/" itemprop="commentsCount"></span>
               </a>
               -->
-              <a href="/2015/05/23/14-js原生ajax/#comments" itemprop="discussionUrl">
+              <a href="/2017/03/13/常用宽度高度/#comments" itemprop="discussionUrl">
                 <span>评论</span>
               </a>
             </span>
@@ -362,33 +347,22 @@
       
 
       
-        <span itemprop="articleBody"><h4 id="Json属性值的访问方式"><a href="#Json属性值的访问方式" class="headerlink" title="Json属性值的访问方式"></a>Json属性值的访问方式</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">var person=&#123;a:1,<span class="string">'b'</span>:2,<span class="string">'c'</span>:<span class="function"><span class="title">function</span></span>()&#123;alert(3)&#125;&#125;</div><div class="line">alert(person.a);//弹出1</div><div class="line">alert(person[<span class="string">'a'</span>]);//弹出1</div><div class="line">alert(person[a]);//语法错误</div><div class="line">alert(person.b);//弹出2</div><div class="line">alert(person[<span class="string">'b'</span>]);//弹出2</div><div class="line">alert(person.<span class="string">'b'</span>);//语法错误</div><div class="line">person.c();//弹出3</div></pre></td></tr></table></figure>
-<h5 id="注意：①无论Json中属性名有无引号，通过对象点属性名访问时属性名不可有引号，通过对象中括号属性名访问时属性名必须加引号。②对象的属性名、属性值以及方法名应该加引号，对象的方法值不可加引号。③若调用对象的方法，则只能用对象点方法名小括号的调用方式。"><a href="#注意：①无论Json中属性名有无引号，通过对象点属性名访问时属性名不可有引号，通过对象中括号属性名访问时属性名必须加引号。②对象的属性名、属性值以及方法名应该加引号，对象的方法值不可加引号。③若调用对象的方法，则只能用对象点方法名小括号的调用方式。" class="headerlink" title="注意：①无论Json中属性名有无引号，通过对象点属性名访问时属性名不可有引号，通过对象中括号属性名访问时属性名必须加引号。②对象的属性名、属性值以及方法名应该加引号，对象的方法值不可加引号。③若调用对象的方法，则只能用对象点方法名小括号的调用方式。"></a>注意：①无论Json中属性名有无引号，通过对象点属性名访问时属性名不可有引号，通过对象中括号属性名访问时属性名必须加引号。②对象的属性名、属性值以及方法名应该加引号，对象的方法值不可加引号。③若调用对象的方法，则只能用对象点方法名小括号的调用方式。</h5><h4 id="Ajax库"><a href="#Ajax库" class="headerlink" title="Ajax库"></a>Ajax库</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> ajax(obj) &#123;</div><div class="line">    var xhr = new XMLHttpRequest();</div><div class="line">    obj.url = obj.url + <span class="string">'?rand='</span> + Math.random();</div><div class="line">    xhr.open(obj.method, obj.url, obj.async);</div><div class="line">    xhr.send(null);</div><div class="line">    <span class="keyword">if</span> (obj.async === <span class="literal">false</span>) &#123;</div><div class="line">    callback();</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">if</span> (obj.async === <span class="literal">true</span>) &#123;</div><div class="line">        xhr.onreadystatechange = <span class="function"><span class="title">function</span></span>() &#123;</div><div class="line">        <span class="keyword">if</span> (xhr.readyState == 4) &#123;</div><div class="line">        callback();</div><div class="line">            &#125;</div><div class="line">        &#125;;</div><div class="line">    &#125;;</div><div class="line">    <span class="keyword">function</span> <span class="function"><span class="title">callback</span></span>() &#123;</div><div class="line">    <span class="keyword">if</span> (xhr.status == 200) &#123;</div><div class="line">            obj.success(xhr.responseText); //回调</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            alert(<span class="string">'数据返回失败！状态代码：'</span> + xhr.status + <span class="string">'，状态信息：'</span> + xhr.statusText);</div><div class="line">        &#125;;</div><div class="line">    &#125;;</div><div class="line">&#125;;</div><div class="line">ajax(&#123;</div><div class="line">    <span class="string">'method'</span>: <span class="string">'GET'</span>,</div><div class="line">    <span class="string">'url'</span>: <span class="string">'a.txt'</span>,</div><div class="line">    <span class="string">'async'</span>: <span class="literal">true</span>,</div><div class="line">    <span class="string">'success'</span>: <span class="keyword">function</span>(a) &#123;</div><div class="line">        alert(a)</div><div class="line">        &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-<p>注意：执行对象作为参数的函数时调用了该对象的一个方法。 ajax()为一个函数，函数的实参为一个对象，对象有一个success方法。 对象作为实参调用ajax()函数→执行ajax()函数代码→xhr.responseText作为实参调用对象的success方法。 即：对象是ajax()函数的实参，xhr.responseText是对象success方法的实参。</p>
-<h4 id="应用实例-Ajax——省市联级"><a href="#应用实例-Ajax——省市联级" class="headerlink" title="应用实例(Ajax——省市联级)"></a>应用实例(Ajax——省市联级)</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div></pre></td><td class="code"><pre><div class="line">//本json一共有三层：数组[—对象&#123;—数组[。</div><div class="line">&lt;body&gt;</div><div class="line">    &lt;select id=<span class="string">"sel1"</span>&gt;</div><div class="line">        &lt;option&gt;请选择&lt;/option&gt;</div><div class="line">    &lt;/select&gt;</div><div class="line">    &lt;select id=<span class="string">"sel2"</span>&gt;</div><div class="line">        &lt;option&gt;请选择&lt;/option&gt;</div><div class="line">    &lt;/select&gt;</div><div class="line">&lt;script&gt;</div><div class="line">var xhr = new XMLHttpRequest();</div><div class="line">xhr.open(<span class="string">'GET'</span>, <span class="string">'http://localhost:3000/api/5'</span>, <span class="literal">true</span>);</div><div class="line">xhr.send(null);</div><div class="line">xhr.onreadystatechange = <span class="function"><span class="title">function</span></span>() &#123;</div><div class="line">    <span class="keyword">if</span> (xhr.readyState == 4 &amp;&amp; xhr.status == 200) &#123;</div><div class="line">        ojson = JSON.parse(xhr.responseText);</div><div class="line">    &#125;;</div><div class="line">    <span class="keyword">for</span> (var i = 0; i &lt; ojson.length; i++) &#123;</div><div class="line">    //进入第一层内部。</div><div class="line">        <span class="keyword">for</span> (var j <span class="keyword">in</span> ojson[i]) &#123;</div><div class="line">        //进入第二层内部。</div><div class="line">            sel1.add(new Option(j, j));</div><div class="line">            //将第二层内部的键插入到sel1。</div><div class="line">        &#125;;</div><div class="line">    &#125;;</div><div class="line">&#125;;</div><div class="line">sel1.onchange = <span class="function"><span class="title">function</span></span>() &#123;</div><div class="line">    sel2.options.length = 1;</div><div class="line">    <span class="keyword">for</span> (var i = 0; i &lt; ojson.length; i++) &#123;</div><div class="line">    //进入第一层内部。</div><div class="line">        <span class="keyword">for</span> (var j <span class="keyword">in</span> ojson[i]) &#123;</div><div class="line">        //进入第二层内部。</div><div class="line">            <span class="keyword">if</span> (this.value == j) &#123;</div><div class="line">            //判断第二层内部的键是否等于sel1被选项的value值。</div><div class="line">                <span class="keyword">for</span> (var n = 0; n &lt; ojson[i][j].length; n++) &#123;</div><div class="line">                //进入第三层内部。</div><div class="line">                    sel2.add(new Option(ojson[i][j][n], ojson[i][j][n]));</div><div class="line">                    //将第三层内部的值插入到sel2。</div><div class="line">                &#125;;</div><div class="line">            &#125;;</div><div class="line">        &#125;;</div><div class="line">    &#125;;</div><div class="line">&#125;;</div><div class="line">&lt;/script&gt;</div><div class="line">&lt;/body&gt;</div></pre></td></tr></table></figure></span>
+        <span itemprop="articleBody"></span>
       
     </div>
 
     <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/js基础/" rel="tag">#js基础</a>
-          
-        </div>
       
 
       
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/06/08/15-js基础补充-02/" rel="prev">JavaScript-基础补充_02</a>
-            
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/05/10/13-jsXMLHttpRequest对象/" rel="next">XMLHttpRequest对象</a>
+              <a href="/2016/01/31/有趣的css图形/" rel="next">有趣的css图形</a>
             
           </div>
         </div>
@@ -559,8 +533,8 @@
         
           <div class="comments" id="comments">
             
-              <div class="ds-thread" data-thread-key="2015/05/23/14-js原生ajax/"
-                   data-title="原生ajax" data-url="http://yoursite.com/2015/05/23/14-js原生ajax/">
+              <div class="ds-thread" data-thread-key="2017/03/13/常用宽度高度/"
+                   data-title="常用宽度高度" data-url="http://yoursite.com/2017/03/13/常用宽度高度/">
               </div>
             
           </div>
@@ -642,7 +616,7 @@
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Json属性值的访问方式"><span class="nav-number">1.</span> <span class="nav-text">Json属性值的访问方式</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#注意：①无论Json中属性名有无引号，通过对象点属性名访问时属性名不可有引号，通过对象中括号属性名访问时属性名必须加引号。②对象的属性名、属性值以及方法名应该加引号，对象的方法值不可加引号。③若调用对象的方法，则只能用对象点方法名小括号的调用方式。"><span class="nav-number">1.1.</span> <span class="nav-text">注意：①无论Json中属性名有无引号，通过对象点属性名访问时属性名不可有引号，通过对象中括号属性名访问时属性名必须加引号。②对象的属性名、属性值以及方法名应该加引号，对象的方法值不可加引号。③若调用对象的方法，则只能用对象点方法名小括号的调用方式。</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Ajax库"><span class="nav-number">2.</span> <span class="nav-text">Ajax库</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#应用实例-Ajax——省市联级"><span class="nav-number">3.</span> <span class="nav-text">应用实例(Ajax——省市联级)</span></a></li></ol></div>
+              <p class="post-toc-empty">此文章未包含目录</p>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
