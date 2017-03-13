@@ -29,7 +29,7 @@
 
 
 
-  <meta name="keywords" content="js基础," />
+  <meta name="keywords" content="base64," />
 
 
 
@@ -38,16 +38,19 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
 
 
-<meta name="description" content="JavaScript语言的前身叫作Livescript。自从Sun公司推出著名的Java语言之后，Netscape公司引进了Sun公司有关Java的程序概念，将自己原有的Livescript 重新进行设计，并改名为JavaScript。">
+<meta name="description" content="base64编码介绍base64是一种网络上常用的8bit字节代码的编码方式，base64可以用于http环境下传递较长的标识信息，同时可以放在url当中使用，因为base64不惧可读性，所以具有一定的 加密 功能。
+为什么要把图片转换成base64编码？将图片转换成base64代码可以减少http请求，因为图片可以以字符编码的形式直接传递到客户端，而文件形式都需要进行http请求。但是也会有一个">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JavaScript简介">
-<meta property="og:url" content="http://yoursite.com/2015/01/12/01-js简介/index.html">
+<meta property="og:title" content="图片转换为base64">
+<meta property="og:url" content="http://yoursite.com/2015/03/13/将图片转换为base64的demo/index.html">
 <meta property="og:site_name" content="ants的博客">
-<meta property="og:description" content="JavaScript语言的前身叫作Livescript。自从Sun公司推出著名的Java语言之后，Netscape公司引进了Sun公司有关Java的程序概念，将自己原有的Livescript 重新进行设计，并改名为JavaScript。">
-<meta property="og:updated_time" content="2017-03-12T13:43:33.000Z">
+<meta property="og:description" content="base64编码介绍base64是一种网络上常用的8bit字节代码的编码方式，base64可以用于http环境下传递较长的标识信息，同时可以放在url当中使用，因为base64不惧可读性，所以具有一定的 加密 功能。
+为什么要把图片转换成base64编码？将图片转换成base64代码可以减少http请求，因为图片可以以字符编码的形式直接传递到客户端，而文件形式都需要进行http请求。但是也会有一个">
+<meta property="og:updated_time" content="2017-03-13T08:37:29.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JavaScript简介">
-<meta name="twitter:description" content="JavaScript语言的前身叫作Livescript。自从Sun公司推出著名的Java语言之后，Netscape公司引进了Sun公司有关Java的程序概念，将自己原有的Livescript 重新进行设计，并改名为JavaScript。">
+<meta name="twitter:title" content="图片转换为base64">
+<meta name="twitter:description" content="base64编码介绍base64是一种网络上常用的8bit字节代码的编码方式，base64可以用于http环境下传递较长的标识信息，同时可以放在url当中使用，因为base64不惧可读性，所以具有一定的 加密 功能。
+为什么要把图片转换成base64编码？将图片转换成base64代码可以减少http请求，因为图片可以以字符编码的形式直接传递到客户端，而文件形式都需要进行http请求。但是也会有一个">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -57,7 +60,7 @@
   };
 </script>
 
-  <title> JavaScript简介 | ants的博客 </title>
+  <title> 图片转换为base64 | ants的博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -307,7 +310,7 @@
           
           
             
-              JavaScript简介
+              图片转换为base64
             
           
         </h1>
@@ -316,8 +319,8 @@
       <div class="post-meta">
         <span class="post-time">
           发表于
-          <time itemprop="dateCreated" datetime="2015-01-12T21:22:20+08:00" content="2015-01-12">
-            2015-01-12
+          <time itemprop="dateCreated" datetime="2015-03-13T16:32:41+08:00" content="2015-03-13">
+            2015-03-13
           </time>
         </span>
 
@@ -326,8 +329,8 @@
             &nbsp; | &nbsp; 分类于
             
               <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/js-基础学习/" itemprop="url" rel="index">
-                  <span itemprop="name">js_基础学习</span>
+                <a href="/categories/demo/" itemprop="url" rel="index">
+                  <span itemprop="name">demo</span>
                 </a>
               </span>
 
@@ -343,11 +346,11 @@
             <span class="post-comments-count">
               &nbsp; | &nbsp;
               <!--
-              <a href="/2015/01/12/01-js简介/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2015/01/12/01-js简介/" itemprop="commentsCount"></span>
+              <a href="/2015/03/13/将图片转换为base64的demo/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2015/03/13/将图片转换为base64的demo/" itemprop="commentsCount"></span>
               </a>
               -->
-              <a href="/2015/01/12/01-js简介/#comments" itemprop="discussionUrl">
+              <a href="/2015/03/13/将图片转换为base64的demo/#comments" itemprop="discussionUrl">
                 <span>评论</span>
               </a>
             </span>
@@ -362,13 +365,11 @@
       
 
       
-        <span itemprop="articleBody"><h3 id="js基本特点"><a href="#js基本特点" class="headerlink" title="js基本特点"></a>js基本特点</h3><h4 id="1-弱类型语言：没有明确的数据类型声明，所有变量都用var声明。"><a href="#1-弱类型语言：没有明确的数据类型声明，所有变量都用var声明。" class="headerlink" title="1. 弱类型语言：没有明确的数据类型声明，所有变量都用var声明。"></a>1. 弱类型语言：没有明确的数据类型声明，所有变量都用var声明。</h4><h4 id="2-脚本语言：计算机可以直接执行源代码。"><a href="#2-脚本语言：计算机可以直接执行源代码。" class="headerlink" title="2. 脚本语言：计算机可以直接执行源代码。"></a>2. 脚本语言：计算机可以直接执行源代码。</h4><h4 id="3-JavaScript是一种基于对象-Object-和事件驱动-Event-Driven-并具有安全性能的脚本语言-可广泛用于服务器、PC、笔记本电脑、平板电脑和智能手机等设备。"><a href="#3-JavaScript是一种基于对象-Object-和事件驱动-Event-Driven-并具有安全性能的脚本语言-可广泛用于服务器、PC、笔记本电脑、平板电脑和智能手机等设备。" class="headerlink" title="3. JavaScript是一种基于对象(Object)和事件驱动(Event Driven)并具有安全性能的脚本语言,可广泛用于服务器、PC、笔记本电脑、平板电脑和智能手机等设备。"></a>3. JavaScript是一种基于对象(Object)和事件驱动(Event Driven)并具有安全性能的脚本语言,可广泛用于服务器、PC、笔记本电脑、平板电脑和智能手机等设备。</h4><h4 id="4-JavaScript——最流行的脚本语言-弱类型语言、动态性语言、解释性语言。"><a href="#4-JavaScript——最流行的脚本语言-弱类型语言、动态性语言、解释性语言。" class="headerlink" title="4. JavaScript——最流行的脚本语言:弱类型语言、动态性语言、解释性语言。"></a>4. JavaScript——最流行的脚本语言:弱类型语言、动态性语言、解释性语言。</h4><h4 id="5-JavaScript-组成：ECMAScript（语法）、DOM（文档对象模型）、BOM（浏览器对象模型）。-BOM（Browser-Object-Model）"><a href="#5-JavaScript-组成：ECMAScript（语法）、DOM（文档对象模型）、BOM（浏览器对象模型）。-BOM（Browser-Object-Model）" class="headerlink" title="5. JavaScript 组成：ECMAScript（语法）、DOM（文档对象模型）、BOM（浏览器对象模型）。 BOM（Browser Object Model）"></a>5. JavaScript 组成：ECMAScript（语法）、DOM（文档对象模型）、BOM（浏览器对象模型）。 BOM（Browser Object Model）</h4><h3 id="js初识代码（文档输出的几种写法）"><a href="#js初识代码（文档输出的几种写法）" class="headerlink" title="js初识代码（文档输出的几种写法）"></a>js初识代码（文档输出的几种写法）</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">document.write(<span class="string">"Hello JavaScript1&lt;br/&gt;"</span>);//文档输出时换行的第一种写法。 </div><div class="line">document.write(<span class="string">"Hello JavaScript2"</span>+<span class="string">"&lt;br /&gt;"</span>);//文档输出时换行的第二种写法。</div><div class="line">document.writeln(<span class="string">"Hello JavaScript2"</span>); //文档输出时文本后加一个空格。</div><div class="line">alert(<span class="string">"Hello\nJavaScript"</span>); //弹出对话框时换行的第一种方法。</div><div class="line">alert(<span class="string">"Hello"</span>+<span class="string">"\n"</span>+<span class="string">"JavaScript"</span>);  //弹出对话框时换行的第二种方法。</div><div class="line">console.log(<span class="string">"Hello\nJavaScript"</span>); //控制台输出文本换行的第一种写法。 </div><div class="line">console.log(<span class="string">"Hello"</span>+<span class="string">"\n"</span>+<span class="string">"JavaScript"</span>); //控制台输出文本换行的第二种写法。</div></pre></td></tr></table></figure>
-<h5 id="注意：①window是一个全局对象，在书写时一般省略。例如：window-document；window-alert；window-console"><a href="#注意：①window是一个全局对象，在书写时一般省略。例如：window-document；window-alert；window-console" class="headerlink" title="注意：①window是一个全局对象，在书写时一般省略。例如：window.document；window.alert；window.console"></a>注意：①window是一个全局对象，在书写时一般省略。例如：window.document；window.alert；window.console</h5><h3 id="js运算符简介"><a href="#js运算符简介" class="headerlink" title="js运算符简介"></a>js运算符简介</h3><h4 id="加号（-）有两种含义：①算数运算符；②字符串拼接；"><a href="#加号（-）有两种含义：①算数运算符；②字符串拼接；" class="headerlink" title="加号（+）有两种含义：①算数运算符；②字符串拼接；"></a>加号（+）有两种含义：①算数运算符；②字符串拼接；</h4><h4 id="当相加的各数据全部为数字数据类型时，加号的含义为算数运算符。"><a href="#当相加的各数据全部为数字数据类型时，加号的含义为算数运算符。" class="headerlink" title="当相加的各数据全部为数字数据类型时，加号的含义为算数运算符。"></a>当相加的各数据全部为数字数据类型时，加号的含义为算数运算符。</h4><h4 id="当相加的各数据有字符串数据类型时，加号的含义在第一个字符串之前为算数运算符，在第一个字符串之后为字符串拼接（括号中的数字为加法）。"><a href="#当相加的各数据有字符串数据类型时，加号的含义在第一个字符串之前为算数运算符，在第一个字符串之后为字符串拼接（括号中的数字为加法）。" class="headerlink" title="当相加的各数据有字符串数据类型时，加号的含义在第一个字符串之前为算数运算符，在第一个字符串之后为字符串拼接（括号中的数字为加法）。"></a>当相加的各数据有字符串数据类型时，加号的含义在第一个字符串之前为算数运算符，在第一个字符串之后为字符串拼接（括号中的数字为加法）。</h4><h4 id="例子："><a href="#例子：" class="headerlink" title="例子："></a>例子：</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var a=2+3+15+<span class="string">"12"</span>+4+<span class="string">"abc"</span>+(2+3)+9+1;</div><div class="line">console.log(a);//20124abc591;</div></pre></td></tr></table></figure>
-<h5 id="注意：字符串数据类型必须用双引号包裹"><a href="#注意：字符串数据类型必须用双引号包裹" class="headerlink" title="注意：字符串数据类型必须用双引号包裹"></a>注意：字符串数据类型必须用双引号包裹</h5><h3 id="script标签"><a href="#script标签" class="headerlink" title="script标签"></a>script标签</h3><p>script标签可以放在文档的任何位置，通常放在head中，建议写在body之前，使浏览器先加载标签，再运行JavaScript代码，增强用户体验。 script标签必须成对出现，同一个页面中可以出现多对，且从上往下执行。 如果一个script标签用来引入外部JavaScript文件，此标签内不能再写JavaScript代码。(标签内部写代码的时候注意script不能有src属性，值为空也不可以) script标签的type属性可以不写，也可以写text/javascript属性值，这种写法不标准，但是最通用，浏览器支持较好，也可以写application/javascript属性值，这种写法浏览器支持不是特别好。 script标签的async用来设置脚本是否支持异步，默认属性值为“false”，可定义“true”或“async”。 外链JavaScript文件的script标签添加async属性，使下一个script标签的起始执行时间无需等待当前script标签的外链JavaScript执行结束。</p>
-<h3 id="标识符（变量、函数、属性的名字，或者函数的参数）"><a href="#标识符（变量、函数、属性的名字，或者函数的参数）" class="headerlink" title="标识符（变量、函数、属性的名字，或者函数的参数）"></a>标识符（变量、函数、属性的名字，或者函数的参数）</h3><h4 id="JavaScript的变量用来保存值或者表达式，变量的值是可以改变。变量就是计算机在内存中申请一块空间地址的别名，便于程序员识别。"><a href="#JavaScript的变量用来保存值或者表达式，变量的值是可以改变。变量就是计算机在内存中申请一块空间地址的别名，便于程序员识别。" class="headerlink" title="JavaScript的变量用来保存值或者表达式，变量的值是可以改变。变量就是计算机在内存中申请一块空间地址的别名，便于程序员识别。"></a>JavaScript的变量用来保存值或者表达式，变量的值是可以改变。变量就是计算机在内存中申请一块空间地址的别名，便于程序员识别。</h4><h3 id="变量三要素：①变量名-②变量值-③变量类型"><a href="#变量三要素：①变量名-②变量值-③变量类型" class="headerlink" title="变量三要素：①变量名 ②变量值 ③变量类型"></a>变量三要素：①变量名 ②变量值 ③变量类型</h3><p>####（1）当一个变量已声明未赋值时，变量的值为undefined。 （2）变量可以先声明后赋值，也可以声明和赋值同时进行。var a;a=10; （3）可以同时声明多个变量，变量之间用逗号隔开。var a=10,b=37,c=53; （4）所有变量都用var声明，没有严格区分数据类型，属于弱类型语言。 （5）用typeof 来确定变量的数据类型。 var a=1;alert(typeof a);//等价于alert(typeof(a)); （6）语法中可以省略var。</p>
-<h5 id="注意：当声明一个变量时，如果没有给他赋值，无法明确知道变量的类型，这样的语言称作弱类型语言。JavaScript是一种弱类型的语言，把所有的变量类型都用var声明，而不用明确声明数据类型，只有真正给变量赋值时，变量的类型才决定，也就是说变量的数据类型是由变量的值的类型来决定的。"><a href="#注意：当声明一个变量时，如果没有给他赋值，无法明确知道变量的类型，这样的语言称作弱类型语言。JavaScript是一种弱类型的语言，把所有的变量类型都用var声明，而不用明确声明数据类型，只有真正给变量赋值时，变量的类型才决定，也就是说变量的数据类型是由变量的值的类型来决定的。" class="headerlink" title="注意：当声明一个变量时，如果没有给他赋值，无法明确知道变量的类型，这样的语言称作弱类型语言。JavaScript是一种弱类型的语言，把所有的变量类型都用var声明，而不用明确声明数据类型，只有真正给变量赋值时，变量的类型才决定，也就是说变量的数据类型是由变量的值的类型来决定的。"></a>注意：当声明一个变量时，如果没有给他赋值，无法明确知道变量的类型，这样的语言称作弱类型语言。JavaScript是一种弱类型的语言，把所有的变量类型都用var声明，而不用明确声明数据类型，只有真正给变量赋值时，变量的类型才决定，也就是说变量的数据类型是由变量的值的类型来决定的。</h5><h3 id="js数据类型"><a href="#js数据类型" class="headerlink" title="js数据类型"></a>js数据类型</h3><p>ECMAScript中有5种基本数据类型：undefined、null、boolean、number 、string,还有一种复杂数据类型。 也叫引用数据类型object和函数类型function，当然，function也可以看做object类型。ECMAScript不支持 任何创建自定义类型的机制，所有值都成为以上7 种数据类型之一。在JavaScript中，用typeof()检测变量 的数据类型。对于值或变量使用typeof 操作符会返回如下字符串：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">undefined： 未定义 </div><div class="line">boolean ：布尔值 </div><div class="line">string： 字符串 </div><div class="line">number ：数值 </div><div class="line">object： 对象或null </div><div class="line"><span class="keyword">function</span> ：函数 </div><div class="line">基本数据类型：数字、字符串、布尔、未定义 </div><div class="line">var a=1; alert(typeof(a)); //返回number 数字</div><div class="line">var a=<span class="string">"1"</span>; alert(typeof a); //返回string 字符串 </div><div class="line">var a; alert(typeof (a)) //返回undefined 未定义 </div><div class="line">var a=<span class="literal">false</span>; alert(typeof(a)); //返回boolean 布尔 引用数据类型：函数、数组、对象、日期、空 </div><div class="line">var a=null; alert(typeof(a)); //返回object 空 </div><div class="line">var a=<span class="function"><span class="title">function</span></span> ()&#123;&#125;; alert(typeof a); //返回<span class="keyword">function</span>（属于object的一种） </div><div class="line">var a=new Array ; alert(typeof a); //返回object 数组 </div><div class="line">var a=new Object(); alert(typeof a); //返回object 对象</div></pre></td></tr></table></figure>
-<h5 id="关键字在JavaScript语法中有特定用途，不能用作标识符，保留字未来可能成为关键字。"><a href="#关键字在JavaScript语法中有特定用途，不能用作标识符，保留字未来可能成为关键字。" class="headerlink" title="关键字在JavaScript语法中有特定用途，不能用作标识符，保留字未来可能成为关键字。"></a>关键字在JavaScript语法中有特定用途，不能用作标识符，保留字未来可能成为关键字。</h5></span>
+        <span itemprop="articleBody"><h3 id="base64编码介绍"><a href="#base64编码介绍" class="headerlink" title="base64编码介绍"></a>base64编码介绍</h3><p>base64是一种网络上常用的8bit字节代码的编码方式，base64可以用于http环境下传递较长的标识信息，同时可以放在url当中使用，因为base64不惧可读性，所以具有一定的 加密 功能。</p>
+<h4 id="为什么要把图片转换成base64编码？"><a href="#为什么要把图片转换成base64编码？" class="headerlink" title="为什么要把图片转换成base64编码？"></a>为什么要把图片转换成base64编码？</h4><p>将图片转换成base64代码可以减少http请求，因为图片可以以字符编码的形式直接传递到客户端，而文件形式都需要进行http请求。但是也会有一个小缺点，就是图片编码化base64的时候大小会变大，但是通过gzip优化以后基本差不多。所以在应用的过程当中较小的图片可以直接编码成base64，较大的图片则不建议如此使用。</p>
+<h4 id="html5如何将图片转换成base64？"><a href="#html5如何将图片转换成base64？" class="headerlink" title="html5如何将图片转换成base64？"></a>html5如何将图片转换成base64？</h4><p>html5如果要将图片转换成base64需要使用到一个html5的接口FileReader.readAsDataURL()接口说明,这个接口可以将文件转换成base64编码格式，并且再以data：URL的形式展现出来。</p>
+<h3 id="应用实例demo"><a href="#应用实例demo" class="headerlink" title="应用实例demo"></a>应用实例demo</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line">&lt;!Doctype html&gt;</div><div class="line">&lt;html&gt;</div><div class="line">&lt;head&gt;</div><div class="line">&lt;meta charset=<span class="string">"utf-8"</span> /&gt;</div><div class="line">&lt;title&gt;html5 image to base64&lt;/title&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">	&lt;script <span class="built_in">type</span>=<span class="string">"text/javascript"</span>&gt;</div><div class="line">		window.onload = <span class="function"><span class="title">function</span></span>()&#123; </div><div class="line">		//获取dom节点</div><div class="line">		var img_upload=document.getElementById(<span class="string">"img_upload"</span>)</div><div class="line">			,base64_code=document.getElementById(<span class="string">"base64_code"</span>)</div><div class="line">			,img_area=document.getElementById(<span class="string">"img_area"</span>);</div><div class="line">		// 添加一个监听事件，如果上传文件发生变化就执行<span class="built_in">read</span>File函数。</div><div class="line">		img_upload.addEventListener(<span class="string">'change'</span>,<span class="built_in">read</span>File,<span class="literal">false</span>);&#125;</div><div class="line">		//调用接口，将图片转换成base64再输出</div><div class="line">		<span class="keyword">function</span> <span class="function"><span class="title">readFile</span></span>()&#123;</div><div class="line">			var file=this.files[0]; //获取上传的对象</div><div class="line">			<span class="keyword">if</span>(!/image\/\w+/.test(file.type))&#123; </div><div class="line">				alert(<span class="string">"请确保文件为图像类型"</span>); </div><div class="line">				<span class="built_in">return</span> <span class="literal">false</span>; </div><div class="line">			&#125;</div><div class="line">			var reader=new FileReader();</div><div class="line">			reader.readAsDataURL(file);</div><div class="line">			reader.onload=<span class="function"><span class="title">function</span></span>()&#123;</div><div class="line">			base64_code.innerHTML = this.result; </div><div class="line">			img_area.innerHTML = <span class="string">'&lt;div&gt;图片展示：&lt;/div&gt;&lt;img src="'</span>+this.result+<span class="string">'" alt=""/&gt;'</span>; </div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&lt;/script&gt;</div><div class="line">	</div><div class="line">	&lt;input <span class="built_in">type</span>=<span class="string">"file"</span> id=<span class="string">"img_upload"</span>/&gt;//上传图片</div><div class="line">	&lt;textarea id=<span class="string">"base64_code"</span> rows=<span class="string">"30"</span> cols=<span class="string">"360"</span>&gt;&lt;/textarea&gt;//base64代码显示</div><div class="line">	&lt;p id=<span class="string">"img_area"</span>&gt;&lt;/p&gt;//图片显示</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+<h5 id="注：this-result这个result是FileReader-readAsDataURL-接口当中转换完图片输出的base64结果存放在result当中。在代码当中添加console-log-reader-查看一下FileReader对象就可以看到。-reader是我自己起的对象的名称"><a href="#注：this-result这个result是FileReader-readAsDataURL-接口当中转换完图片输出的base64结果存放在result当中。在代码当中添加console-log-reader-查看一下FileReader对象就可以看到。-reader是我自己起的对象的名称" class="headerlink" title="注：this.result这个result是FileReader.readAsDataURL()接口当中转换完图片输出的base64结果存放在result当中。在代码当中添加console.log(reader);查看一下FileReader对象就可以看到。(reader是我自己起的对象的名称)"></a>注：this.result这个result是FileReader.readAsDataURL()接口当中转换完图片输出的base64结果存放在result当中。在代码当中添加console.log(reader);查看一下FileReader对象就可以看到。(reader是我自己起的对象的名称)</h5></span>
       
     </div>
 
@@ -376,7 +377,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/js基础/" rel="tag">#js基础</a>
+            <a href="/tags/base64/" rel="tag">#base64</a>
           
         </div>
       
@@ -385,11 +386,13 @@
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/02/09/02-js基础语法/" rel="prev">JavaScript基础语法</a>
+              <a href="/2015/03/25/09-js闭包/" rel="prev">JavaScript-闭包</a>
             
           </div>
 
           <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/03/13/08-js基础补充-01/" rel="next">JavaScript-基础补充_01</a>
             
           </div>
         </div>
@@ -560,8 +563,8 @@
         
           <div class="comments" id="comments">
             
-              <div class="ds-thread" data-thread-key="2015/01/12/01-js简介/"
-                   data-title="JavaScript简介" data-url="http://yoursite.com/2015/01/12/01-js简介/">
+              <div class="ds-thread" data-thread-key="2015/03/13/将图片转换为base64的demo/"
+                   data-title="图片转换为base64" data-url="http://yoursite.com/2015/03/13/将图片转换为base64的demo/">
               </div>
             
           </div>
@@ -643,7 +646,7 @@
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#js基本特点"><span class="nav-number">1.</span> <span class="nav-text">js基本特点</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-弱类型语言：没有明确的数据类型声明，所有变量都用var声明。"><span class="nav-number">1.1.</span> <span class="nav-text">1. 弱类型语言：没有明确的数据类型声明，所有变量都用var声明。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-脚本语言：计算机可以直接执行源代码。"><span class="nav-number">1.2.</span> <span class="nav-text">2. 脚本语言：计算机可以直接执行源代码。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-JavaScript是一种基于对象-Object-和事件驱动-Event-Driven-并具有安全性能的脚本语言-可广泛用于服务器、PC、笔记本电脑、平板电脑和智能手机等设备。"><span class="nav-number">1.3.</span> <span class="nav-text">3. JavaScript是一种基于对象(Object)和事件驱动(Event Driven)并具有安全性能的脚本语言,可广泛用于服务器、PC、笔记本电脑、平板电脑和智能手机等设备。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-JavaScript——最流行的脚本语言-弱类型语言、动态性语言、解释性语言。"><span class="nav-number">1.4.</span> <span class="nav-text">4. JavaScript——最流行的脚本语言:弱类型语言、动态性语言、解释性语言。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-JavaScript-组成：ECMAScript（语法）、DOM（文档对象模型）、BOM（浏览器对象模型）。-BOM（Browser-Object-Model）"><span class="nav-number">1.5.</span> <span class="nav-text">5. JavaScript 组成：ECMAScript（语法）、DOM（文档对象模型）、BOM（浏览器对象模型）。 BOM（Browser Object Model）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#js初识代码（文档输出的几种写法）"><span class="nav-number">2.</span> <span class="nav-text">js初识代码（文档输出的几种写法）</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#注意：①window是一个全局对象，在书写时一般省略。例如：window-document；window-alert；window-console"><span class="nav-number">2.0.1.</span> <span class="nav-text">注意：①window是一个全局对象，在书写时一般省略。例如：window.document；window.alert；window.console</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#js运算符简介"><span class="nav-number">3.</span> <span class="nav-text">js运算符简介</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#加号（-）有两种含义：①算数运算符；②字符串拼接；"><span class="nav-number">3.1.</span> <span class="nav-text">加号（+）有两种含义：①算数运算符；②字符串拼接；</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#当相加的各数据全部为数字数据类型时，加号的含义为算数运算符。"><span class="nav-number">3.2.</span> <span class="nav-text">当相加的各数据全部为数字数据类型时，加号的含义为算数运算符。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#当相加的各数据有字符串数据类型时，加号的含义在第一个字符串之前为算数运算符，在第一个字符串之后为字符串拼接（括号中的数字为加法）。"><span class="nav-number">3.3.</span> <span class="nav-text">当相加的各数据有字符串数据类型时，加号的含义在第一个字符串之前为算数运算符，在第一个字符串之后为字符串拼接（括号中的数字为加法）。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#例子："><span class="nav-number">3.4.</span> <span class="nav-text">例子：</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#注意：字符串数据类型必须用双引号包裹"><span class="nav-number">3.4.1.</span> <span class="nav-text">注意：字符串数据类型必须用双引号包裹</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#script标签"><span class="nav-number">4.</span> <span class="nav-text">script标签</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#标识符（变量、函数、属性的名字，或者函数的参数）"><span class="nav-number">5.</span> <span class="nav-text">标识符（变量、函数、属性的名字，或者函数的参数）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#JavaScript的变量用来保存值或者表达式，变量的值是可以改变。变量就是计算机在内存中申请一块空间地址的别名，便于程序员识别。"><span class="nav-number">5.1.</span> <span class="nav-text">JavaScript的变量用来保存值或者表达式，变量的值是可以改变。变量就是计算机在内存中申请一块空间地址的别名，便于程序员识别。</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#变量三要素：①变量名-②变量值-③变量类型"><span class="nav-number">6.</span> <span class="nav-text">变量三要素：①变量名 ②变量值 ③变量类型</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#注意：当声明一个变量时，如果没有给他赋值，无法明确知道变量的类型，这样的语言称作弱类型语言。JavaScript是一种弱类型的语言，把所有的变量类型都用var声明，而不用明确声明数据类型，只有真正给变量赋值时，变量的类型才决定，也就是说变量的数据类型是由变量的值的类型来决定的。"><span class="nav-number">6.0.1.</span> <span class="nav-text">注意：当声明一个变量时，如果没有给他赋值，无法明确知道变量的类型，这样的语言称作弱类型语言。JavaScript是一种弱类型的语言，把所有的变量类型都用var声明，而不用明确声明数据类型，只有真正给变量赋值时，变量的类型才决定，也就是说变量的数据类型是由变量的值的类型来决定的。</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#js数据类型"><span class="nav-number">7.</span> <span class="nav-text">js数据类型</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#关键字在JavaScript语法中有特定用途，不能用作标识符，保留字未来可能成为关键字。"><span class="nav-number">7.0.1.</span> <span class="nav-text">关键字在JavaScript语法中有特定用途，不能用作标识符，保留字未来可能成为关键字。</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#base64编码介绍"><span class="nav-number">1.</span> <span class="nav-text">base64编码介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#为什么要把图片转换成base64编码？"><span class="nav-number">1.1.</span> <span class="nav-text">为什么要把图片转换成base64编码？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#html5如何将图片转换成base64？"><span class="nav-number">1.2.</span> <span class="nav-text">html5如何将图片转换成base64？</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#应用实例demo"><span class="nav-number">2.</span> <span class="nav-text">应用实例demo</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#注：this-result这个result是FileReader-readAsDataURL-接口当中转换完图片输出的base64结果存放在result当中。在代码当中添加console-log-reader-查看一下FileReader对象就可以看到。-reader是我自己起的对象的名称"><span class="nav-number">2.0.1.</span> <span class="nav-text">注：this.result这个result是FileReader.readAsDataURL()接口当中转换完图片输出的base64结果存放在result当中。在代码当中添加console.log(reader);查看一下FileReader对象就可以看到。(reader是我自己起的对象的名称)</span></a></li></ol></li></ol></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
