@@ -29,7 +29,7 @@
 
 
 
-  <meta name="keywords" content="js基础 函数," />
+  <meta name="keywords" content="js基础," />
 
 
 
@@ -38,16 +38,22 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
 
 
-<meta name="description" content="函数表达式是JavaScript中的一个强大又容易令人困惑的特点。定义函数有几种，这里仅通过例子用常用的方法进行编写demo">
+<meta name="description" content="闭包1.概念：将父函数的局部变量放在子函数中，将子函数作为父函数的返回值，扩展局部变量的访问范围，使函数外可以访问和修改局部变量。
+2.任何一个函数都是一个对象的方法，函数中的this指代该函数作为一个方法所属于的对象。一个自由函数是全局变量window的方法。
+3.对象属性的访问权限：①私有变量(var a=1;)只能被私有函数或特权方法访问。 ②私有函数(var fn=function(){}">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JavaScript-函数">
-<meta property="og:url" content="http://yoursite.com/2015/03/01/06-js函数/index.html">
+<meta property="og:title" content="JavaScript-闭包">
+<meta property="og:url" content="http://yoursite.com/2015/03/25/09-js闭包/index.html">
 <meta property="og:site_name" content="ants的博客">
-<meta property="og:description" content="函数表达式是JavaScript中的一个强大又容易令人困惑的特点。定义函数有几种，这里仅通过例子用常用的方法进行编写demo">
-<meta property="og:updated_time" content="2017-03-13T06:28:34.000Z">
+<meta property="og:description" content="闭包1.概念：将父函数的局部变量放在子函数中，将子函数作为父函数的返回值，扩展局部变量的访问范围，使函数外可以访问和修改局部变量。
+2.任何一个函数都是一个对象的方法，函数中的this指代该函数作为一个方法所属于的对象。一个自由函数是全局变量window的方法。
+3.对象属性的访问权限：①私有变量(var a=1;)只能被私有函数或特权方法访问。 ②私有函数(var fn=function(){}">
+<meta property="og:updated_time" content="2017-03-13T07:08:08.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JavaScript-函数">
-<meta name="twitter:description" content="函数表达式是JavaScript中的一个强大又容易令人困惑的特点。定义函数有几种，这里仅通过例子用常用的方法进行编写demo">
+<meta name="twitter:title" content="JavaScript-闭包">
+<meta name="twitter:description" content="闭包1.概念：将父函数的局部变量放在子函数中，将子函数作为父函数的返回值，扩展局部变量的访问范围，使函数外可以访问和修改局部变量。
+2.任何一个函数都是一个对象的方法，函数中的this指代该函数作为一个方法所属于的对象。一个自由函数是全局变量window的方法。
+3.对象属性的访问权限：①私有变量(var a=1;)只能被私有函数或特权方法访问。 ②私有函数(var fn=function(){}">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -57,7 +63,7 @@
   };
 </script>
 
-  <title> JavaScript-函数 | ants的博客 </title>
+  <title> JavaScript-闭包 | ants的博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -307,7 +313,7 @@
           
           
             
-              JavaScript-函数
+              JavaScript-闭包
             
           
         </h1>
@@ -316,8 +322,8 @@
       <div class="post-meta">
         <span class="post-time">
           发表于
-          <time itemprop="dateCreated" datetime="2015-03-01T13:58:30+08:00" content="2015-03-01">
-            2015-03-01
+          <time itemprop="dateCreated" datetime="2015-03-25T15:03:11+08:00" content="2015-03-25">
+            2015-03-25
           </time>
         </span>
 
@@ -343,11 +349,11 @@
             <span class="post-comments-count">
               &nbsp; | &nbsp;
               <!--
-              <a href="/2015/03/01/06-js函数/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2015/03/01/06-js函数/" itemprop="commentsCount"></span>
+              <a href="/2015/03/25/09-js闭包/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2015/03/25/09-js闭包/" itemprop="commentsCount"></span>
               </a>
               -->
-              <a href="/2015/03/01/06-js函数/#comments" itemprop="discussionUrl">
+              <a href="/2015/03/25/09-js闭包/#comments" itemprop="discussionUrl">
                 <span>评论</span>
               </a>
             </span>
@@ -362,13 +368,15 @@
       
 
       
-        <span itemprop="articleBody"><h3 id="函数基础学习总结"><a href="#函数基础学习总结" class="headerlink" title="函数基础学习总结"></a>函数基础学习总结</h3><h4 id="1-递归：函数调用自身的编程技巧称为递归。"><a href="#1-递归：函数调用自身的编程技巧称为递归。" class="headerlink" title="1.递归：函数调用自身的编程技巧称为递归。"></a>1.递归：函数调用自身的编程技巧称为递归。</h4><p>注意：①如果要用递归得到数学运算的最终结果，每一个递归函数的返回值即是当前递归次数的最终数学运算结果。②用历史递归函数所有的返回值（函数值）和参数（即递归次数）表示当前递归函数的返回值（函数值）。</p>
-<h5 id="例子1：求1-2-3-……100"><a href="#例子1：求1-2-3-……100" class="headerlink" title="例子1：求1+2+3+……100"></a>例子1：求1+2+3+……100</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> getSum(n)&#123;</div><div class="line">		<span class="keyword">if</span> (n==1) &#123;</div><div class="line">			<span class="built_in">return</span> 1;</div><div class="line">		&#125; <span class="keyword">else</span>&#123;</div><div class="line">			<span class="built_in">return</span> getSum(n-1)+n</div><div class="line">			&#125;</div><div class="line">	&#125;</div><div class="line">	alert(getSum(100))</div></pre></td></tr></table></figure>
-<h5 id="例子2：求1-1-2-3-5-8……的第25项"><a href="#例子2：求1-1-2-3-5-8……的第25项" class="headerlink" title="例子2：求1,1,2,3,5,8……的第25项"></a>例子2：求1,1,2,3,5,8……的第25项</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> getNum(n)&#123;</div><div class="line">	<span class="keyword">if</span> (n==1||n==2) &#123;</div><div class="line">		<span class="built_in">return</span> 1;</div><div class="line">	&#125; <span class="keyword">else</span>&#123;</div><div class="line">		<span class="built_in">return</span> getNum(n-1)+getNum(n-2);</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">alert(getNum(25))</div></pre></td></tr></table></figure>
-<h5 id="例子3：求1！-2！-3！-……-10！"><a href="#例子3：求1！-2！-3！-……-10！" class="headerlink" title="例子3：求1！+2！+3！+……+10！"></a>例子3：求1！+2！+3！+……+10！</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> getSum(n) &#123;</div><div class="line">	<span class="keyword">if</span> (n == 0) &#123;</div><div class="line">		<span class="built_in">return</span> 0;</div><div class="line">	&#125; <span class="keyword">else</span> <span class="keyword">if</span> (n == 1) &#123;</div><div class="line">		<span class="built_in">return</span> 1;</div><div class="line">	&#125; <span class="keyword">else</span> &#123;</div><div class="line">		<span class="built_in">return</span> getSum(n - 1) + (getSum(n - 1) - getSum(n - 2)) * n;</div><div class="line">		//用上一次和上上一次递归函数的返回值（函数值）以及n表示当前递归函数的返回值（函数值）。</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">alert(getSum(10))</div></pre></td></tr></table></figure>
-<h4 id="2-创建一个函数，将html元素的id名作为函数的参数，将该html元素作为函数相对应的返回值。"><a href="#2-创建一个函数，将html元素的id名作为函数的参数，将该html元素作为函数相对应的返回值。" class="headerlink" title="2.创建一个函数，将html元素的id名作为函数的参数，将该html元素作为函数相对应的返回值。"></a>2.创建一个函数，将html元素的id名作为函数的参数，将该html元素作为函数相对应的返回值。</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&lt;p id=<span class="string">"pid"</span>&gt;123&lt;/p&gt;</div><div class="line">&lt;div id=<span class="string">"div"</span>&gt;abc&lt;/div&gt;</div><div class="line">&lt;script&gt;</div><div class="line">	<span class="keyword">function</span> id(a)&#123;</div><div class="line">		<span class="built_in">return</span> document.getElementById(a)</div><div class="line">	&#125; </div><div class="line">	alert(id(<span class="string">"pid"</span>).innerHTML) //弹出123</div><div class="line">	alert(id(<span class="string">"div"</span>).innerHTML) //弹出abc</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
-<h5 id="注意：在调用此函数时，实际参数的赋值必须为带引号的ID名。"><a href="#注意：在调用此函数时，实际参数的赋值必须为带引号的ID名。" class="headerlink" title="注意：在调用此函数时，实际参数的赋值必须为带引号的ID名。"></a>注意：在调用此函数时，实际参数的赋值必须为带引号的ID名。</h5><h4 id="3-创建一个insertAfter-新子节点，旧子节点-函数，该函数可以使新子节点插入到旧子节点之后。"><a href="#3-创建一个insertAfter-新子节点，旧子节点-函数，该函数可以使新子节点插入到旧子节点之后。" class="headerlink" title="3.创建一个insertAfter(新子节点，旧子节点)函数，该函数可以使新子节点插入到旧子节点之后。"></a>3.创建一个insertAfter(新子节点，旧子节点)函数，该函数可以使新子节点插入到旧子节点之后。</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">&lt;div id=<span class="string">"div1"</span>&gt;第一个DIV&lt;/div&gt;</div><div class="line">&lt;div id=<span class="string">"div2"</span>&gt;第一个DIV&lt;/div&gt;</div><div class="line">&lt;div id=<span class="string">"div3"</span>&gt;第一个DIV&lt;/div&gt;</div><div class="line">&lt;script&gt;</div><div class="line">	var p=document.createElement(<span class="string">"p"</span>);</div><div class="line">	p.innerHTML=<span class="string">"这是新增的p元素"</span>;</div><div class="line">	var div1=document.getElementById(<span class="string">"div1"</span>);</div><div class="line">	var div2=document.getElementById(<span class="string">"div2"</span>);</div><div class="line">	var div3=document.getElementById(<span class="string">"div3"</span>);</div><div class="line">	<span class="keyword">function</span> insertAfter(new1,old1)&#123;</div><div class="line">		var parent=old1.parentNode</div><div class="line">			<span class="keyword">if</span> (old1==parent.lastChild) &#123;</div><div class="line">				parent.appendChild(new1)</div><div class="line">			&#125; <span class="keyword">else</span>&#123;</div><div class="line">				parent.insertBefore(new1,old1.nextSibling)</div><div class="line">			&#125;</div><div class="line">	&#125;</div><div class="line">	insertAfter(p,div2);</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
-<h5 id="注意：createElement-创建元素节点；parentNode父节点；childNodes子节点集；firstChild第一个子节点；lastChild最后个子节点；previousSibling前一个兄弟节点；nextSibling后一个兄弟节点。"><a href="#注意：createElement-创建元素节点；parentNode父节点；childNodes子节点集；firstChild第一个子节点；lastChild最后个子节点；previousSibling前一个兄弟节点；nextSibling后一个兄弟节点。" class="headerlink" title="注意：createElement()创建元素节点；parentNode父节点；childNodes子节点集；firstChild第一个子节点；lastChild最后个子节点；previousSibling前一个兄弟节点；nextSibling后一个兄弟节点。"></a>注意：createElement()创建元素节点；parentNode父节点；childNodes子节点集；firstChild第一个子节点；lastChild最后个子节点；previousSibling前一个兄弟节点；nextSibling后一个兄弟节点。</h5></span>
+        <span itemprop="articleBody"><h3 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h3><p>1.概念：将父函数的局部变量放在子函数中，将子函数作为父函数的返回值，扩展局部变量的访问范围，使函数外可以访问和修改局部变量。</p>
+<p>2.任何一个函数都是一个对象的方法，函数中的this指代该函数作为一个方法所属于的对象。一个自由函数是全局变量window的方法。</p>
+<h4 id="3-对象属性的访问权限："><a href="#3-对象属性的访问权限：" class="headerlink" title="3.对象属性的访问权限："></a>3.对象属性的访问权限：</h4><p>①私有变量(var a=1;)只能被私有函数或特权方法访问。 ②私有函数(var fn=function(){};)只能被特权方法访问。 ③特权方法(this.say=function(){})可以在对象外部访问。</p>
+<h4 id="特点："><a href="#特点：" class="headerlink" title="特点："></a>特点：</h4><p>1.逻辑连续，当闭包作为另一个函数调用的参数时，避免你脱离当前逻辑而单独编写额外逻辑。 2.方便调用上下文的局部变量。 3.加强封装性，第2点的延伸，可以达到对变量的保护作用。</p>
+<h4 id="优点："><a href="#优点：" class="headerlink" title="优点："></a>优点：</h4><p>1.保护函数内的变量安全,加强了封装性 2.在内存中维持一个变量(用的太多就变成了缺点，占内存)</p>
+<h4 id="缺点："><a href="#缺点：" class="headerlink" title="缺点："></a>缺点：</h4><p>闭包有一个非常严重的问题，那就是内存浪费问题， 这个内存浪费不仅仅因为它常驻内存，更重要的是， 对闭包的使用不当会造成无效内存的产生。</p>
+<h5 id="闭包之所以会占用资源是当父函数执行结束后，子函数扩展的变量不随着销毁。以为执行子函数的时候需要依赖父函数中的变量。"><a href="#闭包之所以会占用资源是当父函数执行结束后，子函数扩展的变量不随着销毁。以为执行子函数的时候需要依赖父函数中的变量。" class="headerlink" title="闭包之所以会占用资源是当父函数执行结束后，子函数扩展的变量不随着销毁。以为执行子函数的时候需要依赖父函数中的变量。"></a>闭包之所以会占用资源是当父函数执行结束后，子函数扩展的变量不随着销毁。以为执行子函数的时候需要依赖父函数中的变量。</h5><h4 id="不适合场景："><a href="#不适合场景：" class="headerlink" title="不适合场景："></a>不适合场景：</h4><p>返回闭包的函数是个非常大的函数</p>
+<h4 id="应用："><a href="#应用：" class="headerlink" title="应用："></a>应用：</h4><p>闭包的典型框架应该就是jquery了。 闭包是javascript语言的一大特点，主要应用闭包场合主要是为了：设计私有的方法和变量。 这在做框架的时候体现更明显，有些方法和属性只是运算逻辑过程中的使用的，不想让外部修改这些属性，因此就可以设计一个闭包来只提供方法获取。 闭包的缺点就是常驻内存，会增大内存使用量，使用不当很容易造成内存泄露。</p>
+</span>
       
     </div>
 
@@ -376,7 +384,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/js基础-函数/" rel="tag">#js基础 函数</a>
+            <a href="/tags/js基础/" rel="tag">#js基础</a>
           
         </div>
       
@@ -385,13 +393,13 @@
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/03/08/07-js原型与原型链/" rel="prev">JavaScript-原型与原型链</a>
+              <a href="/2017/03/13/08-js基础补充-01/" rel="prev">JavaScript-基础补充_01</a>
             
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/02/25/05-jsDOM基础知识总结/" rel="next">DOM 基础知识总结</a>
+              <a href="/2015/03/08/07-js原型与原型链/" rel="next">JavaScript-原型与原型链</a>
             
           </div>
         </div>
@@ -562,8 +570,8 @@
         
           <div class="comments" id="comments">
             
-              <div class="ds-thread" data-thread-key="2015/03/01/06-js函数/"
-                   data-title="JavaScript-函数" data-url="http://yoursite.com/2015/03/01/06-js函数/">
+              <div class="ds-thread" data-thread-key="2015/03/25/09-js闭包/"
+                   data-title="JavaScript-闭包" data-url="http://yoursite.com/2015/03/25/09-js闭包/">
               </div>
             
           </div>
@@ -645,7 +653,7 @@
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#函数基础学习总结"><span class="nav-number">1.</span> <span class="nav-text">函数基础学习总结</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-递归：函数调用自身的编程技巧称为递归。"><span class="nav-number">1.1.</span> <span class="nav-text">1.递归：函数调用自身的编程技巧称为递归。</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#例子1：求1-2-3-……100"><span class="nav-number">1.1.1.</span> <span class="nav-text">例子1：求1+2+3+……100</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#例子2：求1-1-2-3-5-8……的第25项"><span class="nav-number">1.1.2.</span> <span class="nav-text">例子2：求1,1,2,3,5,8……的第25项</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#例子3：求1！-2！-3！-……-10！"><span class="nav-number">1.1.3.</span> <span class="nav-text">例子3：求1！+2！+3！+……+10！</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-创建一个函数，将html元素的id名作为函数的参数，将该html元素作为函数相对应的返回值。"><span class="nav-number">1.2.</span> <span class="nav-text">2.创建一个函数，将html元素的id名作为函数的参数，将该html元素作为函数相对应的返回值。</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#注意：在调用此函数时，实际参数的赋值必须为带引号的ID名。"><span class="nav-number">1.2.1.</span> <span class="nav-text">注意：在调用此函数时，实际参数的赋值必须为带引号的ID名。</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-创建一个insertAfter-新子节点，旧子节点-函数，该函数可以使新子节点插入到旧子节点之后。"><span class="nav-number">1.3.</span> <span class="nav-text">3.创建一个insertAfter(新子节点，旧子节点)函数，该函数可以使新子节点插入到旧子节点之后。</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#注意：createElement-创建元素节点；parentNode父节点；childNodes子节点集；firstChild第一个子节点；lastChild最后个子节点；previousSibling前一个兄弟节点；nextSibling后一个兄弟节点。"><span class="nav-number">1.3.1.</span> <span class="nav-text">注意：createElement()创建元素节点；parentNode父节点；childNodes子节点集；firstChild第一个子节点；lastChild最后个子节点；previousSibling前一个兄弟节点；nextSibling后一个兄弟节点。</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#闭包"><span class="nav-number">1.</span> <span class="nav-text">闭包</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-对象属性的访问权限："><span class="nav-number">1.1.</span> <span class="nav-text">3.对象属性的访问权限：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#特点："><span class="nav-number">1.2.</span> <span class="nav-text">特点：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#优点："><span class="nav-number">1.3.</span> <span class="nav-text">优点：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#缺点："><span class="nav-number">1.4.</span> <span class="nav-text">缺点：</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#闭包之所以会占用资源是当父函数执行结束后，子函数扩展的变量不随着销毁。以为执行子函数的时候需要依赖父函数中的变量。"><span class="nav-number">1.4.1.</span> <span class="nav-text">闭包之所以会占用资源是当父函数执行结束后，子函数扩展的变量不随着销毁。以为执行子函数的时候需要依赖父函数中的变量。</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#不适合场景："><span class="nav-number">1.5.</span> <span class="nav-text">不适合场景：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#应用："><span class="nav-number">1.6.</span> <span class="nav-text">应用：</span></a></li></ol></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
