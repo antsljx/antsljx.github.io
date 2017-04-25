@@ -44,7 +44,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/04/25/vue2-0常用语法/index.html">
 <meta property="og:site_name" content="ants的博客">
 <meta property="og:description" content="vue2.0常用语法 指令 组件">
-<meta property="og:updated_time" content="2017-04-25T05:47:31.000Z">
+<meta property="og:updated_time" content="2017-04-25T05:51:21.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vue2.0常用语法">
 <meta name="twitter:description" content="vue2.0常用语法 指令 组件">
@@ -370,18 +370,24 @@
 <p>通过Vue.directive(name,options)注册一个指令。name为指令名，options为指令选项，其中可以加入钩子函数，比如update，还有更多的钩子函数。</p>
 <p>使用指令时，必须在名字前加上前缀v，比如v-hidden。</p>
 <p>所有的钩子函数都有如下的参数：</p>
-<p>el: 指令所绑定的元素，可以用来直接操作 DOM 。</p>
-<p>binding: 一个对象，包含以下属性：</p>
-<p>name: 指令名，不包括v-前缀<br>value: 指令的绑定值<br>oldValue: 指令绑定的前一个值<br>expression: 绑定值的未求值形式<br>arg: 传给指令的参数<br>modifiers: 包含修饰符的对象。 比如v-my-directive.foo.bar,修饰符对象是{ foo: true, bar: true }。</p>
-<p>vnode: Vue 编译生成的虚拟节点。</p>
-<p>oldVnode: 上一个虚拟节点。</p>
-<p>更多到钩子函数：</p>
-<p>bind: 指令第一次绑定到元素时调用。</p>
-<p>inserted: 指令所属元素插入父节点时调用。</p>
-<p>update: 指令所属元素绑定值变化是更新。</p>
-<p>componentUpdated: 被绑定元素所在模板完成一次更新周期时调用。</p>
-<p>unbind: 指令与元素解绑时调用。</p>
-</span>
+<h5 id="el-指令所绑定的元素，可以用来直接操作-DOM-。"><a href="#el-指令所绑定的元素，可以用来直接操作-DOM-。" class="headerlink" title="el: 指令所绑定的元素，可以用来直接操作 DOM 。"></a>el: 指令所绑定的元素，可以用来直接操作 DOM 。</h5><h5 id="binding-一个对象，包含以下属性："><a href="#binding-一个对象，包含以下属性：" class="headerlink" title="binding: 一个对象，包含以下属性："></a>binding: 一个对象，包含以下属性：</h5><pre><code>name: 指令名，不包括v-前缀
+value: 指令的绑定值
+oldValue: 指令绑定的前一个值
+expression: 绑定值的未求值形式
+arg: 传给指令的参数
+modifiers: 包含修饰符的对象。 比如v-my-directive.foo.bar,修饰符对象是{ foo: true, bar: true }。
+vnode: Vue 编译生成的虚拟节点。
+oldVnode: 上一个虚拟节点。
+</code></pre><h5 id="更多到钩子函数："><a href="#更多到钩子函数：" class="headerlink" title="更多到钩子函数："></a>更多到钩子函数：</h5><pre><code>bind: 指令第一次绑定到元素时调用。
+
+inserted: 指令所属元素插入父节点时调用。
+
+update: 指令所属元素绑定值变化是更新。
+
+componentUpdated: 被绑定元素所在模板完成一次更新周期时调用。
+
+unbind: 指令与元素解绑时调用。
+</code></pre></span>
       
     </div>
 
@@ -656,7 +662,7 @@
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#自定义指令-Vue-directive"><span class="nav-number">1.</span> <span class="nav-text">自定义指令   Vue.directive</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#自定义指令-Vue-directive"><span class="nav-number">1.</span> <span class="nav-text">自定义指令   Vue.directive</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#el-指令所绑定的元素，可以用来直接操作-DOM-。"><span class="nav-number">1.1.</span> <span class="nav-text">el: 指令所绑定的元素，可以用来直接操作 DOM 。</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#binding-一个对象，包含以下属性："><span class="nav-number">1.2.</span> <span class="nav-text">binding: 一个对象，包含以下属性：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#更多到钩子函数："><span class="nav-number">1.3.</span> <span class="nav-text">更多到钩子函数：</span></a></li></ol></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
