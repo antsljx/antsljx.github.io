@@ -44,7 +44,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/04/25/vue2-0常用语法/index.html">
 <meta property="og:site_name" content="ants的博客">
 <meta property="og:description" content="vue2.0常用语法 指令 组件">
-<meta property="og:updated_time" content="2017-04-25T05:45:25.000Z">
+<meta property="og:updated_time" content="2017-04-25T05:47:31.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vue2.0常用语法">
 <meta name="twitter:description" content="vue2.0常用语法 指令 组件">
@@ -364,8 +364,24 @@
       
 
       
-        <span itemprop="articleBody"><h4 id="自定义指令-Vue-directive"><a href="#自定义指令-Vue-directive" class="headerlink" title="自定义指令 Vue.directive"></a>自定义指令 Vue.directive</h4><p>指令允许当它的值改变时对元素应用任何DOM操作。比如我们做一个指令v-hidden，当值改变时，更新元素的style值，切换它的可见性。可以这样：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">&lt;script src=<span class="string">"https://unpkg.com/vue/dist/vue.js"</span>&gt;&lt;/script&gt;</div><div class="line">&lt;div id=<span class="string">"app"</span>&gt;</div><div class="line">  &lt;button @click=<span class="string">"f=!f"</span>&gt;toggle&lt;/button&gt;</div><div class="line">  &lt;input v-hidden=<span class="string">"f"</span>&gt;&lt;/input&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">&lt;script&gt;</div><div class="line">Vue.directive(<span class="string">'hidden'</span>, &#123;</div><div class="line">  update:<span class="keyword">function</span>(el,binding)&#123;</div><div class="line">    el.style.display = binding.value?<span class="string">'none'</span>:<span class="string">'inline'</span></div><div class="line">  &#125;</div><div class="line">&#125;)</div><div class="line">new Vue(</div><div class="line">  &#123;</div><div class="line">    el:<span class="string">'#app'</span>,</div><div class="line">    <span class="function"><span class="title">data</span></span>()&#123;</div><div class="line">      <span class="built_in">return</span>&#123;f:<span class="literal">false</span>&#125;</div><div class="line">    &#125;</div><div class="line">  &#125;)</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure></span>
+        <span itemprop="articleBody"><h4 id="自定义指令-Vue-directive"><a href="#自定义指令-Vue-directive" class="headerlink" title="自定义指令   Vue.directive"></a>自定义指令   Vue.directive</h4><p>指令允许当它的值改变时对元素应用任何DOM操作。比如我们做一个指令v-hidden，当值改变时，更新元素的style值，切换它的可见性。可以这样：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">&lt;script src=<span class="string">"https://unpkg.com/vue/dist/vue.js"</span>&gt;&lt;/script&gt;</div><div class="line">&lt;div id=<span class="string">"app"</span>&gt;</div><div class="line">  &lt;button @click=<span class="string">"f=!f"</span>&gt;toggle&lt;/button&gt;</div><div class="line">  &lt;input v-hidden=<span class="string">"f"</span>&gt;&lt;/input&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">&lt;script&gt;</div><div class="line">Vue.directive(<span class="string">'hidden'</span>, &#123;</div><div class="line">  update:<span class="keyword">function</span>(el,binding)&#123;</div><div class="line">    el.style.display = binding.value?<span class="string">'none'</span>:<span class="string">'inline'</span></div><div class="line">  &#125;</div><div class="line">&#125;)</div><div class="line">new Vue(</div><div class="line">  &#123;</div><div class="line">    el:<span class="string">'#app'</span>,</div><div class="line">    <span class="function"><span class="title">data</span></span>()&#123;</div><div class="line">      <span class="built_in">return</span>&#123;f:<span class="literal">false</span>&#125;</div><div class="line">    &#125;</div><div class="line">  &#125;)</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+<p>解释如下:</p>
+<p>通过Vue.directive(name,options)注册一个指令。name为指令名，options为指令选项，其中可以加入钩子函数，比如update，还有更多的钩子函数。</p>
+<p>使用指令时，必须在名字前加上前缀v，比如v-hidden。</p>
+<p>所有的钩子函数都有如下的参数：</p>
+<p>el: 指令所绑定的元素，可以用来直接操作 DOM 。</p>
+<p>binding: 一个对象，包含以下属性：</p>
+<p>name: 指令名，不包括v-前缀<br>value: 指令的绑定值<br>oldValue: 指令绑定的前一个值<br>expression: 绑定值的未求值形式<br>arg: 传给指令的参数<br>modifiers: 包含修饰符的对象。 比如v-my-directive.foo.bar,修饰符对象是{ foo: true, bar: true }。</p>
+<p>vnode: Vue 编译生成的虚拟节点。</p>
+<p>oldVnode: 上一个虚拟节点。</p>
+<p>更多到钩子函数：</p>
+<p>bind: 指令第一次绑定到元素时调用。</p>
+<p>inserted: 指令所属元素插入父节点时调用。</p>
+<p>update: 指令所属元素绑定值变化是更新。</p>
+<p>componentUpdated: 被绑定元素所在模板完成一次更新周期时调用。</p>
+<p>unbind: 指令与元素解绑时调用。</p>
+</span>
       
     </div>
 
@@ -640,7 +656,7 @@
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#自定义指令-Vue-directive"><span class="nav-number">1.</span> <span class="nav-text">自定义指令 Vue.directive</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#自定义指令-Vue-directive"><span class="nav-number">1.</span> <span class="nav-text">自定义指令   Vue.directive</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
