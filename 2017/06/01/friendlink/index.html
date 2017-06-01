@@ -29,7 +29,7 @@
 
 
 
-  <meta name="keywords" content="javascript," />
+  <meta name="keywords" content="Hexo,Mala" />
 
 
 
@@ -38,16 +38,16 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
 
 
-<meta name="description" content="简单的几个小栗子">
+<meta name="description" content="description">
 <meta property="og:type" content="article">
-<meta property="og:title" content="vuejs入门篇">
-<meta property="og:url" content="http://yoursite.com/2016/06/13/vuejs入门/index.html">
+<meta property="og:title" content="友情链接">
+<meta property="og:url" content="http://yoursite.com/2017/06/01/friendlink/index.html">
 <meta property="og:site_name" content="ants的博客">
-<meta property="og:description" content="简单的几个小栗子">
-<meta property="og:updated_time" content="2017-03-14T03:04:22.000Z">
+<meta property="og:description" content="description">
+<meta property="og:updated_time" content="2017-06-01T01:32:10.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="vuejs入门篇">
-<meta name="twitter:description" content="简单的几个小栗子">
+<meta name="twitter:title" content="友情链接">
+<meta name="twitter:description" content="description">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -57,7 +57,7 @@
   };
 </script>
 
-  <title> vuejs入门篇 | ants的博客 </title>
+  <title> 友情链接 | ants的博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -309,7 +309,7 @@
           
           
             
-              vuejs入门篇
+              友情链接
             
           
         </h1>
@@ -318,26 +318,11 @@
       <div class="post-meta">
         <span class="post-time">
           发表于
-          <time itemprop="dateCreated" datetime="2016-06-13T19:16:05+08:00" content="2016-06-13">
-            2016-06-13
+          <time itemprop="dateCreated" datetime="2017-06-01T09:20:01+08:00" content="2017-06-01">
+            2017-06-01
           </time>
         </span>
 
-        
-          <span class="post-category" >
-            &nbsp; | &nbsp; 分类于
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/vuejs/" itemprop="url" rel="index">
-                  <span itemprop="name">vuejs</span>
-                </a>
-              </span>
-
-              
-              
-
-            
-          </span>
         
 
         
@@ -345,11 +330,11 @@
             <span class="post-comments-count">
               &nbsp; | &nbsp;
               <!--
-              <a href="/2016/06/13/vuejs入门/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/13/vuejs入门/" itemprop="commentsCount"></span>
+              <a href="/2017/06/01/friendlink/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2017/06/01/friendlink/" itemprop="commentsCount"></span>
               </a>
               -->
-              <a href="/2016/06/13/vuejs入门/#comments" itemprop="discussionUrl">
+              <a href="/2017/06/01/friendlink/#comments" itemprop="discussionUrl">
                 <span>评论</span>
               </a>
             </span>
@@ -364,39 +349,22 @@
       
 
       
-        <span itemprop="articleBody"><h4 id="hello-word"><a href="#hello-word" class="headerlink" title="hello word"></a>hello word</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">	&lt;html&gt;</div><div class="line">		&lt;head&gt;</div><div class="line">			&lt;meta charset=<span class="string">"utf-8"</span>&gt;</div><div class="line">			&lt;title&gt;hello word&lt;/title&gt;</div><div class="line">			&lt;script src=<span class="string">"http://static.runoob.com/assets/vue/1.0.11/vue.min.js"</span>&gt;&lt;/script&gt;//引入vuejs</div><div class="line">		&lt;/head&gt;</div><div class="line">		&lt;body&gt;</div><div class="line">			&lt;div id=<span class="string">"app"</span>&gt;</div><div class="line">			  &#123;&#123; message &#125;&#125;</div><div class="line">			&lt;/div&gt;</div><div class="line">			&lt;!-- JavaScript 代码需要放在尾部（指定的HTML元素之后） --&gt;</div><div class="line">			&lt;script&gt;</div><div class="line">			new Vue(&#123;</div><div class="line">			    el:<span class="string">'#app'</span>, //找到存放数据的容器</div><div class="line">			    data: &#123;</div><div class="line">			        message:<span class="string">'vue say：Hello World!'</span></div><div class="line">			    &#125;</div><div class="line">			&#125;);</div><div class="line">			&lt;/script&gt;</div><div class="line">		&lt;/body&gt;</div><div class="line">	&lt;/html&gt;</div></pre></td></tr></table></figure>
-<p>运行结果为： 页面显示 vue say：Hello World!</p>
-<h4 id="双向绑定"><a href="#双向绑定" class="headerlink" title="双向绑定"></a>双向绑定</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">	&lt;html&gt;</div><div class="line">		&lt;head&gt;</div><div class="line">			&lt;meta charset=<span class="string">"utf-8"</span>&gt;</div><div class="line">			&lt;title&gt;hello word&lt;/title&gt;</div><div class="line">			&lt;script src=<span class="string">"http://static.runoob.com/assets/vue/1.0.11/vue.min.js"</span>&gt;&lt;/script&gt;//引入vuejs</div><div class="line">		&lt;/head&gt;</div><div class="line">		&lt;body&gt;</div><div class="line">			&lt;div id=<span class="string">"app"</span>&gt;</div><div class="line">				&lt;p&gt;&#123;&#123;message&#125;&#125;&lt;/p&gt;</div><div class="line">				&lt;input <span class="built_in">type</span>=<span class="string">"text"</span> v-model=<span class="string">"message"</span>&gt;</div><div class="line">			&lt;/div&gt;</div><div class="line">			&lt;script&gt;</div><div class="line">				new Vue(&#123;</div><div class="line">					el: <span class="string">"#app"</span>,</div><div class="line">					data:&#123;</div><div class="line">						message:<span class="string">'vue say：Hello World!'</span></div><div class="line">					&#125;</div><div class="line">				&#125;)	</div><div class="line">			&lt;/script&gt;</div><div class="line">		&lt;/body&gt;</div><div class="line">	&lt;/html&gt;</div></pre></td></tr></table></figure>
-<p>页面初始渲染input内容与message相同，input内容发生改变的时候 p内的内容对应发生变化</p>
-<h4 id="列表输出"><a href="#列表输出" class="headerlink" title="列表输出"></a>列表输出</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">		&lt;html&gt;</div><div class="line">			&lt;head&gt;</div><div class="line">				&lt;meta charset=<span class="string">"utf-8"</span>&gt;</div><div class="line">				&lt;title&gt;hello word&lt;/title&gt;</div><div class="line">				&lt;script src=<span class="string">"http://static.runoob.com/assets/vue/1.0.11/vue.min.js"</span>&gt;&lt;/script&gt;</div><div class="line">			&lt;/head&gt;</div><div class="line">			&lt;body&gt;</div><div class="line">				&lt;div id=<span class="string">"app"</span>&gt;</div><div class="line">					&lt;ul&gt;</div><div class="line">						&lt;li v-for=<span class="string">"datas in datalist"</span>&gt;</div><div class="line">							&#123;&#123;datas.text&#125;&#125;</div><div class="line">						&lt;/li&gt;</div><div class="line">					&lt;/ul&gt;</div><div class="line">				&lt;/div&gt;</div><div class="line">				&lt;script&gt;</div><div class="line">					new Vue(&#123;</div><div class="line">						el: <span class="string">"#app"</span>,</div><div class="line">						data:&#123;</div><div class="line">							datalist:[</div><div class="line">							&#123;text: <span class="string">'data none'</span>&#125;,</div><div class="line">							&#123;text: <span class="string">'data two'</span>&#125;</div><div class="line">							]</div><div class="line">						&#125;</div><div class="line">					&#125;)	</div><div class="line">				&lt;/script&gt;</div><div class="line">			&lt;/body&gt;</div><div class="line">		&lt;/html&gt;</div></pre></td></tr></table></figure>
-<p>v-for 类似angular中的ng-repeat指令；循环遍历datalist内的数据渲染在页面上</p>
-<h4 id="绑定事件"><a href="#绑定事件" class="headerlink" title="绑定事件"></a>绑定事件</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div></pre></td><td class="code"><pre><div class="line">//demo01</div><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">		&lt;html&gt;</div><div class="line">			&lt;head&gt;</div><div class="line">				&lt;meta charset=<span class="string">"utf-8"</span>&gt;</div><div class="line">				&lt;title&gt;hello word&lt;/title&gt;</div><div class="line">				&lt;script src=<span class="string">"http://static.runoob.com/assets/vue/1.0.11/vue.min.js"</span>&gt;&lt;/script&gt;</div><div class="line">			&lt;/head&gt;</div><div class="line">			&lt;body&gt;</div><div class="line">				&lt;div id=<span class="string">"app"</span>&gt;</div><div class="line">					&lt;p&gt;&#123;&#123;message&#125;&#125;&lt;/p&gt;</div><div class="line">					&lt;input <span class="built_in">type</span>=<span class="string">"button"</span> v-on:click = <span class="string">"changemessage"</span> value=<span class="string">"change message"</span> /&gt;</div><div class="line">				&lt;/div&gt;</div><div class="line">				&lt;script&gt;</div><div class="line">					new Vue(&#123;</div><div class="line">						el: <span class="string">"#app"</span>,</div><div class="line">						data:&#123;</div><div class="line">							message:<span class="string">'Hello hello word!'</span></div><div class="line">						&#125;,</div><div class="line">						methods:&#123;</div><div class="line">							changemessage:<span class="function"><span class="title">function</span></span>()&#123;</div><div class="line">								this.message = <span class="string">'I also have methods!'</span></div><div class="line">							&#125;</div><div class="line">						&#125;</div><div class="line">					&#125;)	</div><div class="line">				&lt;/script&gt;</div><div class="line">			&lt;/body&gt;</div><div class="line">		&lt;/html&gt;</div><div class="line">//demo02</div><div class="line">		&lt;body&gt;</div><div class="line">			&lt;div id=<span class="string">"app"</span>&gt;</div><div class="line">				&lt;p&gt;&#123;&#123;message&#125;&#125;&lt;/p&gt;</div><div class="line">				&lt;input <span class="built_in">type</span>=<span class="string">"button"</span> v-on:click = <span class="string">"message = 'I also have methods!'"</span> value=<span class="string">"change message"</span> /&gt;</div><div class="line">			&lt;/div&gt;</div><div class="line">			&lt;script&gt;</div><div class="line">				new Vue(&#123;</div><div class="line">					el: <span class="string">"#app"</span>,</div><div class="line">					data:&#123;</div><div class="line">						message:<span class="string">'Hello hello word!'</span></div><div class="line">					&#125;</div><div class="line">				&#125;)	</div><div class="line">			&lt;/script&gt;</div><div class="line">		&lt;/body&gt;</div></pre></td></tr></table></figure>
-<p>vue的v-on:click 类似angular 的 ng-click指令，demo01和demo02实现的效果是一样的</p>
-<p>以上几个小栗子初步对vue有个初步的概念 如有不当之处可以评论反馈</p>
-</span>
+        <span itemprop="articleBody"></span>
       
     </div>
 
     <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/javascript/" rel="tag">#javascript</a>
-          
-        </div>
       
 
       
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/06/22/Vue实例/" rel="prev">Vue 实例</a>
-            
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/05/22/元素拖放/" rel="next">元素拖放</a>
+              <a href="/2017/05/26/tools01/" rel="next">常用工具方法收集</a>
             
           </div>
         </div>
@@ -567,8 +535,8 @@
         
           <div class="comments" id="comments">
             
-              <div class="ds-thread" data-thread-key="2016/06/13/vuejs入门/"
-                   data-title="vuejs入门篇" data-url="http://yoursite.com/2016/06/13/vuejs入门/">
+              <div class="ds-thread" data-thread-key="2017/06/01/friendlink/"
+                   data-title="友情链接" data-url="http://yoursite.com/2017/06/01/friendlink/">
               </div>
             
           </div>
@@ -650,7 +618,7 @@
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#hello-word"><span class="nav-number">1.</span> <span class="nav-text">hello word</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#双向绑定"><span class="nav-number">2.</span> <span class="nav-text">双向绑定</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#列表输出"><span class="nav-number">3.</span> <span class="nav-text">列表输出</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#绑定事件"><span class="nav-number">4.</span> <span class="nav-text">绑定事件</span></a></li></ol></div>
+              <p class="post-toc-empty">此文章未包含目录</p>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
