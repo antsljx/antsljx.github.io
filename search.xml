@@ -3,9 +3,16 @@
   
     
     <entry>
+      <title><![CDATA[websocket]]></title>
+      <url>%2F2017%2F09%2F06%2Fwebsocket%2F</url>
+      <content type="text"></content>
+    </entry>
+
+    
+    <entry>
       <title><![CDATA[友情链接]]></title>
       <url>%2F2017%2F06%2F01%2Ffriendlink%2F</url>
-      <content type="text"><![CDATA[图书ECMAScript 6 入门]]></content>
+      <content type="text"><![CDATA[图书ECMAScript 6 入门ECMAScript 6 入门]]></content>
     </entry>
 
     
