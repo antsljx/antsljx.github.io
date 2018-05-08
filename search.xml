@@ -5,7 +5,7 @@
     <entry>
       <title><![CDATA[移动端Web开发调试工具-Weinre]]></title>
       <url>%2F2018%2F05%2F08%2Fweinre-%E7%A7%BB%E5%8A%A8%E7%AB%AF%E8%B0%83%E8%AF%95%E5%B7%A5%E5%85%B7%2F</url>
-      <content type="text"></content>
+      <content type="text"><![CDATA[结构Debug客户端（client）：本地的WebInspector，远程调试客户端。Debug服务端（agent）：本地的HTTPServer，为Debug目标页面与Debug客户端建立通信。Debug目标页面（target）：被调试的页面，页面已嵌入weinre的远程js。客户端、目标页面与Debug服务端之间使用XMLHttpRequest (XHR)进行HTTP通信，你通常的使用情形是将Debug客户端与服务端搭建在桌面开发环境，Debug目标页面放在移动设备。由于Weinre的debug客户端是基于Web Inspector开发，而Web Inspector只兼容WebKit核心的浏览器，所以只能在Chrome/Safari浏览器打开Weinre客户端进行调试。 安装及启用服务12npm -g install weinre //安装weinre weinre --boundHost [hostname | ip address |-all-] --httpPort [port] //启动weinre weinre --boundHost 172.17.227.5 启用服务后直接在浏览器地址输入 http://172.17.227.5:8080 则可以看见weinre页面；证明服务启动成功啦！接下来就是调试的配置了 配置开始调试123456//在要调试的页面引入js或者执行方法动态引入 172.17.227.5 为本机ip地址（如打包项目，直接在入口文件内引入所有页面都可以调试） //直接引入js &lt;script src="http://172.17.227.5:8080/target/target-script-min.js#anonymous"&gt;&lt;/script&gt; //通过方法动态创建引入 javascript:(function(e)&#123;e.setAttribute("src","http://172.17.227.5:8080/target/target-script-min.js#anonymous");document.getElementsByTagName("body")[0].appendChild(e);&#125;)(document.createElement("script"));void(0); //访问 http://172.17.227.5:8080/client/#anonymous 就会发现要调试的地址 点击后选择 然后进行调试吧]]></content>
     </entry>
 
     
